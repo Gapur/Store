@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store", "Store\Store.csproj", "{EE51511E-E3A5-43FF-A498-E5D88EC0EB4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE51511E-E3A5-43FF-A498-E5D88EC0EB4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE51511E-E3A5-43FF-A498-E5D88EC0EB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE51511E-E3A5-43FF-A498-E5D88EC0EB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE51511E-E3A5-43FF-A498-E5D88EC0EB4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
