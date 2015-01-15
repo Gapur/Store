@@ -29,8 +29,7 @@ namespace Store
             bundles.Add(new StyleBundle("~/Content/css/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/site.css",
-                      "~/Content/css/Main.css",
-                      "~/Content/css/simple-sidebar.css"));
+                      "~/Content/css/Main.css"));
 
             // Присвойте EnableOptimizations значение false для отладки. Дополнительные сведения
             // см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862

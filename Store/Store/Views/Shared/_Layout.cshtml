@@ -4,15 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
+    <title>Интернет магазин</title>
     @Styles.Render("~/Content/css/css")
     @Scripts.Render("~/bundles/jsfw/modernizr")
 
 </head>
-<body>
-    <div class="wrapper">
-        <header class="header">
-            <div class="navbar navbar-inverse navbar-fixed-top">
+<body class="flex-content">
+    <header class="header">
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,14 +30,11 @@
                         @Html.Partial("_LoginPartial")
                     </div>
                 </div>
-            </div>
-        </header>
-        <article class="main">
-            @RenderBody()
-        </article>
-        <aside class="aside aside-1">
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
+            </div>*@
+    </header>
+    <div class="wrapper">
+        <div class="left-aside">
+            <ul class="sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="#">
                             Start Bootstrap
@@ -66,15 +62,25 @@
                         <a href="#">Contact</a>
                     </li>
                 </ul>
-            </div>
-        </aside>
-        <aside class="aside aside-2">Aside 2</aside>
-        <footer class="footer">Footer</footer>
+        </div>
+        <div class="content">
+            <article class="main">
+                @RenderBody()
+            </article>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jsfw/jquery")
     @Scripts.Render("~/bundles/jsfw/bootstrap")
     @Scripts.Render("~/bundles/jsfw/knockout")
     @RenderSection("scripts", required: false)
+
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $(".wrapper").toggleClass("toggled");
+    });
+    </script>
+
 </body>
 </html>
