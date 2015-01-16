@@ -85,6 +85,16 @@
     background: #F9F9F9;
     position: absolute;
     padding: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    align-items: center;
 }
 
 @media(min-width:768px) {
@@ -106,6 +116,8 @@
         margin-left: 0;
     }
 }
+
+/* #region menu */
 
 .sidebar-nav {
     position: absolute;
@@ -152,3 +164,25 @@
                 color: #fff;
                 background: none;
             }
+
+/* #endregion menu */
+
+/* #region register */
+
+#registerForm {
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+    #registerForm .form-control {
+        width: 200px;
+        height: 30px;
+    }
+
+/* #endregion register */

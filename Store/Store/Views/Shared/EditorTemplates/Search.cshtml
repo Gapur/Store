@@ -1,0 +1,16 @@
+﻿@using VideoPortal.Core.HtmlUtitilites.Extentions
+
+@{
+    Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml";
+}
+
+<input id="@ViewData.TemplateInfo.HtmlFieldPrefix"
+       name="@ViewData.TemplateInfo.HtmlFieldPrefix"
+       type="text"
+       @ViewData.AdditionalData()
+       class="autocomplete"
+       placeholder="@VideoPortal.Resourсe.ViewResource.SearchPlaceholder" />
+
+<i class="svg-icon"
+   data-for-input="@ViewData.TemplateInfo.GetFullHtmlFieldId("")"
+   data-icon="menusearch"></i>

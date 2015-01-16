@@ -11,34 +11,7 @@
 </head>
 <body class="flex-content">
     <div class="left-aside">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                    Start Bootstrap
-                </a>
-            </li>
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Shortcuts</a>
-            </li>
-            <li>
-                <a href="#">Overview</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
+        @Html.Partial("Partials/Menu")
     </div>
     <div class="wrapper">
         <header class="header">
@@ -47,15 +20,14 @@
             </div>
         </header>
         <div class="content">
-            <article class="main">
-                @RenderBody()
-            </article>
+            @RenderBody()
         </div>
     </div>
 
     @Scripts.Render("~/bundles/jsfw/jquery")
     @Scripts.Render("~/bundles/jsfw/bootstrap")
     @Scripts.Render("~/bundles/jsfw/knockout")
+    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 
     <script>

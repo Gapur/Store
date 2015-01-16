@@ -1,0 +1,13 @@
+﻿@using Store.Parser
+
+@{ 
+    Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml"; 
+}
+
+<label class="control-label">@ViewData.ModelMetadata.DisplayName</label>
+
+<input id="@ViewData.TemplateInfo.HtmlFieldPrefix"
+       name="@ViewData.TemplateInfo.HtmlFieldPrefix"
+       @ViewData.AdditionalData()
+       class="input-text"
+       type="text" />

@@ -1,41 +1,24 @@
-﻿@model Store.Models.RegisterViewModel
+﻿@using Store.Parser
+@model Store.Models.RegisterViewModel
 @{
     ViewBag.Title = "Регистрация";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div id="registerForm" data-load-form="Register" class="formItem fadeInRight animated">
+    <h2>Регистрация</h2>
+    @Html.EditorFor(m => m.FirstName, new { data_bind = "value: FirstName" })
+    @Html.EditorFor(m => m.LastName, new { data_bind = "value: LastName" })
+    @Html.EditorFor(m => m.RegisterEmail, new { data_bind = "value: RegisterEmail" })
+    @Html.EditorFor(m => m.RegisterPassword, new { data_bind = "value: RegisterPassword" })
+    @Html.EditorFor(m => m.ConfirmPassword, new { data_bind = "value: ConfirmPassword" })
+    <div class="form-control">
+        <input type="button" value="Зарегистрироваться" class="btn" data-bind="click: registerate" />
+    </div>
+</div>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Создайте новую учетную запись.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Регистрация" />
-        </div>
-    </div>
-}
+@Scripts.Render("~/bundles/register")
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<script type="text/javascript">
+    var viewModel = new RegisterDataModel(@Html.Raw(Model.ToJson()));
+    ko.applyBindings(viewModel, $('#registerForm')[0]);
+</script>

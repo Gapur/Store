@@ -1,0 +1,15 @@
+﻿@using Store.Parser
+
+@{
+    Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml";
+}
+
+<label class="control-label">@ViewData.ModelMetadata.DisplayName</label>
+
+<input id="@ViewData.TemplateInfo.HtmlFieldPrefix"
+       name="@ViewData.TemplateInfo.HtmlFieldPrefix"
+       type="text"
+       @ViewData.AdditionalData()
+       class="input-text"
+       placeholder="exapmle@mail.com"
+       required="required" />
