@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace Store.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()

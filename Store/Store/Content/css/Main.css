@@ -14,15 +14,17 @@
     position: relative;
 }
 
+/* #region wrapper */
+
 .wrapper {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0 auto;
-    -ms-flex: 1 0 auto;
-    flex: 1 0 auto;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -36,12 +38,15 @@
 }
 
 .wrapper {
-    padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
+/* #endregion wrapper */
+
+/* #region left-aside */
 
 .left-aside {
     position: fixed;
@@ -66,37 +71,6 @@
             margin-left: 250px;
         }
 
-.header {
-    -webkit-box-flex: 0;
-    -webkit-flex: none;
-    -ms-flex: none;
-    flex: none;
-    min-height: 45px;
-    background: rgb(221, 218, 229);
-    background: -moz-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -webkit-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -o-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -ms-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: linear-gradient(92deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-}
-
-.content {
-    height: 100%;
-    background: #F9F9F9;
-    position: absolute;
-    padding: 15px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    align-items: center;
-}
-
 @media(min-width:768px) {
     .left-aside {
         width: 250px;
@@ -115,6 +89,43 @@
     .left-aside.toggled + .wrapper {
         margin-left: 0;
     }
+}
+
+/* #endregion left-aside */
+
+/* #region header */
+
+.header {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    min-height: 45px;
+    background: rgb(221, 218, 229);
+    background: -moz-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: -webkit-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: -o-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: -ms-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: linear-gradient(92deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+}
+
+/* #endregion header */
+
+.content {
+    height: 100%;
+    background: #F9F9F9;
+    padding: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /* #region menu */
@@ -170,19 +181,64 @@
 /* #region register */
 
 #registerForm {
-    height: 100%;
-    width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     justify-content: space-between;
+    flex: 0 1 400px;
 }
 
-    #registerForm .form-control {
-        width: 200px;
-        height: 30px;
-    }
+.item-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.formItem .control-label {
+    padding-right: 10px;
+}
 
 /* #endregion register */
+
+#loginForm {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 1 400px;
+}
+
+/* #region button */
+
+.btn {
+    font-size: 90%;
+    font-weight: 700;
+    color: rgb(209,209,217);
+    text-decoration: none;
+    text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+    padding: .5em 1em;
+    outline: none;
+    border-radius: 3px;
+    background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+    box-shadow: 0 1px rgba(255,255,255,.2) inset, 0 3px 5px rgba(0,1,6,.5), 0 0 1px 1px rgba(0,1,6,.2);
+    transition: .2s ease-in-out;
+}
+
+    .btn:hover:not(:active) {
+        background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+        transition: .5s linear;
+        background-position: -200% 0, 0 0;
+    }
+
+    .btn:active {
+        top: 1px;
+        background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+        box-shadow: 0 0 1px rgba(0,0,0,.5) inset, 0 2px 3px rgba(0,0,0,.5) inset, 0 1px 1px rgba(255,255,255,.1);
+    }
+
+/* #endregion button */
