@@ -26,6 +26,15 @@ namespace Store
             bundles.Add(new ScriptBundle("~/bundles/jsfw/knockout").Include(
                      "~/Scripts/jsfw/knockout-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/plugins/snapsvg").Include(
+                "~/Scripts/jsfw/snap.svg.js",
+                "~/Scripts/plugins/snapsvg/svgicons-config.js",
+                "~/Scripts/plugins/snapsvg/svgicons.js",
+                "~/Scripts/plugins/snapsvg/svgicons-definition.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/plugins/slimScroll").Include(
+                    "~/Scripts/plugins/slimScroll/jquery.slimscroll.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/site.css",
