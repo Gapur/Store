@@ -180,13 +180,13 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\Main.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\jsfw\bootstrap.js" />
     <Content Include="Scripts\jsfw\bootstrap.min.js" />
+    <Content Include="Content\less\Main.less" />
     <None Include="Scripts\jsfw\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jsfw\jquery-1.10.2.js" />
     <Content Include="Scripts\jsfw\jquery-1.10.2.min.js" />
@@ -197,10 +197,17 @@
     <Content Include="Scripts\jsfw\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jsfw\knockout-3.2.0.debug.js" />
     <Content Include="Scripts\jsfw\knockout-3.2.0.js" />
+    <Content Include="Scripts\jsfw\less.js" />
     <Content Include="Scripts\jsfw\modernizr-2.6.2.js" />
     <Content Include="Scripts\jsfw\respond.js" />
     <Content Include="Scripts\jsfw\respond.min.js" />
+    <Content Include="Scripts\jsfw\snap.svg-min.js" />
+    <Content Include="Scripts\jsfw\snap.svg.js" />
     <Content Include="Scripts\jsfw\_references.js" />
+    <Content Include="Scripts\plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\plugins\snapsvg\svgicons-config.js" />
+    <Content Include="Scripts\plugins\snapsvg\svgicons-definition.js" />
+    <Content Include="Scripts\plugins\snapsvg\svgicons.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -328,7 +335,6 @@
     <Folder Include="Content\icon\" />
     <Folder Include="Content\img\" />
     <Folder Include="Scripts\app\" />
-    <Folder Include="Scripts\plugins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

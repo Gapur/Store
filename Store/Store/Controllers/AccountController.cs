@@ -44,7 +44,7 @@ namespace Store.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            //ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
@@ -154,7 +154,7 @@ namespace Store.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.RegisterEmail, Email = model.RegisterEmail };
+                var user = new ApplicationUser { Email = model.RegisterEmail };
                 var result = await UserManager.CreateAsync(user, model.RegisterPassword);
                 if (result.Succeeded)
                 {

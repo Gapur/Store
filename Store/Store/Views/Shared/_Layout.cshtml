@@ -5,6 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интернет магазин</title>
+    <link href="~/Content/less/Main.less" rel="stylesheet/less" type="text/css" />
+    <script src="~/Scripts/jsfw/less.js" type="text/javascript"></script>
+
     @Styles.Render("~/Content/css/css")
     @Scripts.Render("~/bundles/jsfw/modernizr")
 
@@ -27,6 +30,8 @@
     @Scripts.Render("~/bundles/jsfw/jquery")
     @Scripts.Render("~/bundles/jsfw/bootstrap")
     @Scripts.Render("~/bundles/jsfw/knockout")
+    @Scripts.Render("~/bundles/plugins/snapsvg")
+    @Scripts.Render("~/bundles/plugins/slimScroll")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 
