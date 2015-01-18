@@ -1,35 +1,40 @@
-﻿.flex-content {
+﻿/*#region mixins*/
+
+//mixin flexbox model
+.flexbox-view(@direction: row, @orient: horizontal) {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    height: 100%;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: @orient;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -webkit-flex-direction: @direction;
+    -ms-flex-direction: @direction;
+    flex-direction: @direction;
+}
+
+/*#endregion mixins*/
+
+/*#region base content*/
+
+.flex-content {
+    .flexbox-view(row, horizontal);
+    height: 100%;
     padding: 0px;
     background: #F9F9F9;
     position: relative;
 }
 
+/*#endregion base content*/
+
 /* #region wrapper */
 
 .wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    .flexbox-view(column,vertical);
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
     -webkit-flex-wrap: nowrap;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
@@ -96,10 +101,9 @@
 /* #region header */
 
 .header {
-    -webkit-box-flex: 0;
-    -webkit-flex: none;
-    -ms-flex: none;
-    flex: none;
+    .flexbox-view(row, horizontal);
+    justify-content: space-between;
+    align-items: center;
     min-height: 45px;
     background: rgb(221, 218, 229);
     background: -moz-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
@@ -109,21 +113,29 @@
     background: linear-gradient(92deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
 }
 
+/* #region toggleMenu icon*/
+
+a.toggleMenu {
+    margin-left: 10px;
+    height: 35px;
+    width: 38px;
+    cursor: pointer;
+}
+
+i.toggleMenu {
+    max-height: 35px;
+    max-width: 35px;
+}
+
+/* #endregion toggleMenu icon*/
+
 /* #endregion header */
 
 .content {
+    .flexbox-view(row, horizontal);
     height: 100%;
     background: #F9F9F9;
     padding: 15px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -181,18 +193,13 @@
 /* #region register */
 
 #registerForm {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
+    .flexbox-view(column,vertical);
     justify-content: space-between;
     flex: 0 1 400px;
 }
 
 .item-control {
-    display: flex;
-    flex-direction: row;
+    .flexbox-view(row);
     justify-content: flex-end;
     padding: 10px;
 }
@@ -204,11 +211,7 @@
 /* #endregion register */
 
 #loginForm {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
+    .flexbox-view(column,vertical);
     justify-content: space-between;
     flex: 0 1 400px;
 }

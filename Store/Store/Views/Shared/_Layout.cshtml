@@ -18,6 +18,9 @@
     </div>
     <div class="wrapper">
         <header class="header">
+            <a class="toggleMenu" data-bind="click: toggleMenu">
+                <i class="toggleMenu" data-icon="toggleMenu"></i>
+            </a>
             <div class="navbar-collapse collapse">
                 @Html.Partial("_LoginPartial")
             </div>
@@ -32,7 +35,7 @@
     @Scripts.Render("~/bundles/jsfw/knockout")
     @Scripts.Render("~/bundles/plugins/snapsvg")
     @Scripts.Render("~/bundles/plugins/slimScroll")
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jsfw/jqueryval")
     @RenderSection("scripts", required: false)
 
     <script>

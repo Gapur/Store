@@ -1,7 +1,6 @@
 /*
  * Created by: Alexey V. Vorochsak
  * Created: 15.08.2014
- * Copyright © JSC NAT Kazakhstan 2014
  */
 
 (function (window) {
