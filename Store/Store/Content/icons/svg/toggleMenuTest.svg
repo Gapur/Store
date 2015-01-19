@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="132" viewBox="0 0 32 32">
+  <g id="toggleMenu">
+    <path d="m 7,4 5,0 6,4 -5,0 -6,-4 z" fill="grey"/>
+    <path d="m 13,8 5,0 6,4 -5,0 -6,-4 z" fill="grey"/>
+    <path d="m 19,12 5,0 6,4 -5,0 -6,-4 z" fill="grey"/>
+      
+    <path d="m 7,14 6,0 0,4 -6,0 0,-4 z" fill="grey"/>
+    <path d="m 13,14 6,0 0,4 -6,0 0,-4 z" fill="grey"/>
+    <path d="m 19,14 6,0 0,4 -6,0 0,-4 z" fill="grey"/>
+    
+    <path d="m 7,28 6,-4 5,0 -6,4 -5,0 z" fill="grey"/>
+    <path d="m 13,24 6,-4 5,0 -6,4 -5,0 z" fill="grey"/>
+    <path d="m 19,20 6,-4 5,0 -6,4 -5,0 z" fill="grey"/>
+  </g>
+</svg>

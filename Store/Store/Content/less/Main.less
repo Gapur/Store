@@ -1,7 +1,6 @@
 ﻿/*#region mixins*/
 
-//mixin flexbox model
-.flexbox-view(@direction: row, @orient: horizontal) {
+.flexbox-model(@direction: row, @orient: horizontal) {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -15,22 +14,53 @@
 
 /*#endregion mixins*/
 
-/*#region base content*/
+/*#region body*/
 
-.flex-content {
-    .flexbox-view(row, horizontal);
-    height: 100%;
-    padding: 0px;
+body {
+    .flexbox-model(row, horizontal);
+    padding: 0px !important;
     background: #F9F9F9;
-    position: relative;
 }
 
-/*#endregion base content*/
+/*#endregion body*/
+
+/* #region header */
+
+.header {
+    .flexbox-model(row, horizontal);
+    justify-content: space-between;
+    align-items: center;
+    min-height: 45px;
+    background: rgb(221, 218, 229);
+    background: -moz-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: -webkit-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: -o-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: -ms-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    background: linear-gradient(92deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+}
+
+/* #region toggleMenu icon*/
+
+a.toggleMenu {
+    margin-left: 10px;
+    height: 35px;
+    width: 38px;
+    cursor: pointer;
+}
+
+i.toggleMenu {
+    max-height: 35px;
+    max-width: 35px;
+}
+
+/* #endregion toggleMenu icon*/
+
+/* #endregion header */
 
 /* #region wrapper */
 
 .wrapper {
-    .flexbox-view(column,vertical);
+    .flexbox-model(column, vertical);
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
@@ -98,47 +128,18 @@
 
 /* #endregion left-aside */
 
-/* #region header */
-
-.header {
-    .flexbox-view(row, horizontal);
-    justify-content: space-between;
-    align-items: center;
-    min-height: 45px;
-    background: rgb(221, 218, 229);
-    background: -moz-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -webkit-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -o-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -ms-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: linear-gradient(92deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-}
-
-/* #region toggleMenu icon*/
-
-a.toggleMenu {
-    margin-left: 10px;
-    height: 35px;
-    width: 38px;
-    cursor: pointer;
-}
-
-i.toggleMenu {
-    max-height: 35px;
-    max-width: 35px;
-}
-
-/* #endregion toggleMenu icon*/
-
-/* #endregion header */
+/* #region content */
 
 .content {
-    .flexbox-view(row, horizontal);
+    .flexbox-model(row, horizontal);
     height: 100%;
     background: #F9F9F9;
     padding: 15px;
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+/* #endregion content */
 
 /* #region menu */
 
@@ -190,16 +191,16 @@ i.toggleMenu {
 
 /* #endregion menu */
 
-/* #region register */
+/* #region authentication form */
 
-#registerForm {
-    .flexbox-view(column,vertical);
+.formItem {
+    .flexbox-model(column, vertical);
     justify-content: space-between;
     flex: 0 1 400px;
 }
 
 .item-control {
-    .flexbox-view(row);
+    .flexbox-model(row);
     justify-content: flex-end;
     padding: 10px;
 }
@@ -208,13 +209,7 @@ i.toggleMenu {
     padding-right: 10px;
 }
 
-/* #endregion register */
-
-#loginForm {
-    .flexbox-view(column,vertical);
-    justify-content: space-between;
-    flex: 0 1 400px;
-}
+/* #endregion authentication form */
 
 /* #region button */
 

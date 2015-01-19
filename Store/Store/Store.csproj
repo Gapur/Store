@@ -180,11 +180,17 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\icons\svg\toggleMenu.svg" />
+    <Content Include="Content\icons\svg\toggleMenu.svg">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\icons\svg\toggleMenuTest.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
+    <Content Include="Scripts\app\AppViewModel.js" />
     <Content Include="Scripts\jsfw\bootstrap.js" />
     <Content Include="Scripts\jsfw\bootstrap.min.js" />
     <Content Include="Content\less\Main.less" />
@@ -335,7 +341,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\icons\png\" />
     <Folder Include="Content\img\" />
-    <Folder Include="Scripts\app\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
