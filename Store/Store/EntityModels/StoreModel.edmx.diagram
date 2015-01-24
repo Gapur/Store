@@ -4,15 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="863183b54d6e412d9ae37818b2e29043" Name="Diagram1">
+      <Diagram DiagramId="1516bf4b631a4703bb1658d7037538f4" Name="Diagram1">
         <EntityTypeShape EntityType="StoreDBModel.Image" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreDBModel.Prod_Types" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreDBModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="StoreDBModel.Role" Width="1.5" PointX="2.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="StoreDBModel.User" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="StoreDBModel.FK_Products_Images" ManuallyRouted="false" />
         <AssociationConnector Association="StoreDBModel.FK_Products_Prod_Types" ManuallyRouted="false" />
-        <AssociationConnector Association="StoreDBModel.FK_Users_Roles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

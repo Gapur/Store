@@ -1,24 +1,25 @@
 ﻿@using Store.Parser
 @model Store.Models.RegisterViewModel
-@{
-    ViewBag.Title = "Регистрация";
-}
 
-<div id="registerForm" data-load-form="Register" class="formItem fadeInRight animated">
-    <h2>Регистрация</h2>
-    @Html.EditorFor(m => m.FirstName, new { data_bind = "value: FirstName" })
-    @Html.EditorFor(m => m.LastName, new { data_bind = "value: LastName" })
-    @Html.EditorFor(m => m.RegisterEmail, new { data_bind = "value: RegisterEmail" })
-    @Html.EditorFor(m => m.RegisterPassword, new { data_bind = "value: RegisterPassword" })
-    @Html.EditorFor(m => m.ConfirmPassword, new { data_bind = "value: ConfirmPassword" })
-    <div class="item-control">
-        <input type="button" value="Зарегистрироваться" class="btn" data-bind="click: registerate" />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div id="registerForm" data-load-form="Register" class="formItem fadeInRight animated">
+        @Html.AntiForgeryToken()
+        <h2>Регистрация</h2>
+        <div class="item-control">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+        @Html.EditorFor(m => m.Email, new { data_bind = "value: Email" })
+        @Html.EditorFor(m => m.Password, new { data_bind = "value: Password" })
+        @Html.EditorFor(m => m.ConfirmPassword, new { data_bind = "value: ConfirmPassword" })
+        <div class="item-control">
+            <input type="submit" value="Зарегистрироваться" class="btn" data-bind="click: registerate" />
+        </div>
     </div>
-</div>
+}
 
 @Scripts.Render("~/bundles/register")
 
 <script type="text/javascript">
-    var viewModel = new RegisterDataModel(@Html.Raw(Model.ToJson()));
-    ko.applyBindings(viewModel, $('#registerForm')[0]);
+    //ko.applyBindings(new RegisterDataModel(), $('#registerForm')[0]);
 </script>

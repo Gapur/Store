@@ -13,10 +13,10 @@ namespace Store.EntityModels
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StoreDBEntities1 : DbContext
+    public partial class StoreDBEntities2 : DbContext
     {
-        public StoreDBEntities1()
-            : base("name=StoreDBEntities1")
+        public StoreDBEntities2()
+            : base("name=StoreDBEntities2")
         {
         }
     
@@ -28,7 +28,5 @@ namespace Store.EntityModels
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Prod_Types> Prod_Types { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
     }
 }

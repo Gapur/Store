@@ -44,6 +44,12 @@ namespace Store
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/AppViewModel.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                "~/Scripts/app/UserLogin.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/register").Include(
+                "~/Scripts/app/UserRegister.js"));
+
             #endregion Custom scripts
 
             #region CSS

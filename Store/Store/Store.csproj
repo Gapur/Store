@@ -172,9 +172,6 @@
     <Compile Include="EntityModels\Prod_Types.cs">
       <DependentUpon>StoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityModels\Role.cs">
-      <DependentUpon>StoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityModels\StoreModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,9 +186,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StoreModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels\User.cs">
-      <DependentUpon>StoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -227,6 +221,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\app\AppViewModel.js" />
+    <Content Include="Scripts\app\UserLogin.js" />
+    <Content Include="Scripts\app\UserRegister.js" />
     <Content Include="Scripts\jsfw\bootstrap.js" />
     <Content Include="Scripts\jsfw\bootstrap.min.js" />
     <Content Include="Content\less\Main.less" />

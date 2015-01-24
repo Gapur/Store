@@ -20,7 +20,7 @@ namespace Store.Models
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-        [Display(Name = "Отсаваться в системе")]
+        [Display(Name = "Запомнить меня")]
         public bool RememberMe { get; set; }
     }
 }
