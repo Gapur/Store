@@ -12,12 +12,16 @@ namespace Store.EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class Image
+    public partial class Check
     {
         public int Id { get; set; }
-        public string Url { get; set; }
+        public decimal Money { get; set; }
+        public System.DateTime Date { get; set; }
+        public int CardId { get; set; }
+        public string refUser { get; set; }
         public System.Guid refDevice { get; set; }
     
+        public virtual AspNetUser AspNetUser { get; set; }
         public virtual Device Device { get; set; }
     }
 }

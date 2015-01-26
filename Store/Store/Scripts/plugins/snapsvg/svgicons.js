@@ -1,5 +1,5 @@
 /*
- * Created by: Alexey V. Vorochsak
+ * Created by: Kassym Gapur
  * Created: 15.08.2014
  */
 

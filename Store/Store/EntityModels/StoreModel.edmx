@@ -4,171 +4,965 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище StoreDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cameras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResolutionMatrix" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaxResolution" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Check">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Money" Type="money" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CardId" Type="int" Nullable="false" />
+          <Property Name="refUser" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="refHardDisk" Type="int" />
+          <Property Name="RAM" Type="int" />
+          <Property Name="WiFi" Type="bit" />
+          <Property Name="refSystem" Type="int" />
+          <Property Name="refManufacturer" Type="int" Nullable="false" />
+          <Property Name="refDisplay" Type="int" />
+          <Property Name="Bluetooth" Type="int" />
+          <Property Name="refCamera" Type="int" />
+          <Property Name="refVideoCard" Type="int" />
+          <Property Name="refDicProdType" Type="int" Nullable="false" />
+          <Property Name="BuildMemory" Type="nvarchar" MaxLength="50" />
+          <Property Name="refProcessor" Type="uniqueidentifier" />
+          <Property Name="refPower" Type="int" />
+        </EntityType>
+        <EntityType Name="DicProdTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Displays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScreenResolution" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Width" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Height" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FormatScreen" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HardDisks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="HDD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SSD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Images">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Url" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <EntityType Name="Prod_Types">
+        <EntityType Name="Manufacturers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperatingSystems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Power">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BatteryWork" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BatteryType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChargeTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Processors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="refManufacturers" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClockSpeed" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountCore" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Price" Type="money" Nullable="false" />
           <Property Name="DateOfCreate" Type="date" Nullable="false" />
-          <Property Name="ImageId" Type="int" Nullable="false" />
-          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Products_Images">
-          <End Role="Images" Type="Self.Images" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        <EntityType Name="VideoCards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Memory" Type="int" Nullable="false" />
+          <Property Name="refManufacturers" Type="int" Nullable="false" />
+          <Property Name="GraphicsController" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Check_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Check" Type="Self.Check" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Images">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="ImageId" />
+            <Dependent Role="Check">
+              <PropertyRef Name="refUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Prod_Types">
-          <End Role="Prod_Types" Type="Self.Prod_Types" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        <Association Name="FK_Check_Devices">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="1" />
+          <End Role="Check" Type="Self.Check" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Prod_Types">
+            <Principal Role="Devices">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="TypeId" />
+            <Dependent Role="Check">
+              <PropertyRef Name="refDevice" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище StoreDBModelContainer">
+        <Association Name="FK_Devices_Cameras">
+          <End Role="Cameras" Type="Self.Cameras" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cameras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_DicProdTypes">
+          <End Role="DicProdTypes" Type="Self.DicProdTypes" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DicProdTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refDicProdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_Displays">
+          <End Role="Displays" Type="Self.Displays" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Displays">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refDisplay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_HardDisks">
+          <End Role="HardDisks" Type="Self.HardDisks" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HardDisks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refHardDisk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_Manufacturers">
+          <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_OperatingSystems">
+          <End Role="OperatingSystems" Type="Self.OperatingSystems" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OperatingSystems">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refSystem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_Power">
+          <End Role="Power" Type="Self.Power" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Power">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refPower" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_Processors">
+          <End Role="Processors" Type="Self.Processors" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refProcessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_VideoCards">
+          <End Role="VideoCards" Type="Self.VideoCards" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoCards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refVideoCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Devices">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="refDevice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Devices">
+          <End Role="Devices" Type="Self.Devices" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoCards_Manufacturers">
+          <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="1" />
+          <End Role="VideoCards" Type="Self.VideoCards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoCards">
+              <PropertyRef Name="refManufacturers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cameras" EntityType="Self.Cameras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Check" EntityType="Self.Check" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Devices" EntityType="Self.Devices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DicProdTypes" EntityType="Self.DicProdTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Displays" EntityType="Self.Displays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HardDisks" EntityType="Self.HardDisks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Prod_Types" EntityType="Self.Prod_Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperatingSystems" EntityType="Self.OperatingSystems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Power" EntityType="Self.Power" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Processors" EntityType="Self.Processors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Products_Images" Association="Self.FK_Products_Images">
+          <EntitySet Name="VideoCards" EntityType="Self.VideoCards" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Check_AspNetUsers" Association="Self.FK_Check_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Check" EntitySet="Check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_Devices" Association="Self.FK_Check_Devices">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Check" EntitySet="Check" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Cameras" Association="Self.FK_Devices_Cameras">
+            <End Role="Cameras" EntitySet="Cameras" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_DicProdTypes" Association="Self.FK_Devices_DicProdTypes">
+            <End Role="DicProdTypes" EntitySet="DicProdTypes" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Displays" Association="Self.FK_Devices_Displays">
+            <End Role="Displays" EntitySet="Displays" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_HardDisks" Association="Self.FK_Devices_HardDisks">
+            <End Role="HardDisks" EntitySet="HardDisks" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Manufacturers" Association="Self.FK_Devices_Manufacturers">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_OperatingSystems" Association="Self.FK_Devices_OperatingSystems">
+            <End Role="OperatingSystems" EntitySet="OperatingSystems" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Power" Association="Self.FK_Devices_Power">
+            <End Role="Power" EntitySet="Power" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Processors" Association="Self.FK_Devices_Processors">
+            <End Role="Processors" EntitySet="Processors" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_VideoCards" Association="Self.FK_Devices_VideoCards">
+            <End Role="VideoCards" EntitySet="VideoCards" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Devices" Association="Self.FK_Images_Devices">
+            <End Role="Devices" EntitySet="Devices" />
             <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Devices" Association="Self.FK_Products_Devices">
+            <End Role="Devices" EntitySet="Devices" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Prod_Types" Association="Self.FK_Products_Prod_Types">
-            <End Role="Prod_Types" EntitySet="Prod_Types" />
-            <End Role="Products" EntitySet="Products" />
+          <AssociationSet Name="FK_VideoCards_Manufacturers" Association="Self.FK_VideoCards_Manufacturers">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="VideoCards" EntitySet="VideoCards" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="StoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Checks" Relationship="Self.FK_Check_AspNetUsers" FromRole="AspNetUsers" ToRole="Check" />
+        </EntityType>
+        <EntityType Name="Camera">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResolutionMatrix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaxResolution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_Cameras" FromRole="Cameras" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="Check">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Money" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CardId" Type="Int32" Nullable="false" />
+          <Property Name="refUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="refDevice" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Check_AspNetUsers" FromRole="Check" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Device" Relationship="Self.FK_Check_Devices" FromRole="Check" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="refHardDisk" Type="Int32" />
+          <Property Name="RAM" Type="Int32" />
+          <Property Name="WiFi" Type="Boolean" />
+          <Property Name="refSystem" Type="Int32" />
+          <Property Name="refManufacturer" Type="Int32" Nullable="false" />
+          <Property Name="refDisplay" Type="Int32" />
+          <Property Name="Bluetooth" Type="Int32" />
+          <Property Name="refCamera" Type="Int32" />
+          <Property Name="refVideoCard" Type="Int32" />
+          <Property Name="refDicProdType" Type="Int32" Nullable="false" />
+          <Property Name="BuildMemory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="refProcessor" Type="Guid" />
+          <Property Name="refPower" Type="Int32" />
+          <NavigationProperty Name="Camera" Relationship="Self.FK_Devices_Cameras" FromRole="Devices" ToRole="Cameras" />
+          <NavigationProperty Name="Checks" Relationship="Self.FK_Check_Devices" FromRole="Devices" ToRole="Check" />
+          <NavigationProperty Name="DicProdType" Relationship="Self.FK_Devices_DicProdTypes" FromRole="Devices" ToRole="DicProdTypes" />
+          <NavigationProperty Name="HardDisk" Relationship="Self.FK_Devices_HardDisks" FromRole="Devices" ToRole="HardDisks" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Devices_Manufacturers" FromRole="Devices" ToRole="Manufacturers" />
+          <NavigationProperty Name="OperatingSystem" Relationship="Self.FK_Devices_OperatingSystems" FromRole="Devices" ToRole="OperatingSystems" />
+          <NavigationProperty Name="Power" Relationship="Self.FK_Devices_Power" FromRole="Devices" ToRole="Power" />
+          <NavigationProperty Name="Processor" Relationship="Self.FK_Devices_Processors" FromRole="Devices" ToRole="Processors" />
+          <NavigationProperty Name="VideoCard" Relationship="Self.FK_Devices_VideoCards" FromRole="Devices" ToRole="VideoCards" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Images_Devices" FromRole="Devices" ToRole="Images" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Products_Devices" FromRole="Devices" ToRole="Products" />
+          <NavigationProperty Name="Display" Relationship="Model.FK_Devices_Displays" FromRole="Device" ToRole="Display" />
+        </EntityType>
+        <EntityType Name="DicProdType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_DicProdTypes" FromRole="DicProdTypes" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="HardDisk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="HDD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SSD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_HardDisks" FromRole="HardDisks" ToRole="Devices" />
+        </EntityType>
         <EntityType Name="Image">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Images" FromRole="Images" ToRole="Products" />
+          <Property Name="refDevice" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="Self.FK_Images_Devices" FromRole="Images" ToRole="Devices" />
         </EntityType>
-        <EntityType Name="Prod_Types">
+        <EntityType Name="Manufacturer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Prod_Types" FromRole="Prod_Types" ToRole="Products" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_Manufacturers" FromRole="Manufacturers" ToRole="Devices" />
+          <NavigationProperty Name="VideoCards" Relationship="Self.FK_VideoCards_Manufacturers" FromRole="Manufacturers" ToRole="VideoCards" />
+        </EntityType>
+        <EntityType Name="OperatingSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_OperatingSystems" FromRole="OperatingSystems" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="Power">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BatteryWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BatteryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChargeTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_Power" FromRole="Power" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="Processor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="refManufacturers" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClockSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountCore" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_Processors" FromRole="Processors" ToRole="Devices" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="DateOfCreate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ImageId" Type="Int32" Nullable="false" />
-          <Property Name="TypeId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Image" Relationship="Self.FK_Products_Images" FromRole="Products" ToRole="Images" />
-          <NavigationProperty Name="Prod_Types" Relationship="Self.FK_Products_Prod_Types" FromRole="Products" ToRole="Prod_Types" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="Self.FK_Products_Devices" FromRole="Products" ToRole="Devices" />
         </EntityType>
-        <Association Name="FK_Products_Images">
-          <End Role="Images" Type="Self.Image" Multiplicity="1" />
-          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+        <EntityType Name="VideoCard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Memory" Type="Int32" Nullable="false" />
+          <Property Name="refManufacturers" Type="Int32" Nullable="false" />
+          <Property Name="GraphicsController" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_VideoCards" FromRole="VideoCards" ToRole="Devices" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_VideoCards_Manufacturers" FromRole="VideoCards" ToRole="Manufacturers" />
+        </EntityType>
+        <Association Name="FK_Check_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Check" Type="Self.Check" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Images">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="ImageId" />
+            <Dependent Role="Check">
+              <PropertyRef Name="refUser" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Prod_Types">
-          <End Role="Prod_Types" Type="Self.Prod_Types" Multiplicity="1" />
-          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+        <Association Name="FK_Devices_Cameras">
+          <End Role="Cameras" Type="Self.Camera" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Prod_Types">
+            <Principal Role="Cameras">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Products">
-              <PropertyRef Name="TypeId" />
+            <Dependent Role="Devices">
+              <PropertyRef Name="refCamera" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="StoreDBEntities2" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Check_Devices">
+          <End Role="Devices" Type="Self.Device" Multiplicity="1" />
+          <End Role="Check" Type="Self.Check" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Check">
+              <PropertyRef Name="refDevice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_DicProdTypes">
+          <End Role="DicProdTypes" Type="Self.DicProdType" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DicProdTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refDicProdType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_HardDisks">
+          <End Role="HardDisks" Type="Self.HardDisk" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HardDisks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refHardDisk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_Manufacturers">
+          <End Role="Manufacturers" Type="Self.Manufacturer" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_OperatingSystems">
+          <End Role="OperatingSystems" Type="Self.OperatingSystem" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OperatingSystems">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refSystem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_Power">
+          <End Role="Power" Type="Self.Power" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Power">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refPower" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_Processors">
+          <End Role="Processors" Type="Self.Processor" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refProcessor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Devices_VideoCards">
+          <End Role="VideoCards" Type="Self.VideoCard" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoCards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refVideoCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Devices">
+          <End Role="Devices" Type="Self.Device" Multiplicity="1" />
+          <End Role="Images" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="refDevice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Devices">
+          <End Role="Devices" Type="Self.Device" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Devices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoCards_Manufacturers">
+          <End Role="Manufacturers" Type="Self.Manufacturer" Multiplicity="1" />
+          <End Role="VideoCards" Type="Self.VideoCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoCards">
+              <PropertyRef Name="refManufacturers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Cameras" EntityType="Self.Camera" />
+          <EntitySet Name="Checks" EntityType="Self.Check" />
+          <EntitySet Name="Devices" EntityType="Self.Device" />
+          <EntitySet Name="DicProdTypes" EntityType="Self.DicProdType" />
+          <EntitySet Name="HardDisks" EntityType="Self.HardDisk" />
           <EntitySet Name="Images" EntityType="Self.Image" />
-          <EntitySet Name="Prod_Types" EntityType="Self.Prod_Types" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+          <EntitySet Name="OperatingSystems" EntityType="Self.OperatingSystem" />
+          <EntitySet Name="Powers" EntityType="Self.Power" />
+          <EntitySet Name="Processors" EntityType="Self.Processor" />
           <EntitySet Name="Products" EntityType="Self.Product" />
-          <AssociationSet Name="FK_Products_Images" Association="Self.FK_Products_Images">
+          <EntitySet Name="VideoCards" EntityType="Self.VideoCard" />
+          <AssociationSet Name="FK_Check_AspNetUsers" Association="Self.FK_Check_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Check" EntitySet="Checks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Cameras" Association="Self.FK_Devices_Cameras">
+            <End Role="Cameras" EntitySet="Cameras" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Check_Devices" Association="Self.FK_Check_Devices">
+            <End Role="Devices" EntitySet="Devices" />
+            <End Role="Check" EntitySet="Checks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_DicProdTypes" Association="Self.FK_Devices_DicProdTypes">
+            <End Role="DicProdTypes" EntitySet="DicProdTypes" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_HardDisks" Association="Self.FK_Devices_HardDisks">
+            <End Role="HardDisks" EntitySet="HardDisks" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Manufacturers" Association="Self.FK_Devices_Manufacturers">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_OperatingSystems" Association="Self.FK_Devices_OperatingSystems">
+            <End Role="OperatingSystems" EntitySet="OperatingSystems" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Power" Association="Self.FK_Devices_Power">
+            <End Role="Power" EntitySet="Powers" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Processors" Association="Self.FK_Devices_Processors">
+            <End Role="Processors" EntitySet="Processors" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_VideoCards" Association="Self.FK_Devices_VideoCards">
+            <End Role="VideoCards" EntitySet="VideoCards" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Devices" Association="Self.FK_Images_Devices">
+            <End Role="Devices" EntitySet="Devices" />
             <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Devices" Association="Self.FK_Products_Devices">
+            <End Role="Devices" EntitySet="Devices" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Prod_Types" Association="Self.FK_Products_Prod_Types">
-            <End Role="Prod_Types" EntitySet="Prod_Types" />
-            <End Role="Products" EntitySet="Products" />
+          <AssociationSet Name="FK_VideoCards_Manufacturers" Association="Self.FK_VideoCards_Manufacturers">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="VideoCards" EntitySet="VideoCards" />
+          </AssociationSet>
+          <EntitySet Name="Displays" EntityType="Model.Display" />
+          <AssociationSet Name="FK_Devices_Displays" Association="Model.FK_Devices_Displays">
+            <End Role="Display" EntitySet="Displays" />
+            <End Role="Device" EntitySet="Devices" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Display">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScreenResolution" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Width" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormatScreen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Devices" Relationship="Model.FK_Devices_Displays" FromRole="Display" ToRole="Device" />
+        </EntityType>
+        <Association Name="FK_Devices_Displays">
+          <End Type="Model.Display" Role="Display" Multiplicity="0..1" />
+          <End Type="Model.Device" Role="Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Display">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="refDisplay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище StoreDBModelContainer" CdmEntityContainer="StoreDBEntities2">
-          <EntitySetMapping Name="Images">
-            <EntityTypeMapping TypeName="StoreDBModel.Image">
-              <MappingFragment StoreEntitySet="Images">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities2">
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Prod_Types">
-            <EntityTypeMapping TypeName="StoreDBModel.Prod_Types">
-              <MappingFragment StoreEntitySet="Prod_Types">
+          <EntitySetMapping Name="Cameras">
+            <EntityTypeMapping TypeName="Model.Camera">
+              <MappingFragment StoreEntitySet="Cameras">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ResolutionMatrix" ColumnName="ResolutionMatrix" />
+                <ScalarProperty Name="MaxResolution" ColumnName="MaxResolution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Checks">
+            <EntityTypeMapping TypeName="Model.Check">
+              <MappingFragment StoreEntitySet="Check">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CardId" ColumnName="CardId" />
+                <ScalarProperty Name="refUser" ColumnName="refUser" />
+                <ScalarProperty Name="refDevice" ColumnName="refDevice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Devices">
+            <EntityTypeMapping TypeName="Model.Device">
+              <MappingFragment StoreEntitySet="Devices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="refHardDisk" ColumnName="refHardDisk" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="WiFi" ColumnName="WiFi" />
+                <ScalarProperty Name="refSystem" ColumnName="refSystem" />
+                <ScalarProperty Name="refManufacturer" ColumnName="refManufacturer" />
+                <ScalarProperty Name="refDisplay" ColumnName="refDisplay" />
+                <ScalarProperty Name="Bluetooth" ColumnName="Bluetooth" />
+                <ScalarProperty Name="refCamera" ColumnName="refCamera" />
+                <ScalarProperty Name="refVideoCard" ColumnName="refVideoCard" />
+                <ScalarProperty Name="refDicProdType" ColumnName="refDicProdType" />
+                <ScalarProperty Name="BuildMemory" ColumnName="BuildMemory" />
+                <ScalarProperty Name="refProcessor" ColumnName="refProcessor" />
+                <ScalarProperty Name="refPower" ColumnName="refPower" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DicProdTypes">
+            <EntityTypeMapping TypeName="Model.DicProdType">
+              <MappingFragment StoreEntitySet="DicProdTypes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="HardDisks">
+            <EntityTypeMapping TypeName="Model.HardDisk">
+              <MappingFragment StoreEntitySet="HardDisks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HDD" ColumnName="HDD" />
+                <ScalarProperty Name="SSD" ColumnName="SSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="Model.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="refDevice" ColumnName="refDevice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="Model.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperatingSystems">
+            <EntityTypeMapping TypeName="Model.OperatingSystem">
+              <MappingFragment StoreEntitySet="OperatingSystems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Powers">
+            <EntityTypeMapping TypeName="Model.Power">
+              <MappingFragment StoreEntitySet="Power">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BatteryWork" ColumnName="BatteryWork" />
+                <ScalarProperty Name="BatteryType" ColumnName="BatteryType" />
+                <ScalarProperty Name="ChargeTime" ColumnName="ChargeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Processors">
+            <EntityTypeMapping TypeName="Model.Processor">
+              <MappingFragment StoreEntitySet="Processors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ClockSpeed" ColumnName="ClockSpeed" />
+                <ScalarProperty Name="CountCore" ColumnName="CountCore" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="StoreDBModel.Product">
+            <EntityTypeMapping TypeName="Model.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="DateOfCreate" ColumnName="DateOfCreate" />
-                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
-                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoCards">
+            <EntityTypeMapping TypeName="Model.VideoCard">
+              <MappingFragment StoreEntitySet="VideoCards">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Memory" ColumnName="Memory" />
+                <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
+                <ScalarProperty Name="GraphicsController" ColumnName="GraphicsController" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Displays">
+            <EntityTypeMapping TypeName="Model.Display">
+              <MappingFragment StoreEntitySet="Displays">
+                <ScalarProperty Name="FormatScreen" ColumnName="FormatScreen" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="ScreenResolution" ColumnName="ScreenResolution" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

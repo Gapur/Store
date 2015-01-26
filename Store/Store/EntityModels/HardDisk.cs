@@ -12,12 +12,17 @@ namespace Store.EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class Image
+    public partial class HardDisk
     {
-        public int Id { get; set; }
-        public string Url { get; set; }
-        public System.Guid refDevice { get; set; }
+        public HardDisk()
+        {
+            this.Devices = new HashSet<Device>();
+        }
     
-        public virtual Device Device { get; set; }
+        public int Id { get; set; }
+        public string HDD { get; set; }
+        public string SSD { get; set; }
+    
+        public virtual ICollection<Device> Devices { get; set; }
     }
 }

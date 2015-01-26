@@ -12,16 +12,17 @@ namespace Store.EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class Prod_Types
+    public partial class Camera
     {
-        public Prod_Types()
+        public Camera()
         {
-            this.Products = new HashSet<Product>();
+            this.Devices = new HashSet<Device>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string ResolutionMatrix { get; set; }
+        public string MaxResolution { get; set; }
     
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Device> Devices { get; set; }
     }
 }

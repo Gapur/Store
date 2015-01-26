@@ -14,14 +14,12 @@ namespace Store.EntityModels
     
     public partial class Product
     {
-        public int Id { get; set; }
+        public System.Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public System.DateTime DateOfCreate { get; set; }
-        public int ImageId { get; set; }
-        public int TypeId { get; set; }
+        public string Color { get; set; }
     
-        public virtual Image Image { get; set; }
-        public virtual Prod_Types Prod_Types { get; set; }
+        public virtual Device Device { get; set; }
     }
 }

@@ -12,12 +12,20 @@ namespace Store.EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class Image
+    public partial class VideoCard
     {
-        public int Id { get; set; }
-        public string Url { get; set; }
-        public System.Guid refDevice { get; set; }
+        public VideoCard()
+        {
+            this.Devices = new HashSet<Device>();
+        }
     
-        public virtual Device Device { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Memory { get; set; }
+        public int refManufacturers { get; set; }
+        public string GraphicsController { get; set; }
+    
+        public virtual ICollection<Device> Devices { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
     }
 }

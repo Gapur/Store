@@ -12,12 +12,19 @@ namespace Store.EntityModels
     using System;
     using System.Collections.Generic;
     
-    public partial class Image
+    public partial class Processor
     {
-        public int Id { get; set; }
-        public string Url { get; set; }
-        public System.Guid refDevice { get; set; }
+        public Processor()
+        {
+            this.Devices = new HashSet<Device>();
+        }
     
-        public virtual Device Device { get; set; }
+        public System.Guid Id { get; set; }
+        public int refManufacturers { get; set; }
+        public string Type { get; set; }
+        public string ClockSpeed { get; set; }
+        public int CountCore { get; set; }
+    
+        public virtual ICollection<Device> Devices { get; set; }
     }
 }

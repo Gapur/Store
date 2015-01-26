@@ -8,6 +8,8 @@ namespace Store
         //Дополнительные сведения об объединении см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            BundleTable.EnableOptimizations = false;
+
             #region Frameworks scripts
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -43,12 +45,6 @@ namespace Store
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/AppViewModel.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/login").Include(
-                "~/Scripts/app/UserLogin.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/register").Include(
-                "~/Scripts/app/UserRegister.js"));
 
             #endregion Custom scripts
 

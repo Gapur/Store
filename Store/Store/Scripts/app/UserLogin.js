@@ -3,18 +3,21 @@
     self.Email = ko.observable(null);
     self.Password = ko.observable(null);
 
-    self.login = function (model) {
-        var data = {
-            email: self.Email(),
-            password: self.Password()
+    self.login = function () {
+        var model = {
+            model: {
+                email: self.Email(),
+                password: self.Password()
+            }
         };
+        debugger;
         $.ajax({
             url: '/Account/Login',
             type: 'POST',
-            data: JSON.stringify(data),
-            contentType: "application/json;charset=utf-8",
+            data: model,
             success: function (data) {
-                alert('Добро пожаловать!');
+                $($(".item-control")[0]).replaceWith(
+                   $($($(data).children('.content')).children('.formItem')).children('.item-control')[0]);
             },
             error: function () {
                 alert('error');
