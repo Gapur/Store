@@ -44,10 +44,10 @@
     <Property Name="refHardDisk" Type="int" />
     <Property Name="RAM" Type="int" />
     <Property Name="WiFi" Type="bit" />
-    <Property Name="refSystem" Type="int" />
+    <Property Name="refOperatingSystem" Type="int" />
     <Property Name="refManufacturer" Type="int" Nullable="false" />
     <Property Name="refDisplay" Type="int" />
-    <Property Name="Bluetooth" Type="int" />
+    <Property Name="Bluetooth" Type="bit" />
     <Property Name="refCamera" Type="int" />
     <Property Name="refVideoCard" Type="int" />
     <Property Name="refDicProdType" Type="int" Nullable="false" />
@@ -235,7 +235,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Devices">
-        <PropertyRef Name="refSystem" />
+        <PropertyRef Name="refOperatingSystem" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

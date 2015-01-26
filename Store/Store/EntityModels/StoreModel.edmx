@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
@@ -49,10 +49,10 @@
           <Property Name="refHardDisk" Type="int" />
           <Property Name="RAM" Type="int" />
           <Property Name="WiFi" Type="bit" />
-          <Property Name="refSystem" Type="int" />
+          <Property Name="refOperatingSystem" Type="int" />
           <Property Name="refManufacturer" Type="int" Nullable="false" />
           <Property Name="refDisplay" Type="int" />
-          <Property Name="Bluetooth" Type="int" />
+          <Property Name="Bluetooth" Type="bit" />
           <Property Name="refCamera" Type="int" />
           <Property Name="refVideoCard" Type="int" />
           <Property Name="refDicProdType" Type="int" Nullable="false" />
@@ -240,7 +240,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Devices">
-              <PropertyRef Name="refSystem" />
+              <PropertyRef Name="refOperatingSystem" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -388,7 +388,8 @@
             <End Role="VideoCards" EntitySet="VideoCards" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -440,10 +441,10 @@
           <Property Name="refHardDisk" Type="Int32" />
           <Property Name="RAM" Type="Int32" />
           <Property Name="WiFi" Type="Boolean" />
-          <Property Name="refSystem" Type="Int32" />
+          <Property Name="refOperatingSystem" Type="Int32" />
           <Property Name="refManufacturer" Type="Int32" Nullable="false" />
           <Property Name="refDisplay" Type="Int32" />
-          <Property Name="Bluetooth" Type="Int32" />
+          <Property Name="Bluetooth" Type="Boolean" />
           <Property Name="refCamera" Type="Int32" />
           <Property Name="refVideoCard" Type="Int32" />
           <Property Name="refDicProdType" Type="Int32" Nullable="false" />
@@ -453,6 +454,7 @@
           <NavigationProperty Name="Camera" Relationship="Self.FK_Devices_Cameras" FromRole="Devices" ToRole="Cameras" />
           <NavigationProperty Name="Checks" Relationship="Self.FK_Check_Devices" FromRole="Devices" ToRole="Check" />
           <NavigationProperty Name="DicProdType" Relationship="Self.FK_Devices_DicProdTypes" FromRole="Devices" ToRole="DicProdTypes" />
+          <NavigationProperty Name="Display" Relationship="Self.FK_Devices_Displays" FromRole="Devices" ToRole="Displays" />
           <NavigationProperty Name="HardDisk" Relationship="Self.FK_Devices_HardDisks" FromRole="Devices" ToRole="HardDisks" />
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Devices_Manufacturers" FromRole="Devices" ToRole="Manufacturers" />
           <NavigationProperty Name="OperatingSystem" Relationship="Self.FK_Devices_OperatingSystems" FromRole="Devices" ToRole="OperatingSystems" />
@@ -461,7 +463,6 @@
           <NavigationProperty Name="VideoCard" Relationship="Self.FK_Devices_VideoCards" FromRole="Devices" ToRole="VideoCards" />
           <NavigationProperty Name="Images" Relationship="Self.FK_Images_Devices" FromRole="Devices" ToRole="Images" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Products_Devices" FromRole="Devices" ToRole="Products" />
-          <NavigationProperty Name="Display" Relationship="Model.FK_Devices_Displays" FromRole="Device" ToRole="Display" />
         </EntityType>
         <EntityType Name="DicProdType">
           <Key>
@@ -470,6 +471,17 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_DicProdTypes" FromRole="DicProdTypes" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="Display">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScreenResolution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Width" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Height" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FormatScreen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_Displays" FromRole="Displays" ToRole="Devices" />
         </EntityType>
         <EntityType Name="HardDisk">
           <Key>
@@ -600,6 +612,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Devices_Displays">
+          <End Role="Displays" Type="Self.Display" Multiplicity="0..1" />
+          <End Role="Devices" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Displays">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="refDisplay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Devices_HardDisks">
           <End Role="HardDisks" Type="Self.HardDisk" Multiplicity="0..1" />
           <End Role="Devices" Type="Self.Device" Multiplicity="*" />
@@ -632,7 +656,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Devices">
-              <PropertyRef Name="refSystem" />
+              <PropertyRef Name="refOperatingSystem" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -708,12 +732,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
           <EntitySet Name="Cameras" EntityType="Self.Camera" />
           <EntitySet Name="Checks" EntityType="Self.Check" />
           <EntitySet Name="Devices" EntityType="Self.Device" />
           <EntitySet Name="DicProdTypes" EntityType="Self.DicProdType" />
+          <EntitySet Name="Displays" EntityType="Self.Display" />
           <EntitySet Name="HardDisks" EntityType="Self.HardDisk" />
           <EntitySet Name="Images" EntityType="Self.Image" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
@@ -736,6 +761,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Devices_DicProdTypes" Association="Self.FK_Devices_DicProdTypes">
             <End Role="DicProdTypes" EntitySet="DicProdTypes" />
+            <End Role="Devices" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Devices_Displays" Association="Self.FK_Devices_Displays">
+            <End Role="Displays" EntitySet="Displays" />
             <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Devices_HardDisks" Association="Self.FK_Devices_HardDisks">
@@ -774,41 +803,13 @@
             <End Role="Manufacturers" EntitySet="Manufacturers" />
             <End Role="VideoCards" EntitySet="VideoCards" />
           </AssociationSet>
-          <EntitySet Name="Displays" EntityType="Model.Display" />
-          <AssociationSet Name="FK_Devices_Displays" Association="Model.FK_Devices_Displays">
-            <End Role="Display" EntitySet="Displays" />
-            <End Role="Device" EntitySet="Devices" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Display">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ScreenResolution" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Width" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Height" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FormatScreen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Devices" Relationship="Model.FK_Devices_Displays" FromRole="Display" ToRole="Device" />
-        </EntityType>
-        <Association Name="FK_Devices_Displays">
-          <End Type="Model.Display" Role="Display" Multiplicity="0..1" />
-          <End Type="Model.Device" Role="Device" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Display">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Device">
-              <PropertyRef Name="refDisplay" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="Model.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
@@ -855,7 +856,7 @@
                 <ScalarProperty Name="refHardDisk" ColumnName="refHardDisk" />
                 <ScalarProperty Name="RAM" ColumnName="RAM" />
                 <ScalarProperty Name="WiFi" ColumnName="WiFi" />
-                <ScalarProperty Name="refSystem" ColumnName="refSystem" />
+                <ScalarProperty Name="refOperatingSystem" ColumnName="refOperatingSystem" />
                 <ScalarProperty Name="refManufacturer" ColumnName="refManufacturer" />
                 <ScalarProperty Name="refDisplay" ColumnName="refDisplay" />
                 <ScalarProperty Name="Bluetooth" ColumnName="Bluetooth" />
@@ -873,6 +874,17 @@
               <MappingFragment StoreEntitySet="DicProdTypes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Displays">
+            <EntityTypeMapping TypeName="Model.Display">
+              <MappingFragment StoreEntitySet="Displays">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScreenResolution" ColumnName="ScreenResolution" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="FormatScreen" ColumnName="FormatScreen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -952,17 +964,6 @@
                 <ScalarProperty Name="Memory" ColumnName="Memory" />
                 <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
                 <ScalarProperty Name="GraphicsController" ColumnName="GraphicsController" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Displays">
-            <EntityTypeMapping TypeName="Model.Display">
-              <MappingFragment StoreEntitySet="Displays">
-                <ScalarProperty Name="FormatScreen" ColumnName="FormatScreen" />
-                <ScalarProperty Name="Height" ColumnName="Height" />
-                <ScalarProperty Name="Width" ColumnName="Width" />
-                <ScalarProperty Name="ScreenResolution" ColumnName="ScreenResolution" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

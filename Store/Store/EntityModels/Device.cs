@@ -24,10 +24,10 @@ namespace Store.EntityModels
         public Nullable<int> refHardDisk { get; set; }
         public Nullable<int> RAM { get; set; }
         public Nullable<bool> WiFi { get; set; }
-        public Nullable<int> refSystem { get; set; }
+        public Nullable<int> refOperatingSystem { get; set; }
         public int refManufacturer { get; set; }
         public Nullable<int> refDisplay { get; set; }
-        public Nullable<int> Bluetooth { get; set; }
+        public Nullable<bool> Bluetooth { get; set; }
         public Nullable<int> refCamera { get; set; }
         public Nullable<int> refVideoCard { get; set; }
         public int refDicProdType { get; set; }
@@ -38,6 +38,7 @@ namespace Store.EntityModels
         public virtual Camera Camera { get; set; }
         public virtual ICollection<Check> Checks { get; set; }
         public virtual DicProdType DicProdType { get; set; }
+        public virtual Display Display { get; set; }
         public virtual HardDisk HardDisk { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual OperatingSystem OperatingSystem { get; set; }
@@ -46,6 +47,5 @@ namespace Store.EntityModels
         public virtual VideoCard VideoCard { get; set; }
         public virtual ICollection<Image> Images { get; set; }
         public virtual Product Product { get; set; }
-        public virtual Display Display { get; set; }
     }
 }
