@@ -39,6 +39,11 @@ namespace Store.Repositories
             return (IEnumerable<TE>) Context.Set<T>().Where(lamda.Compile());
         }
 
+        public IEnumerable<TE> Set<T, TE>(Expression<Func<T, TE>> lamda) where T : class where TE : class
+        {
+            return (IEnumerable<TE>)Context.Set<T>().Select(lamda.Compile());
+        }
+
         public T Entity<T>(Expression<Func<T, bool>> lamda) where T : class
         {
             return Context.Set<T>().SingleOrDefault(lamda.Compile());

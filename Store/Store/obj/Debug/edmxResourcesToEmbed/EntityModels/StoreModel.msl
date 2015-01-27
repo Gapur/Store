@@ -136,17 +136,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="Model.Product">
-        <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="DateOfCreate" ColumnName="DateOfCreate" />
-          <ScalarProperty Name="Color" ColumnName="Color" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="VideoCards">
       <EntityTypeMapping TypeName="Model.VideoCard">
         <MappingFragment StoreEntitySet="VideoCards">
@@ -155,6 +144,17 @@
           <ScalarProperty Name="Memory" ColumnName="Memory" />
           <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
           <ScalarProperty Name="GraphicsController" ColumnName="GraphicsController" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Model.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="DateOfCreate" ColumnName="DateOfCreate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

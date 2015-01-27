@@ -69,7 +69,7 @@
     <NavigationProperty Name="Processor" Relationship="Self.FK_Devices_Processors" FromRole="Devices" ToRole="Processors" />
     <NavigationProperty Name="VideoCard" Relationship="Self.FK_Devices_VideoCards" FromRole="Devices" ToRole="VideoCards" />
     <NavigationProperty Name="Images" Relationship="Self.FK_Images_Devices" FromRole="Devices" ToRole="Images" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Products_Devices" FromRole="Devices" ToRole="Products" />
+    <NavigationProperty Name="Product" Relationship="Model.FK_Products_Devices" FromRole="Device" ToRole="Product" />
   </EntityType>
   <EntityType Name="DicProdType">
     <Key>
@@ -147,17 +147,6 @@
     <Property Name="ClockSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CountCore" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Devices" Relationship="Self.FK_Devices_Processors" FromRole="Processors" ToRole="Devices" />
-  </EntityType>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Guid" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="DateOfCreate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Device" Relationship="Self.FK_Products_Devices" FromRole="Products" ToRole="Devices" />
   </EntityType>
   <EntityType Name="VideoCard">
     <Key>
@@ -315,18 +304,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Products_Devices">
-    <End Role="Devices" Type="Self.Device" Multiplicity="1" />
-    <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Devices">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Products">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_VideoCards_Manufacturers">
     <End Role="Manufacturers" Type="Self.Manufacturer" Multiplicity="1" />
     <End Role="VideoCards" Type="Self.VideoCard" Multiplicity="*" />
@@ -352,7 +329,6 @@
     <EntitySet Name="OperatingSystems" EntityType="Self.OperatingSystem" />
     <EntitySet Name="Powers" EntityType="Self.Power" />
     <EntitySet Name="Processors" EntityType="Self.Processor" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="VideoCards" EntityType="Self.VideoCard" />
     <AssociationSet Name="FK_Check_AspNetUsers" Association="Self.FK_Check_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -402,13 +378,37 @@
       <End Role="Devices" EntitySet="Devices" />
       <End Role="Images" EntitySet="Images" />
     </AssociationSet>
-    <AssociationSet Name="FK_Products_Devices" Association="Self.FK_Products_Devices">
-      <End Role="Devices" EntitySet="Devices" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
     <AssociationSet Name="FK_VideoCards_Manufacturers" Association="Self.FK_VideoCards_Manufacturers">
       <End Role="Manufacturers" EntitySet="Manufacturers" />
       <End Role="VideoCards" EntitySet="VideoCards" />
     </AssociationSet>
+    <EntitySet Name="Products" EntityType="Model.Product" />
+    <AssociationSet Name="FK_Products_Devices" Association="Model.FK_Products_Devices">
+      <End Role="Device" EntitySet="Devices" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="DateOfCreate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Device" Relationship="Model.FK_Products_Devices" FromRole="Product" ToRole="Device" />
+  </EntityType>
+  <Association Name="FK_Products_Devices">
+    <End Type="Model.Device" Role="Device" Multiplicity="1" />
+    <End Type="Model.Product" Role="Product" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

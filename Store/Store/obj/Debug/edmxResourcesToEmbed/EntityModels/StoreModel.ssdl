@@ -130,7 +130,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Price" Type="money" Nullable="false" />
-    <Property Name="DateOfCreate" Type="date" Nullable="false" />
+    <Property Name="DateOfCreate" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="VideoCards">

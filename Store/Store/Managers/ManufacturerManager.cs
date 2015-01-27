@@ -17,9 +17,9 @@ namespace Store.Managers
         {
         }
 
-        public Task<Manufacturer> GetManufacturer()
+        public Task<IEnumerable<Manufacturer>> GetAllManufacturer()
         {
-            return Task.FromResult(Repository.Entity<Manufacturer>(manufacturer => manufacturer.Id == 1));
+            return Task.FromResult(Repository.Set<Manufacturer>(manufacturer => manufacturer.Id != null));
         }
 
         public void Dispose()

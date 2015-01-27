@@ -183,6 +183,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManufacturersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="EntityModels\AspNetUser.cs">
       <DependentUpon>StoreModel.tt</DependentUpon>
     </Compile>
@@ -244,11 +245,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\ManufacturerManager.cs" />
+    <Compile Include="Managers\UserProductManager.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Device.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Manufacturer.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Parser\Foreach.cs" />
     <Compile Include="Parser\Json.cs" />
     <Compile Include="Parser\ViewDataExtensions.cs" />
@@ -272,6 +275,8 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\app\AppViewModel.js" />
     <Content Include="Scripts\app\DeviceViewModel.js" />
+    <Content Include="Scripts\app\ManufacturerActions.js" />
+    <Content Include="Scripts\app\ProductViewModel.js" />
     <Content Include="Scripts\app\UserLogin.js" />
     <Content Include="Scripts\app\UserRegister.js" />
     <Content Include="Scripts\jsfw\bootstrap.js" />

@@ -17,7 +17,7 @@ namespace Store.EntityModels
         public System.Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public System.DateTime DateOfCreate { get; set; }
+        public string DateOfCreate { get; set; }
         public string Color { get; set; }
     
         public virtual Device Device { get; set; }

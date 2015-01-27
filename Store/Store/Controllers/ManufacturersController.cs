@@ -22,7 +22,7 @@ namespace Store.Controllers
         // GET: api/Manufacturers
         public IHttpActionResult GetManufacturers()
         {
-            var result = manufacturer.GetManufacturer();
+            var result = manufacturer.GetAllManufacturer();
             return Ok(result);
         }
      /*   public IQueryable<Manufacturer> GetManufacturers()

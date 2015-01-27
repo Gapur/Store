@@ -1,10 +1,10 @@
-﻿function DeviceViewModel() {
+﻿function ProductViewModel() {
 
     self = this;
 
-    self.getDevices = function () {
+    self.getProducts = function () {
         $.ajax({
-            url: '/api/Devices/',
+            url: '/api/Products/',
             type: 'GET',
             dataType: 'json',
             success: function (data) {
