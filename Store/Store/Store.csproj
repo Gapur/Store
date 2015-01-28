@@ -269,6 +269,11 @@
     <Content Include="Content\icons\svg\toggleMenuTest.svg">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\img\samsungS5.jpg" />
+    <Content Include="Content\img\LG.jpg" />
+    <Content Include="Content\img\samsungS4.jpg" />
+    <Content Include="Content\img\iphoneS5.jpg" />
+    <Content Include="Content\img\iphone6Plus.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -445,7 +450,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\icons\png\" />
-    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

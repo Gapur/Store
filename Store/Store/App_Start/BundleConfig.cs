@@ -7,9 +7,7 @@ namespace Store
     {
         //Дополнительные сведения об объединении см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
-        {
-            BundleTable.EnableOptimizations = false;
-
+        {           
             #region Frameworks scripts
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

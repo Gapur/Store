@@ -38,7 +38,7 @@ namespace Store.Models
         public int refDicProdType { get; set; }
 
         [Display(Name = "Объем встроенной памяти")]
-        public int BuildMemory { get; set; }
+        public string BuildMemory { get; set; }
 
         [Display(Name = "Процессор")]
         public System.Guid refProcessor { get; set; }

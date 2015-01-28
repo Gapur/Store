@@ -16,8 +16,19 @@ namespace Store.Managers
 
         public Task<IEnumerable<Models.Product>> GetAllProducts()
         {
-            return Task.FromResult(Repository.Set<Product, Models.Product>(product => new Models.Product { Name = product.Name,
-            RAM = (int)product.Device.RAM }));
+            return Task.FromResult(Repository.Set<Product, Models.Product>(product => new Models.Product { 
+                Id = product.Id,
+                Name = product.Name, 
+                Price = product.Price,
+                Color = product.Color,
+                Bluetooth = (bool)product.Device.Bluetooth,
+                BuildMemory = product.Device.BuildMemory,
+                WiFi = (bool)product.Device.WiFi,
+                Date = product.DateOfCreate,
+                refManufacturers = product.Device.refManufacturer,
+                refProcessor = (System.Guid)product.Device.refProcessor,
+                refDicProdType = product.Device.refDicProdType,
+                RAM = (int)product.Device.RAM }));
         }
     }
 }

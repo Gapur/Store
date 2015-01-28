@@ -240,3 +240,28 @@ i.toggleMenu {
 }
 
 /* #endregion button */
+
+/* #region category grid list */
+
+.category-list {
+    ul {
+        .flexbox-model(row, horizontal);
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    img {
+        width: 170px;
+        height: 170px;
+    }
+
+    li {
+        .flexbox-model(column, vertical);
+        align-content: flex-start;
+        padding: 10px;
+        margin: 10px;
+        flex: 0 1 200px;
+    }
+}
+
+/* #endregion category grid list*/
