@@ -263,6 +263,8 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\icons\png\bg-grey-arrow.png" />
+    <Content Include="Content\icons\png\bg-left-col-hover.jpg" />
     <Content Include="Content\icons\svg\toggleMenu.svg">
       <SubType>Designer</SubType>
     </Content>
@@ -449,7 +451,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\icons\png\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
