@@ -7,7 +7,7 @@ namespace Store
     {
         //Дополнительные сведения об объединении см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
-        {           
+        {
             #region Frameworks scripts
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -49,8 +49,6 @@ namespace Store
             #region CSS
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/css/bootstrap.css",
-                      "~/Content/css/site.css",
                       "~/Content/css/Main.css"));
 
             #endregion CSS

@@ -26,11 +26,13 @@
     </div>
     <div class="wrapper">
         <header class="header">
-            <a class="toggleMenu" data-bind="click: toggleMenu">
-                <i class="toggleMenu" data-icon="toggleMenu"></i>
-            </a>
-            <div class="navbar-collapse collapse">
-                @Html.Partial("_LoginPartial")
+            <div class="navbar-content">
+                <a class="toggleMenu" data-bind="click: toggleMenu">
+                    <i class="toggleMenu" data-icon="toggleMenu"></i>
+                </a>
+                <div class="navbar-collapse">
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </header>
         <div class="content">

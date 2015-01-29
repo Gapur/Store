@@ -14,12 +14,22 @@
 
 /*#endregion mixins*/
 
+/*#region variable*/
+
+@navbar-color: #1480c2;
+
+/*#endregion variable*/
+
 /*#region body*/
 
 body {
     .flexbox-model(row, horizontal);
     padding: 0px !important;
     background: #F9F9F9;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    margin: 0;
 }
 
 /*#endregion body*/
@@ -27,16 +37,70 @@ body {
 /* #region header */
 
 .header {
-    .flexbox-model(row, horizontal);
-    justify-content: space-between;
-    align-items: center;
+    .flexbox-model(column, vertical);
     min-height: 45px;
-    background: rgb(221, 218, 229);
-    background: -moz-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -webkit-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -o-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: -ms-linear-gradient(2deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
-    background: linear-gradient(92deg, rgb(221, 218, 229) 36%, rgb(0, 0, 0) 93%);
+    padding: 0 0 8px 0;
+    background: #f7ba26;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #f6b018;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+
+    .navbar-content {
+        .flexbox-model(row, horizontal);
+        justify-content: space-between;
+        align-items: center;
+        margin: -2px;
+        padding: 0;
+        background: @navbar-color;
+        border-color: @navbar-color;
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+    }
+
+    .navbar-collapse {
+        margin: 0;
+        border: 1px solid #2f9ed1;
+        background: url("../icons/png/bg-nav-menu-item.jpg") 0 0 repeat-x #0c68b1;
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+
+        ul.navbar-nav {
+            .flexbox-model(row, horizontal);
+            list-style: none;
+            margin: 0;
+            border-radius: 6px 0 0 6px;
+            -moz-border-radius: 6px 0 0 6px;
+            -webkit-border-radius: 6px 0 0 6px;
+            border-right: 1px solid #2395cd;
+
+            li {
+                .flexbox-model(row, horizontal);
+                flex: 0 1 auto;
+                border-left: 1px solid #2a9bd0;
+                border-right: 1px solid #074f9c;
+
+                a {
+                    width: 133px;
+                    padding: 12px 0px;
+                    font-size: 1em;
+                    font-weight: 700;
+                    text-decoration: none;
+                    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+                    text-align: center;
+                    color: #fff;
+                }
+
+                a:hover {
+                    color: #f7ba26;
+                }
+            }
+        }
+    }
 }
 
 /* #region toggleMenu icon*/
@@ -99,7 +163,7 @@ i.toggleMenu {
 }
 
 .left-aside h2 {
-    background: #1480C2;
+    background: @navbar-color;
     min-height: 45px;
     margin: 10px 10px 0px 10px;
     border-radius: 6px 6px 0 0;
@@ -127,12 +191,14 @@ i.toggleMenu {
             border-top: 1px solid #d0d0d0;
             border-bottom: 1px solid #838383 !important;
             padding: 0 !important;
+            text-decoration: none;
 
             a {
                 display: block;
                 padding: 0px 18px;
                 font-weight: 700;
                 color: #494949;
+                text-decoration: none;
                 text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
                 background: url("../icons/png/bg-grey-arrow.png") 224px 10px no-repeat;
             }
@@ -191,10 +257,29 @@ i.toggleMenu {
 /* #endregion content */
 
 /* #region authentication form */
+
 .formItem {
     .flexbox-model(column, vertical);
     justify-content: space-between;
     flex: 0 1 400px;
+    background: #1480c2;
+    border-radius: 1px;
+    -webkit-border-radius: 6px;
+    border: 3px solid #35a3d4;
+
+    .control-label {
+        padding-right: 10px;
+        font-size: 14px;
+        color: #fff;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+        font-weight: 700;
+    }
+
+    h2 {
+        color: white;
+        font-family: sans-serif;
+        margin-left: 10px;
+    }
 }
 
 .item-control {
@@ -203,12 +288,25 @@ i.toggleMenu {
     padding: 10px;
 }
 
-.formItem .control-label {
-    padding-right: 10px;
-}
 /* #endregion authentication form */
 
 /* #region button */
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 .btn {
     font-size: 90%;
     font-weight: 700;
@@ -234,9 +332,11 @@ i.toggleMenu {
     background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
     box-shadow: 0 0 1px rgba(0,0,0,.5) inset, 0 2px 3px rgba(0,0,0,.5) inset, 0 1px 1px rgba(255,255,255,.1);
 }
+
 /* #endregion button */
 
 /* #region category grid list */
+
 .category-list {
     ul {
         .flexbox-model(row, horizontal);
@@ -255,6 +355,39 @@ i.toggleMenu {
         padding: 10px;
         margin: 10px;
         flex: 0 1 200px;
+
+        a {
+            color: #2a6496;
+            cursor: pointer;
+            text-decoration: none;
+        }
     }
 }
+
 /* #endregion category grid list*/
+
+/* #region element h */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+/* #endregion element h */
+
+/* #region label */
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* #endregion label*/
+

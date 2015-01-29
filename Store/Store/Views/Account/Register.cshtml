@@ -1,7 +1,7 @@
 ﻿@using Store.Parser
 @model Store.Models.RegisterViewModel
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
 {
     <div id="registerForm" data-load-form="Register" class="formItem">
         @Html.AntiForgeryToken()

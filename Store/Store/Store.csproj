@@ -265,6 +265,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\icons\png\bg-grey-arrow.png" />
     <Content Include="Content\icons\png\bg-left-col-hover.jpg" />
+    <Content Include="Content\icons\png\bg-nav-menu-item.jpg" />
     <Content Include="Content\icons\svg\toggleMenu.svg">
       <SubType>Designer</SubType>
     </Content>
