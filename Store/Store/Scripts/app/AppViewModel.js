@@ -19,9 +19,10 @@ function AppViewModel() {
                 success: function (data) {
                     var item = "";
                     $.each(data, function () {
-                        item += '<li><a><img src=/Content/img/LG.jpg /></a><a>' + this.Name + '</a></li>';
+                        item += '<li><a><img data-id=' + this.Id + ' src=/Content/img/LG.jpg /></a><a data-id=' +
+                            this.Id + '>' + this.Name + '</a></li>';
                     });
-                    $(".category-list").append("<ul>" + item + "</ul>");
+                    $(".category-list").append('<ul>' + item + '</ul>');
                 },
                 error: function () {
                     alert("error");
@@ -45,5 +46,53 @@ function AppViewModel() {
     };
 
     // #endregion menu toggle =======================================
+
+};
+
+$(document).ready(function () {
+    $(".category-list").on("click", function (e) {
+        if ($(e.target).is('.category-list img,a')) {
+            GetProduct($(e.target).data('id'));
+        }
+    });
+
+    function GetProduct(id) {
+        $.ajax({
+            url: '/api/Products/' + id,
+            type: 'GET',
+            success: function (data) {
+                SetDetailProduct(data);
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    };
+
+    function SetDetailProduct(product) {
+        var viewData = {
+            data: product
+        };
+        $.ajax({
+            url: '/Home/DetailProduct',
+            type: 'POST',
+            data: viewData,
+            success: function (data) {
+                $('.content').replaceWith(data);
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    };
+});
+
+function DetailViewModel() {
+
+    self = this;
+
+    self.DetailProduct = function () {
+
+    };
 
 };

@@ -26,5 +26,10 @@ namespace Store.Controllers
 
             return View();
         }
+
+        public PartialViewResult DetailProduct(Models.Product data)
+        {
+            return PartialView("~/Views/Shared/Partials/DetailProduct.cshtml", data); 
+        }
     }
 }

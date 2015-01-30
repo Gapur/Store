@@ -17,7 +17,7 @@ namespace Store.Controllers
 
     public class ProductsController : ApiController
     {
-        UserProductManager userProductManager = new UserProductManager();
+        ProductManager userProductManager = new ProductManager();
         private Entities db = new Entities();
 
         // GET: api/Products
@@ -28,10 +28,10 @@ namespace Store.Controllers
         }
 
         // GET: api/Products/5
-        [ResponseType(typeof(Product))]
+        [ResponseType(typeof(Models.Product))]
         public async Task<IHttpActionResult> GetProduct(Guid id)
         {
-            Product product = await db.Products.FindAsync(id);
+            Models.Product product = await userProductManager.GetProduct(id);
             if (product == null)
             {
                 return NotFound();

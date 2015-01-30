@@ -245,7 +245,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\ManufacturerManager.cs" />
-    <Compile Include="Managers\UserProductManager.cs" />
+    <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Device.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -324,6 +324,7 @@
     <Content Include="Scripts\jsfw\snap.svg-min.js" />
     <Content Include="Scripts\jsfw\snap.svg.js" />
     <Content Include="Scripts\jsfw\_references.js" />
+    <Content Include="Scripts\plugins\mustache.js" />
     <Content Include="Scripts\plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\plugins\snapsvg\svgicons-config.js" />
     <Content Include="Scripts\plugins\snapsvg\svgicons-definition.js" />
@@ -449,6 +450,8 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Layout.cshtml" />
     <Content Include="Views\Shared\Partials\Menu.cshtml" />
+    <Content Include="Views\Shared\Partials\Header.cshtml" />
+    <Content Include="Views\Shared\Partials\DetailProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
