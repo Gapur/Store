@@ -49,7 +49,7 @@ namespace Store
             #region CSS
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/css/Main.css"));
+                      "~/Content/css/animate.css"));
 
             #endregion CSS
 

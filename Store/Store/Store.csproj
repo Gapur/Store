@@ -249,6 +249,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Device.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\Product.cs" />
@@ -261,6 +262,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\icons\png\bg-grey-arrow.png" />
@@ -272,19 +274,30 @@
     <Content Include="Content\icons\svg\toggleMenuTest.svg">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\img\samsungS5.jpg" />
+    <Content Include="Content\img\iphone6_white.jpg" />
+    <Content Include="Content\img\Samsung_Alpha_black.jpg" />
+    <Content Include="Content\img\Samsung_alpha_white.jpg" />
+    <Content Include="Content\img\samsung_s5.jpg" />
+    <Content Include="Content\img\iPhone_S5_white.jpg" />
+    <Content Include="Content\img\HTC1.jpg" />
+    <Content Include="Content\img\iPhone_6_plus black.jpg" />
+    <Content Include="Content\img\Sony1.jpg" />
+    <Content Include="Content\img\iPhone_6_black.jpg" />
+    <Content Include="Content\img\iphone_5_cases.jpg" />
+    <Content Include="Content\img\iphone_5c_cases.jpg" />
+    <Content Include="Content\img\iphone_6.jpg" />
+    <Content Include="Content\img\iphone_6_plus_cases.jpg" />
+    <Content Include="Content\img\samsungS5_white.jpg" />
     <Content Include="Content\img\LG.jpg" />
     <Content Include="Content\img\samsungS4.jpg" />
-    <Content Include="Content\img\iphoneS5.jpg" />
+    <Content Include="Content\img\iphoneS5_white.jpg" />
     <Content Include="Content\img\iphone6Plus.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\app\AppViewModel.js" />
-    <Content Include="Scripts\app\DeviceViewModel.js" />
-    <Content Include="Scripts\app\ManufacturerActions.js" />
-    <Content Include="Scripts\app\ProductViewModel.js" />
+    <Content Include="Scripts\app\DetailViewModel.js" />
     <Content Include="Scripts\app\UserLogin.js" />
     <Content Include="Scripts\app\UserRegister.js" />
     <Content Include="Scripts\jsfw\bootstrap.js" />

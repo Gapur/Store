@@ -19,7 +19,7 @@ function AppViewModel() {
                 success: function (data) {
                     var item = "";
                     $.each(data, function () {
-                        item += '<li><a><img data-id=' + this.Id + ' src=/Content/img/LG.jpg /></a><a data-id=' +
+                        item += '<li><a><img data-id=' + this.Id + ' src=' + this.Images[0].Url + ' /></a><a data-id=' +
                             this.Id + '>' + this.Name + '</a></li>';
                     });
                     $(".category-list").append('<ul>' + item + '</ul>');
@@ -78,7 +78,8 @@ $(document).ready(function () {
             type: 'POST',
             data: viewData,
             success: function (data) {
-                $('.content').replaceWith(data);
+                $('.category-list').addClass('passive');
+                $('.content').append(data);
             },
             error: function () {
                 alert("error");
@@ -86,13 +87,3 @@ $(document).ready(function () {
         });
     };
 });
-
-function DetailViewModel() {
-
-    self = this;
-
-    self.DetailProduct = function () {
-
-    };
-
-};

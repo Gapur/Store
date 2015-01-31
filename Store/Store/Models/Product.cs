@@ -42,5 +42,8 @@ namespace Store.Models
 
         [Display(Name = "Процессор")]
         public System.Guid refProcessor { get; set; }
+
+        [Display(Name = "Изображение")]
+        public IEnumerable<Image> Images { get; set; }
     }
 }

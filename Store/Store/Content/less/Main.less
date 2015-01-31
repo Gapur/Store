@@ -12,6 +12,15 @@
     flex-direction: @direction;
 }
 
+.background-gradient(@from: #fff, @to: #fff) {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@from, endColorstr=@to);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=@from, endColorstr=@to)";
+    background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+    background: -moz-linear-gradient(top, @from, @to);
+    background: -o-linear-gradient(top, @from, @to);
+    background: -ms-linear-gradient(top, @from, @to);
+}
+
 /*#endregion mixins*/
 
 /*#region variable*/
@@ -246,6 +255,7 @@ i.toggleMenu {
 /* #endregion left-aside */
 
 /* #region content */
+
 .content {
     .flexbox-model(row, horizontal);
     height: 100%;
@@ -254,6 +264,11 @@ i.toggleMenu {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.passive {
+    display: none !important;
+}
+
 /* #endregion content */
 
 /* #region authentication form */
@@ -333,6 +348,47 @@ i.toggleMenu {
     box-shadow: 0 0 1px rgba(0,0,0,.5) inset, 0 2px 3px rgba(0,0,0,.5) inset, 0 1px 1px rgba(255,255,255,.1);
 }
 
+.basket-btn {
+    background: #fc732f;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16.86px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-top: 21px;
+    text-align: center;
+    text-decoration: none;
+    width: 171px;
+    cursor: pointer;
+}
+
+.pay-btn {
+    height: 50px;
+    margin-top: 21px;
+    font-weight: bold;
+    line-height: 53px;
+    width: 169px;
+    font-size: 16.86px;
+    text-align: center;
+    cursor: pointer;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+    text-decoration: none;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.9),inset 2px 2px 3px 0 rgba(255, 255, 255, 0.9);
+    .background-gradient(#fff10b, #ffc80b);
+}
+
+.pay-btn:hover {
+    color: #FFF;
+    .background-gradient(#ff9d0a, #ff700a);
+}
+
+.basket-btn:hover {
+    background: #b2b2b2;
+    color: #fff;
+}
+
 /* #endregion button */
 
 /* #region category grid list */
@@ -393,12 +449,58 @@ label {
 
 /* #endregion label*/
 
-
 /* #region detail content */
 
-.DetailContent{
-     .flexbox-model(column, vertical);
-     flex-wrap: wrap;
+.detail-info {
+    .flexbox-model(column, vertical);
+    flex-wrap: wrap;
+
+    .product {
+        .flexbox-model(row, horizontal);
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .product-image {
+            width: 400px;
+            height: 400px;
+        }
+
+        .product-buy {
+            .flexbox-model(column, vertical);
+            flex-wrap: wrap;
+            margin: 80px 0 0 80px;
+
+            .price {
+                color: #F36F21;
+                font-size: 78.28px;
+                font-weight: bold;
+                line-height: 79px;
+                margin-left: -6px;
+            }
+        }
+    }
+
+    .product-info {
+        .flexbox-model(column, vertical);
+        margin: 10px;
+
+        td {
+            padding: 5px;
+            border-bottom: 1px dotted #ccc;
+            border-right: 1px dotted #ccc;
+        }
+
+        .td-attr {
+            background-color: #f7f7f7;
+            border-left: 1px dotted #ccc !important;
+        }
+
+        .td-value {
+            background-color: #fff4e8;
+        }
+    }
 }
 
 /* #endregion detail content */
+
+
