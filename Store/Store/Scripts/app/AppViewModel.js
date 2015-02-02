@@ -1,4 +1,9 @@
-﻿var app = new AppViewModel();
+﻿/*
+ * Created by: Kassym Gapur
+ * Created: 02.02.2015
+ */
+
+var app = new AppViewModel();
 
 function AppViewModel() {
 
@@ -8,8 +13,14 @@ function AppViewModel() {
 
     self.initialize = function () {
 
+        appShow();
         initProductList();
         pluginsInitialize();
+
+        function appShow() {
+            if ($('.category-list').length > 0)
+                $('.filter-menu').removeClass('passive');
+        };
 
         function initProductList() {
             $.ajax({
@@ -17,12 +28,12 @@ function AppViewModel() {
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    var item = "";
                     $.each(data, function () {
-                        item += '<li><a><img data-id=' + this.Id + ' src=' + this.Images[0].Url + ' /></a><a data-id=' +
-                            this.Id + '>' + this.Name + '</a></li>';
+                        var item = $('<li><img data-bind=click:GetProduct data-id=' + this.Id + ' src=' + this.Images[0].Url +
+                            ' /><a data-bind=click:GetProduct data-id=' + this.Id + '>' + this.Name + '</a></li>');
+                        $(".category-list ul").append(item);
+                        ko.applyBindings(app, item[0]);
                     });
-                    $(".category-list").append('<ul>' + item + '</ul>');
                 },
                 error: function () {
                     alert("error");
@@ -47,26 +58,22 @@ function AppViewModel() {
 
     // #endregion menu toggle =======================================
 
-};
+    // #region manage product =======================================
 
-$(document).ready(function () {
-    $(".category-list").on("click", function (e) {
-        if ($(e.target).is('.category-list img,a')) {
-            GetProduct($(e.target).data('id'));
+    self.GetProduct = function (itSelf, event) {
+        if ($(event.target).is('.category-list img,a')) {
+            var id = $(event.target).data('id');
+            $.ajax({
+                url: '/api/Products/' + id,
+                type: 'GET',
+                success: function (data) {
+                    SetDetailProduct(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
         }
-    });
-
-    function GetProduct(id) {
-        $.ajax({
-            url: '/api/Products/' + id,
-            type: 'GET',
-            success: function (data) {
-                SetDetailProduct(data);
-            },
-            error: function () {
-                alert("error");
-            }
-        });
     };
 
     function SetDetailProduct(product) {
@@ -86,4 +93,21 @@ $(document).ready(function () {
             }
         });
     };
-});
+
+    // #endregion manage product =======================================
+
+    // #region callback product =======================================
+
+    self.callBack = function () {
+        $('.detail-info').addClass('fadeOutRight');
+        setTimeout(function () {
+            $('.category-list').removeClass('passive');
+            $('.detail-info').remove();
+        }, 700);
+    };
+
+    // #endregion callback product =======================================
+
+
+};
+

@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace Store.Controllers
 {
+    using Managers;
+
     public class HomeController : Controller
     {
+        ProductManager productManager = new ProductManager();
+
         public ActionResult Index()
         {
             return View();
@@ -30,6 +35,11 @@ namespace Store.Controllers
         public PartialViewResult DetailProduct(Models.Product data)
         {
             return PartialView("~/Views/Shared/Partials/DetailProduct.cshtml", data); 
+        }
+
+        public ActionResult ProductView()
+        {
+            return View();
         }
     }
 }

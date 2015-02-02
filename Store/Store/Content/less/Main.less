@@ -26,6 +26,7 @@
 /*#region variable*/
 
 @navbar-color: #1480c2;
+@left-aside-span: #2192cb;
 
 /*#endregion variable*/
 
@@ -162,7 +163,7 @@ i.toggleMenu {
     height: 100%;
     width: 0;
     margin-left: -250px;
-    background: #2192cb;
+    background: @left-aside-span;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-transition: all 0.5s ease;
@@ -171,7 +172,7 @@ i.toggleMenu {
     transition: all 0.5s ease;
 }
 
-.left-aside h2 {
+.left-aside h2, filter-menu h2 {
     background: @navbar-color;
     min-height: 45px;
     margin: 10px 10px 0px 10px;
@@ -405,6 +406,7 @@ i.toggleMenu {
         height: 170px;
         border-radius: 8px;
         border: 1px solid #C8C7C6;
+        cursor: pointer;
     }
 
     li {
@@ -503,4 +505,47 @@ label {
 
 /* #endregion detail content */
 
+/* #region filter menu */
 
+.filter-menu {
+    position: absolute;
+    width: 100%;
+    background: @left-aside-span;
+    margin: 20px 0 15px 0;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+    ul {
+        background: #f2f2f2;
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 0;
+            border-top: none;
+            border: 1px solid #dadada;
+            background: transparent;
+            clear: both;
+            list-style: none;
+            margin: 0;
+            padding: 3px 0;
+
+            a {
+                display: block;
+                padding: 8px 20px;
+                border: none;
+                font-size: 14px;
+                font-weight: 700;
+                color: #494949;
+                text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+/* #endregion filter menu*/

@@ -297,7 +297,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\app\AppViewModel.js" />
-    <Content Include="Scripts\app\DetailViewModel.js" />
     <Content Include="Scripts\app\UserLogin.js" />
     <Content Include="Scripts\app\UserRegister.js" />
     <Content Include="Scripts\jsfw\bootstrap.js" />
@@ -465,6 +464,8 @@
     <Content Include="Views\Shared\Partials\Menu.cshtml" />
     <Content Include="Views\Shared\Partials\Header.cshtml" />
     <Content Include="Views\Shared\Partials\DetailProduct.cshtml" />
+    <Content Include="Views\Home\ProductView.cshtml" />
+    <Content Include="Views\Shared\Partials\ProductFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
