@@ -79,6 +79,7 @@ function AppViewModel() {
                 success: function (data) {
                     $('.category-list').addClass('passive');
                     $('.content').append(data);
+                    generateProductInfo(product);
                 },
                 error: function () {
                     alert("error");
@@ -101,6 +102,8 @@ function AppViewModel() {
 
     // #endregion callback product =======================================
 
+    // #region filter product =======================================
+
     self.filterProduct = function (itSelf, event) {
         var type = $(event.target).data('type');
         $(".category-list ul").addClass('fadeOut');
@@ -117,6 +120,10 @@ function AppViewModel() {
         });
     };
 
+    // #endregion filter product =======================================
+
+    // #region build element product =======================================
+
     function buildProduct(data) {
         $(".category-list ul").empty();
         $.each(data, function () {
@@ -127,5 +134,6 @@ function AppViewModel() {
         });
     };
 
+    // #endregion build element product =======================================
 };
 

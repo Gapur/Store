@@ -244,6 +244,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\BuildEntity.cs" />
     <Compile Include="Managers\ManufacturerManager.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -484,6 +485,8 @@
     <Content Include="Views\Shared\Partials\DetailProduct.cshtml" />
     <Content Include="Views\Home\ProductView.cshtml" />
     <Content Include="Views\Shared\Partials\ProductFilter.cshtml" />
+    <Content Include="Views\Shared\Partials\PhoneInfo.cshtml" />
+    <Content Include="Views\Shared\Partials\NotebookInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,6 +25,9 @@ namespace Store.Models
         [Display(Name = "Оперативная память")]
         public int RAM { get; set; }
 
+        [Display(Name = "Операционная система")]
+        public string OperatingSystem { get; set; }
+
         [Display(Name = "WiFi")]
         public bool WiFi { get; set; }
 
@@ -33,9 +36,6 @@ namespace Store.Models
 
         [Display(Name = "Bluetooth")]
         public bool Bluetooth { get; set; }
-
-        [Display(Name = "Тип продукта")]
-        public int refDicProdType { get; set; }
 
         [Display(Name = "Объем встроенной памяти")]
         public string BuildMemory { get; set; }
@@ -60,5 +60,8 @@ namespace Store.Models
 
         [Display(Name = "Камера")]
         public Camera Camera { get; set; }
+
+        [Display(Name = "Тип продукта")]
+        public int TypeProduct { get; set; }
     }
 }

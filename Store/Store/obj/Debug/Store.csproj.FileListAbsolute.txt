@@ -97,5 +97,6 @@ C:\Ғапур\Epam\Store\Store\Store\bin\ru\Microsoft.Owin.Security.Facebook.res
 C:\Ғапур\Epam\Store\Store\Store\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 C:\Ғапур\Epam\Store\Store\Store\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Ғапур\Epam\Store\Store\Store\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Ғапур\Epam\Store\Store\Store\obj\Debug\Store.csprojResolveAssemblyReference.cache
 C:\Ғапур\Epam\Store\Store\Store\obj\Debug\Store.dll
 C:\Ғапур\Epam\Store\Store\Store\obj\Debug\Store.pdb

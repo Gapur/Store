@@ -3,6 +3,8 @@
 
 @{
     Image image = Model.Images.FirstOrDefault(img => img.refDevice == Model.Id);
+    string bluetooth = Model.Bluetooth == true ? "Есть" : "Нет";
+    string wifi = Model.WiFi == true ? "Есть" : "Нет";
 }
 
 <div class="detail-info animated fadeInRight">
@@ -23,23 +25,25 @@
         @{
             <table>
                 <tr><td class="td-attr">Наименование</td><td class="td-value">@Model.Name</td></tr>
-                <tr><td class="td-attr">Бренд</td><td class="td-value">@Model.Manufacturers.Name</td></tr>
-                <tr><td class="td-attr">Оперативная память (RAM), Мб</td><td class="td-value">@Model.RAM</td></tr>
-                <tr><td class="td-attr">Операционная система</td><td class="td-value"></td></tr>
+                <tr><td class="td-attr">Производитель</td><td class="td-value">@Model.Manufacturers.Name</td></tr>
                 <tr><td class="td-attr">Цена</td><td class="td-value">@Model.Price</td></tr>
-                <tr><td class="td-attr">WiFi</td><td class="td-value">@Model.WiFi</td></tr>
-                <tr><td class="td-attr">Объем встроенной памяти, Гб</td><td class="td-value">@Model.BuildMemory</td></tr>
-                <tr><td class="td-attr">Bluetooth</td><td class="td-value">@Model.Bluetooth</td></tr>
                 <tr><td class="td-attr">Цвет</td><td class="td-value">@Model.Color</td></tr>
-                <tr><td class="td-attr">Дата загрузки</td><td class="td-value">@Model.Date</td></tr>
+                <tr><td class="td-attr">Дата поступление продукта</td><td class="td-value">@Model.Date</td></tr>
+                <tr><td class="td-attr">WiFi</td><td class="td-value">@wifi</td></tr>
+                <tr><td class="td-attr">Дисплей</td><td class="td-value">@Model.Display.ScreenResolution</td></tr>
+                <tr><td class="td-attr">Bluetooth</td><td class="td-value">@bluetooth</td></tr>
+                @if (Model.TypeProduct == 1)
+                {
+                    @Html.Partial("Partials/PhoneInfo");
+                }
+                else if (Model.TypeProduct == 2)
+                {
+                    @Html.Partial("Partials/NotebookInfo");
+                }
             </table>
         }
     </div>
+    <script type="text/javascript">
+        ko.applyBindings(app, $('.detail-info')[0]);
+    </script>
 </div>
-
-<script type="text/javascript">
-    ko.applyBindings(app, $('.detail-info')[0]);
-</script>
-
-
-
