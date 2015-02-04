@@ -23,9 +23,9 @@
         @{
             <table>
                 <tr><td class="td-attr">Наименование</td><td class="td-value">@Model.Name</td></tr>
-                <tr><td class="td-attr">Бренд</td><td class="td-value">@Model.refManufacturers</td></tr>
+                <tr><td class="td-attr">Бренд</td><td class="td-value">@Model.Manufacturers.Name</td></tr>
                 <tr><td class="td-attr">Оперативная память (RAM), Мб</td><td class="td-value">@Model.RAM</td></tr>
-                <tr><td class="td-attr">Операционная система</td><td class="td-value">@Model.refProcessor</td></tr>
+                <tr><td class="td-attr">Операционная система</td><td class="td-value"></td></tr>
                 <tr><td class="td-attr">Цена</td><td class="td-value">@Model.Price</td></tr>
                 <tr><td class="td-attr">WiFi</td><td class="td-value">@Model.WiFi</td></tr>
                 <tr><td class="td-attr">Объем встроенной памяти, Гб</td><td class="td-value">@Model.BuildMemory</td></tr>

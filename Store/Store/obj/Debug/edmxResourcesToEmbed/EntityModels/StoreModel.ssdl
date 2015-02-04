@@ -31,7 +31,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Money" Type="money" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CardId" Type="int" Nullable="false" />
     <Property Name="refUser" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />

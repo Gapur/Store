@@ -3,7 +3,6 @@
   <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AspNetUsers" EntityType="Model.AspNetUser" />
     <EntitySet Name="Cameras" EntityType="Model.Camera" />
-    <EntitySet Name="Checks" EntityType="Model.Check" />
     <EntitySet Name="Devices" EntityType="Model.Device" />
     <EntitySet Name="DicProdTypes" EntityType="Model.DicProdType" />
     <EntitySet Name="Displays" EntityType="Model.Display" />
@@ -15,17 +14,9 @@
     <EntitySet Name="Processors" EntityType="Model.Processor" />
     <EntitySet Name="Products" EntityType="Model.Product" />
     <EntitySet Name="VideoCards" EntityType="Model.VideoCard" />
-    <AssociationSet Name="FK_Check_AspNetUsers" Association="Model.FK_Check_AspNetUsers">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="Check" EntitySet="Checks" />
-    </AssociationSet>
     <AssociationSet Name="FK_Devices_Cameras" Association="Model.FK_Devices_Cameras">
       <End Role="Camera" EntitySet="Cameras" />
       <End Role="Device" EntitySet="Devices" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Check_Devices" Association="Model.FK_Check_Devices">
-      <End Role="Device" EntitySet="Devices" />
-      <End Role="Check" EntitySet="Checks" />
     </AssociationSet>
     <AssociationSet Name="FK_Devices_DicProdTypes" Association="Model.FK_Devices_DicProdTypes">
       <End Role="DicProdType" EntitySet="DicProdTypes" />
@@ -71,6 +62,15 @@
       <End Role="Manufacturer" EntitySet="Manufacturers" />
       <End Role="VideoCard" EntitySet="VideoCards" />
     </AssociationSet>
+    <EntitySet Name="Checks" EntityType="Model.Check" />
+    <AssociationSet Name="FK_Check_AspNetUsers" Association="Model.FK_Check_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Check" EntitySet="Checks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Check_Devices" Association="Model.FK_Check_Devices">
+      <End Role="Device" EntitySet="Devices" />
+      <End Role="Check" EntitySet="Checks" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AspNetUser">
     <Key>
@@ -99,19 +99,6 @@
     <Property Name="MaxResolution" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Devices" Relationship="Model.FK_Devices_Cameras" FromRole="Camera" ToRole="Device" />
   </EntityType>
-  <EntityType Name="Check">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Money" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="CardId" Type="Int32" Nullable="false" />
-    <Property Name="refUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="refDevice" Type="Guid" Nullable="false" />
-    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_Check_AspNetUsers" FromRole="Check" ToRole="AspNetUser" />
-    <NavigationProperty Name="Device" Relationship="Model.FK_Check_Devices" FromRole="Check" ToRole="Device" />
-  </EntityType>
   <EntityType Name="Device">
     <Key>
       <PropertyRef Name="Id" />
@@ -131,7 +118,6 @@
     <Property Name="refProcessor" Type="Guid" />
     <Property Name="refPower" Type="Int32" />
     <NavigationProperty Name="Camera" Relationship="Model.FK_Devices_Cameras" FromRole="Device" ToRole="Camera" />
-    <NavigationProperty Name="Checks" Relationship="Model.FK_Check_Devices" FromRole="Device" ToRole="Check" />
     <NavigationProperty Name="DicProdType" Relationship="Model.FK_Devices_DicProdTypes" FromRole="Device" ToRole="DicProdType" />
     <NavigationProperty Name="Display" Relationship="Model.FK_Devices_Displays" FromRole="Device" ToRole="Display" />
     <NavigationProperty Name="HardDisk" Relationship="Model.FK_Devices_HardDisks" FromRole="Device" ToRole="HardDisk" />
@@ -142,6 +128,7 @@
     <NavigationProperty Name="VideoCard" Relationship="Model.FK_Devices_VideoCards" FromRole="Device" ToRole="VideoCard" />
     <NavigationProperty Name="Images" Relationship="Model.FK_Images_Devices" FromRole="Device" ToRole="Image" />
     <NavigationProperty Name="Product" Relationship="Model.FK_Products_Devices" FromRole="Device" ToRole="Product" />
+    <NavigationProperty Name="Checks" Relationship="Model.FK_Check_Devices" FromRole="Device" ToRole="Check" />
   </EntityType>
   <EntityType Name="DicProdType">
     <Key>
@@ -243,18 +230,6 @@
     <NavigationProperty Name="Devices" Relationship="Model.FK_Devices_VideoCards" FromRole="VideoCard" ToRole="Device" />
     <NavigationProperty Name="Manufacturer" Relationship="Model.FK_VideoCards_Manufacturers" FromRole="VideoCard" ToRole="Manufacturer" />
   </EntityType>
-  <Association Name="FK_Check_AspNetUsers">
-    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="Model.Check" Role="Check" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Check">
-        <PropertyRef Name="refUser" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Devices_Cameras">
     <End Type="Model.Camera" Role="Camera" Multiplicity="0..1" />
     <End Type="Model.Device" Role="Device" Multiplicity="*" />
@@ -264,18 +239,6 @@
       </Principal>
       <Dependent Role="Device">
         <PropertyRef Name="refCamera" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Check_Devices">
-    <End Type="Model.Device" Role="Device" Multiplicity="1" />
-    <End Type="Model.Check" Role="Check" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Device">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Check">
-        <PropertyRef Name="refDevice" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -408,6 +371,43 @@
       </Principal>
       <Dependent Role="VideoCard">
         <PropertyRef Name="refManufacturers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Check">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Money" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardId" Type="Int32" Nullable="false" />
+    <Property Name="refUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="refDevice" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_Check_AspNetUsers" FromRole="Check" ToRole="AspNetUser" />
+    <NavigationProperty Name="Device" Relationship="Model.FK_Check_Devices" FromRole="Check" ToRole="Device" />
+  </EntityType>
+  <Association Name="FK_Check_AspNetUsers">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.Check" Role="Check" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Check">
+        <PropertyRef Name="refUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Check_Devices">
+    <End Type="Model.Device" Role="Device" Multiplicity="1" />
+    <End Type="Model.Check" Role="Check" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Check">
+        <PropertyRef Name="refDevice" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

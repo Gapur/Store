@@ -7,7 +7,6 @@
       <Diagram DiagramId="01f3deddf11d40b3bba9fa5093f2f172" Name="Diagram1" ZoomLevel="106">
         <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="8.25" PointY="3.625" />
         <EntityTypeShape EntityType="Model.Camera" Width="1.5" PointX="3" PointY="1.625" />
-        <EntityTypeShape EntityType="Model.Check" Width="1.5" PointX="10.5" PointY="9.125" />
         <EntityTypeShape EntityType="Model.Device" Width="1.5" PointX="5.25" PointY="7.375" />
         <EntityTypeShape EntityType="Model.DicProdType" Width="1.5" PointX="3" PointY="4.125" />
         <EntityTypeShape EntityType="Model.Display" Width="1.5" PointX="3" PointY="6.5" />
@@ -19,9 +18,7 @@
         <EntityTypeShape EntityType="Model.Processor" Width="1.5" PointX="3" PointY="21" />
         <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="7.5" PointY="13.875" />
         <EntityTypeShape EntityType="Model.VideoCard" Width="1.5" PointX="3" PointY="12.5" />
-        <AssociationConnector Association="Model.FK_Check_AspNetUsers" />
         <AssociationConnector Association="Model.FK_Devices_Cameras" />
-        <AssociationConnector Association="Model.FK_Check_Devices" />
         <AssociationConnector Association="Model.FK_Devices_DicProdTypes" />
         <AssociationConnector Association="Model.FK_Devices_Displays" />
         <AssociationConnector Association="Model.FK_Devices_HardDisks" />
@@ -33,6 +30,9 @@
         <AssociationConnector Association="Model.FK_Images_Devices" />
         <AssociationConnector Association="Model.FK_Products_Devices" />
         <AssociationConnector Association="Model.FK_VideoCards_Manufacturers" />
+        <EntityTypeShape EntityType="Model.Check" Width="1.5" PointX="10.5" PointY="7.25" />
+        <AssociationConnector Association="Model.FK_Check_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_Check_Devices" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -41,11 +41,11 @@ namespace Store.Managers
                 Bluetooth = (product.Device.Bluetooth == null ? false : (bool)product.Device.Bluetooth),
                 BuildMemory = (product.Device.BuildMemory == null ? String.Empty : product.Device.BuildMemory),
                 WiFi = (product.Device.WiFi == null ? false : (bool)product.Device.WiFi),
-                refManufacturers = product.Device.refManufacturer,
-                refProcessor = (product.Device.refProcessor == null ? System.Guid.Empty : (System.Guid)product.Device.refProcessor),
+                Manufacturers = NewManufacturerEntity(product.Device.Manufacturer),
                 refDicProdType = product.Device.refDicProdType,
                 RAM = (product.Device.RAM == null ? 0 : (int)product.Device.RAM),
-                Images = (IEnumerable<Models.Image>)product.Device.Images.Select(img => NewImageEntity(img))
+                Images = (IEnumerable<Models.Image>)product.Device.Images.Select(img => NewImageEntity(img)),
+                Processor = product.Device.refProcessor == null ? null : NewProcessorEntity(product.Device.Processor),
             };
         }
 
@@ -57,6 +57,34 @@ namespace Store.Managers
                 Url = image.Url,
                 refDevice = image.refDevice
             };
+        }
+
+        public Models.Manufacturer NewManufacturerEntity(Manufacturer manufacturer)
+        {
+            return new Models.Manufacturer
+            {
+                Id = manufacturer.Id,
+                Name = manufacturer.Name,
+                Country = manufacturer.Country
+            };
+        }
+
+        public Models.Processor NewProcessorEntity(Processor processor)
+        {
+            return new Models.Processor
+            {
+                Id = processor.Id,
+                Type = processor.Type,
+                ClockSpeed = processor.ClockSpeed,
+                CountCore = processor.CountCore
+            };
+        }
+
+        private enum DictionaryProductType
+        {
+            Phone = 1,
+            Notebook,
+            TV
         }
     }
 }

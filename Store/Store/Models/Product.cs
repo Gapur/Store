@@ -29,7 +29,7 @@ namespace Store.Models
         public bool WiFi { get; set; }
 
         [Display(Name = "Производитель")]
-        public int refManufacturers { get; set; }
+        public Manufacturer Manufacturers { get; set; }
 
         [Display(Name = "Bluetooth")]
         public bool Bluetooth { get; set; }
@@ -41,9 +41,24 @@ namespace Store.Models
         public string BuildMemory { get; set; }
 
         [Display(Name = "Процессор")]
-        public System.Guid refProcessor { get; set; }
+        public Processor Processor { get; set; }
 
         [Display(Name = "Изображение")]
         public IEnumerable<Image> Images { get; set; }
+
+        [Display(Name = "Мощность")]
+        public Power Power { get; set; }
+
+        [Display(Name = "Видеокарта")]
+        public VideoCard VideoCard { get; set; }
+
+        [Display(Name = "Жесткий диск")]
+        public HardDisk HadrDisk { get; set; }
+
+        [Display(Name = "Дисплей")]
+        public Display Display { get; set; }
+
+        [Display(Name = "Камера")]
+        public Camera Camera { get; set; }
     }
 }

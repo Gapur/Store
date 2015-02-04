@@ -6,14 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Store.Models
 {
-    public class Image
-    {
-        [Display(Name = "Id")]
+    public class HardDisk
+    {        
         public int Id { get; set; }
 
-        [Display(Name = "Путь")]
-        public string Url { get; set; }
+        public string HDD { get; set; }
 
-        public System.Guid refDevice { get; set; }
+        public string SSD { get; set; }
     }
 }

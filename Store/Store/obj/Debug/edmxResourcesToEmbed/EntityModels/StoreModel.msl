@@ -28,18 +28,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Checks">
-      <EntityTypeMapping TypeName="Model.Check">
-        <MappingFragment StoreEntitySet="Check">
-          <ScalarProperty Name="refDevice" ColumnName="refDevice" />
-          <ScalarProperty Name="refUser" ColumnName="refUser" />
-          <ScalarProperty Name="CardId" ColumnName="CardId" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Money" ColumnName="Money" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Devices">
       <EntityTypeMapping TypeName="Model.Device">
         <MappingFragment StoreEntitySet="Devices">
@@ -154,6 +142,18 @@
           <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
           <ScalarProperty Name="Memory" ColumnName="Memory" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Checks">
+      <EntityTypeMapping TypeName="Model.Check">
+        <MappingFragment StoreEntitySet="Check">
+          <ScalarProperty Name="refDevice" ColumnName="refDevice" />
+          <ScalarProperty Name="refUser" ColumnName="refUser" />
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -16,8 +16,8 @@ namespace Store.EntityModels
     {
         public Device()
         {
-            this.Checks = new HashSet<Check>();
             this.Images = new HashSet<Image>();
+            this.Checks = new HashSet<Check>();
         }
     
         public System.Guid Id { get; set; }
@@ -36,7 +36,6 @@ namespace Store.EntityModels
         public Nullable<int> refPower { get; set; }
     
         public virtual Camera Camera { get; set; }
-        public virtual ICollection<Check> Checks { get; set; }
         public virtual DicProdType DicProdType { get; set; }
         public virtual Display Display { get; set; }
         public virtual HardDisk HardDisk { get; set; }
@@ -47,5 +46,6 @@ namespace Store.EntityModels
         public virtual VideoCard VideoCard { get; set; }
         public virtual ICollection<Image> Images { get; set; }
         public virtual Product Product { get; set; }
+        public virtual ICollection<Check> Checks { get; set; }
     }
 }

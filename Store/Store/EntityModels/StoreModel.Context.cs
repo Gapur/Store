@@ -27,7 +27,6 @@ namespace Store.EntityModels
     
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Camera> Cameras { get; set; }
-        public virtual DbSet<Check> Checks { get; set; }
         public virtual DbSet<Device> Devices { get; set; }
         public virtual DbSet<DicProdType> DicProdTypes { get; set; }
         public virtual DbSet<Display> Displays { get; set; }
@@ -39,5 +38,6 @@ namespace Store.EntityModels
         public virtual DbSet<Processor> Processors { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<VideoCard> VideoCards { get; set; }
+        public virtual DbSet<Check> Checks { get; set; }
     }
 }
