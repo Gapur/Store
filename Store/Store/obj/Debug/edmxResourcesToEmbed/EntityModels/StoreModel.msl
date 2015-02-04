@@ -4,146 +4,135 @@
     <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="Model.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cameras">
       <EntityTypeMapping TypeName="Model.Camera">
         <MappingFragment StoreEntitySet="Cameras">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ResolutionMatrix" ColumnName="ResolutionMatrix" />
           <ScalarProperty Name="MaxResolution" ColumnName="MaxResolution" />
+          <ScalarProperty Name="ResolutionMatrix" ColumnName="ResolutionMatrix" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Checks">
       <EntityTypeMapping TypeName="Model.Check">
         <MappingFragment StoreEntitySet="Check">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Money" ColumnName="Money" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="CardId" ColumnName="CardId" />
-          <ScalarProperty Name="refUser" ColumnName="refUser" />
           <ScalarProperty Name="refDevice" ColumnName="refDevice" />
+          <ScalarProperty Name="refUser" ColumnName="refUser" />
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Devices">
       <EntityTypeMapping TypeName="Model.Device">
         <MappingFragment StoreEntitySet="Devices">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="refHardDisk" ColumnName="refHardDisk" />
-          <ScalarProperty Name="RAM" ColumnName="RAM" />
-          <ScalarProperty Name="WiFi" ColumnName="WiFi" />
-          <ScalarProperty Name="refOperatingSystem" ColumnName="refOperatingSystem" />
-          <ScalarProperty Name="refManufacturer" ColumnName="refManufacturer" />
-          <ScalarProperty Name="refDisplay" ColumnName="refDisplay" />
-          <ScalarProperty Name="Bluetooth" ColumnName="Bluetooth" />
-          <ScalarProperty Name="refCamera" ColumnName="refCamera" />
-          <ScalarProperty Name="refVideoCard" ColumnName="refVideoCard" />
-          <ScalarProperty Name="refDicProdType" ColumnName="refDicProdType" />
-          <ScalarProperty Name="BuildMemory" ColumnName="BuildMemory" />
-          <ScalarProperty Name="refProcessor" ColumnName="refProcessor" />
           <ScalarProperty Name="refPower" ColumnName="refPower" />
+          <ScalarProperty Name="refProcessor" ColumnName="refProcessor" />
+          <ScalarProperty Name="BuildMemory" ColumnName="BuildMemory" />
+          <ScalarProperty Name="refDicProdType" ColumnName="refDicProdType" />
+          <ScalarProperty Name="refVideoCard" ColumnName="refVideoCard" />
+          <ScalarProperty Name="refCamera" ColumnName="refCamera" />
+          <ScalarProperty Name="Bluetooth" ColumnName="Bluetooth" />
+          <ScalarProperty Name="refDisplay" ColumnName="refDisplay" />
+          <ScalarProperty Name="refManufacturer" ColumnName="refManufacturer" />
+          <ScalarProperty Name="refOperatingSystem" ColumnName="refOperatingSystem" />
+          <ScalarProperty Name="WiFi" ColumnName="WiFi" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="refHardDisk" ColumnName="refHardDisk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DicProdTypes">
       <EntityTypeMapping TypeName="Model.DicProdType">
         <MappingFragment StoreEntitySet="DicProdTypes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Displays">
       <EntityTypeMapping TypeName="Model.Display">
         <MappingFragment StoreEntitySet="Displays">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ScreenResolution" ColumnName="ScreenResolution" />
-          <ScalarProperty Name="Width" ColumnName="Width" />
-          <ScalarProperty Name="Height" ColumnName="Height" />
           <ScalarProperty Name="FormatScreen" ColumnName="FormatScreen" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="ScreenResolution" ColumnName="ScreenResolution" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HardDisks">
       <EntityTypeMapping TypeName="Model.HardDisk">
         <MappingFragment StoreEntitySet="HardDisks">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="HDD" ColumnName="HDD" />
           <ScalarProperty Name="SSD" ColumnName="SSD" />
+          <ScalarProperty Name="HDD" ColumnName="HDD" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Images">
       <EntityTypeMapping TypeName="Model.Image">
         <MappingFragment StoreEntitySet="Images">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Url" ColumnName="Url" />
           <ScalarProperty Name="refDevice" ColumnName="refDevice" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Manufacturers">
       <EntityTypeMapping TypeName="Model.Manufacturer">
         <MappingFragment StoreEntitySet="Manufacturers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OperatingSystems">
       <EntityTypeMapping TypeName="Model.OperatingSystem">
         <MappingFragment StoreEntitySet="OperatingSystems">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Powers">
       <EntityTypeMapping TypeName="Model.Power">
         <MappingFragment StoreEntitySet="Power">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="BatteryWork" ColumnName="BatteryWork" />
-          <ScalarProperty Name="BatteryType" ColumnName="BatteryType" />
           <ScalarProperty Name="ChargeTime" ColumnName="ChargeTime" />
+          <ScalarProperty Name="BatteryType" ColumnName="BatteryType" />
+          <ScalarProperty Name="BatteryWork" ColumnName="BatteryWork" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Processors">
       <EntityTypeMapping TypeName="Model.Processor">
         <MappingFragment StoreEntitySet="Processors">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="ClockSpeed" ColumnName="ClockSpeed" />
           <ScalarProperty Name="CountCore" ColumnName="CountCore" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VideoCards">
-      <EntityTypeMapping TypeName="Model.VideoCard">
-        <MappingFragment StoreEntitySet="VideoCards">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Memory" ColumnName="Memory" />
+          <ScalarProperty Name="ClockSpeed" ColumnName="ClockSpeed" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
-          <ScalarProperty Name="GraphicsController" ColumnName="GraphicsController" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -153,6 +142,17 @@
           <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="DateOfCreate" ColumnName="DateOfCreate" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoCards">
+      <EntityTypeMapping TypeName="Model.VideoCard">
+        <MappingFragment StoreEntitySet="VideoCards">
+          <ScalarProperty Name="GraphicsController" ColumnName="GraphicsController" />
+          <ScalarProperty Name="refManufacturers" ColumnName="refManufacturers" />
+          <ScalarProperty Name="Memory" ColumnName="Memory" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

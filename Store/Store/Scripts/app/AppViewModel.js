@@ -13,32 +13,25 @@ function AppViewModel() {
 
     self.initialize = function () {
 
-        appShow();
         initProductList();
         pluginsInitialize();
 
-        function appShow() {
-            if ($('.category-list').length > 0)
-                $('.filter-menu').removeClass('passive');
-        };
-
         function initProductList() {
-            $.ajax({
-                url: '/api/Products/',
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    $.each(data, function () {
-                        var item = $('<li><img data-bind=click:GetProduct data-id=' + this.Id + ' src=' + this.Images[0].Url +
-                            ' /><a data-bind=click:GetProduct data-id=' + this.Id + '>' + this.Name + '</a></li>');
-                        $(".category-list ul").append(item);
-                        ko.applyBindings(app, item[0]);
-                    });
-                },
-                error: function () {
-                    alert("error");
-                }
-            });
+            if ($('.category-list').length > 0) {
+                $('.filter-menu').removeClass('passive').addClass("fadeInUp");
+                $.ajax({
+                    url: '/api/Products/',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        buildProduct(data);
+                        $(".category-list ul").addClass('fadeIn');
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                });
+            }
         }
 
         function pluginsInitialize() {
@@ -74,24 +67,24 @@ function AppViewModel() {
                 }
             });
         }
-    };
 
-    function SetDetailProduct(product) {
-        var viewData = {
-            data: product
+        function SetDetailProduct(product) {
+            var viewData = {
+                data: product
+            };
+            $.ajax({
+                url: '/Home/DetailProduct/',
+                type: 'POST',
+                data: viewData,
+                success: function (data) {
+                    $('.category-list').addClass('passive');
+                    $('.content').append(data);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
         };
-        $.ajax({
-            url: '/Home/DetailProduct',
-            type: 'POST',
-            data: viewData,
-            success: function (data) {
-                $('.category-list').addClass('passive');
-                $('.content').append(data);
-            },
-            error: function () {
-                alert("error");
-            }
-        });
     };
 
     // #endregion manage product =======================================
@@ -108,6 +101,31 @@ function AppViewModel() {
 
     // #endregion callback product =======================================
 
+    self.filterProduct = function (itSelf, event) {
+        var type = $(event.target).data('type');
+        $(".category-list ul").addClass('fadeOut');
+        $.ajax({
+            url: '/Products/' + type + '/FilterProducts',
+            type: 'GET',
+            success: function (data) {
+                buildProduct(data);
+                $(".category-list ul").removeClass('fadeOut').addClass("fadeIn");
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    };
+
+    function buildProduct(data) {
+        $(".category-list ul").empty();
+        $.each(data, function () {
+            var item = $('<li><img data-bind=click:GetProduct data-id=' + this.Id + ' src=' + this.Images[0].Url +
+                ' /><a data-bind=click:GetProduct data-id=' + this.Id + '>' + this.Name + '</a></li>');
+            $(".category-list ul").append(item);
+            ko.applyBindings(app, item[0]);
+        });
+    };
 
 };
 

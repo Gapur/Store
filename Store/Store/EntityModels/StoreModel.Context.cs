@@ -17,7 +17,7 @@ namespace Store.EntityModels
     {
         public Entities()
             : base("name=Entities")
-        {        
+        {
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace Store.EntityModels
         public virtual DbSet<OperatingSystem> OperatingSystems { get; set; }
         public virtual DbSet<Power> Powers { get; set; }
         public virtual DbSet<Processor> Processors { get; set; }
-        public virtual DbSet<VideoCard> VideoCards { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<VideoCard> VideoCards { get; set; }
     }
 }

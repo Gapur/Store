@@ -4,35 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="01f3deddf11d40b3bba9fa5093f2f172" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Camera" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Check" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Device" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.DicProdType" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Display" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.HardDisk" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Image" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Manufacturer" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.OperatingSystem" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Power" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Processor" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.VideoCard" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK_Check_AspNetUsers" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_Cameras" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Check_Devices" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_DicProdTypes" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_Displays" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_HardDisks" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_Manufacturers" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_OperatingSystems" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_Power" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_Processors" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Devices_VideoCards" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Images_Devices" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_VideoCards_Manufacturers" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="7.5" PointY="14.25" />
+      <Diagram DiagramId="01f3deddf11d40b3bba9fa5093f2f172" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="8.25" PointY="3.625" />
+        <EntityTypeShape EntityType="Model.Camera" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="Model.Check" Width="1.5" PointX="10.5" PointY="9.125" />
+        <EntityTypeShape EntityType="Model.Device" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="Model.DicProdType" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="Model.Display" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="Model.HardDisk" Width="1.5" PointX="3" PointY="18.5" />
+        <EntityTypeShape EntityType="Model.Image" Width="1.5" PointX="7.5" PointY="8" />
+        <EntityTypeShape EntityType="Model.Manufacturer" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="Model.OperatingSystem" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="Model.Power" Width="1.5" PointX="3" PointY="15.75" />
+        <EntityTypeShape EntityType="Model.Processor" Width="1.5" PointX="3" PointY="21" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="7.5" PointY="13.875" />
+        <EntityTypeShape EntityType="Model.VideoCard" Width="1.5" PointX="3" PointY="12.5" />
+        <AssociationConnector Association="Model.FK_Check_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_Devices_Cameras" />
+        <AssociationConnector Association="Model.FK_Check_Devices" />
+        <AssociationConnector Association="Model.FK_Devices_DicProdTypes" />
+        <AssociationConnector Association="Model.FK_Devices_Displays" />
+        <AssociationConnector Association="Model.FK_Devices_HardDisks" />
+        <AssociationConnector Association="Model.FK_Devices_Manufacturers" />
+        <AssociationConnector Association="Model.FK_Devices_OperatingSystems" />
+        <AssociationConnector Association="Model.FK_Devices_Power" />
+        <AssociationConnector Association="Model.FK_Devices_Processors" />
+        <AssociationConnector Association="Model.FK_Devices_VideoCards" />
+        <AssociationConnector Association="Model.FK_Images_Devices" />
         <AssociationConnector Association="Model.FK_Products_Devices" />
+        <AssociationConnector Association="Model.FK_VideoCards_Manufacturers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

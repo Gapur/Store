@@ -24,6 +24,11 @@ namespace Store.Managers
             return Task.FromResult(NewProductEntity(Repository.Entity<Product>(product => product.Id == id)));
         }
 
+        public Task<IEnumerable<Models.Product>> GetFilterProducts(int type)
+        {
+            return Task.FromResult(Repository.Set<Product>(product => product.Device.refDicProdType == type).Select(prod => NewProductEntity(prod)));
+        }
+
         public Models.Product NewProductEntity(Product product)
         {
             return new Models.Product
@@ -32,14 +37,14 @@ namespace Store.Managers
                 Name = product.Name,
                 Color = product.Color,
                 Price = product.Price,
-                Bluetooth = (bool)product.Device.Bluetooth,
-                BuildMemory = product.Device.BuildMemory,
-                WiFi = (bool)product.Device.WiFi,
                 Date = product.DateOfCreate,
+                Bluetooth = (product.Device.Bluetooth == null ? false : (bool)product.Device.Bluetooth),
+                BuildMemory = (product.Device.BuildMemory == null ? String.Empty : product.Device.BuildMemory),
+                WiFi = (product.Device.WiFi == null ? false : (bool)product.Device.WiFi),
                 refManufacturers = product.Device.refManufacturer,
-                refProcessor = (System.Guid)product.Device.refProcessor,
+                refProcessor = (product.Device.refProcessor == null ? System.Guid.Empty : (System.Guid)product.Device.refProcessor),
                 refDicProdType = product.Device.refDicProdType,
-                RAM = (int)product.Device.RAM,
+                RAM = (product.Device.RAM == null ? 0 : (int)product.Device.RAM),
                 Images = (IEnumerable<Models.Image>)product.Device.Images.Select(img => NewImageEntity(img))
             };
         }

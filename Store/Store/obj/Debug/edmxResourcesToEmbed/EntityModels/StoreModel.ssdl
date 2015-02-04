@@ -76,7 +76,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HDD" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SSD" Type="nvarchar" MaxLength="50" />
   </EntityType>
@@ -85,7 +85,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Url" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="Manufacturers">
@@ -108,7 +108,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BatteryWork" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="BatteryType" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ChargeTime" Type="nvarchar" MaxLength="50" Nullable="false" />

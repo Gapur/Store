@@ -40,6 +40,15 @@ namespace Store.Controllers
             return Ok(product);
         }
 
+        // GET: api/Products/FilterProducts/
+        [HttpGet]
+        [Route("Products/{type}/FilterProducts")]
+        public async Task<IHttpActionResult> GetFilterProducts(int type)
+        {
+            IEnumerable<Models.Product> result = await userProductManager.GetFilterProducts(type);
+            return Ok(result);
+        }
+
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutProduct(Guid id, Product product)

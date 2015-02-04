@@ -274,6 +274,18 @@
     <Content Include="Content\icons\svg\toggleMenuTest.svg">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\img\TCL1.jpg" />
+    <Content Include="Content\img\Supra1.jpg" />
+    <Content Include="Content\img\Samsung1.jpg" />
+    <Content Include="Content\img\LG1.jpg" />
+    <Content Include="Content\img\LG2.jpg" />
+    <Content Include="Content\img\lenovo3.jpg" />
+    <Content Include="Content\img\asus1.jpg" />
+    <Content Include="Content\img\asus2.jpg" />
+    <Content Include="Content\img\asus3.jpg" />
+    <Content Include="Content\img\asus4.jpg" />
+    <Content Include="Content\img\lenovo1.jpg" />
+    <Content Include="Content\img\lenovo2.jpg" />
     <Content Include="Content\img\iphone6_white.jpg" />
     <Content Include="Content\img\Samsung_Alpha_black.jpg" />
     <Content Include="Content\img\Samsung_alpha_white.jpg" />
