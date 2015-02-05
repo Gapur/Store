@@ -270,11 +270,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap-datetimepicker.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\icons\png\bg-grey-arrow.png" />
     <Content Include="Content\icons\png\bg-left-col-hover.jpg" />
     <Content Include="Content\icons\png\bg-nav-menu-item.jpg" />
+    <Content Include="Content\icons\png\time1.png" />
     <Content Include="Content\icons\svg\toggleMenu.svg">
       <SubType>Designer</SubType>
     </Content>
@@ -355,6 +357,9 @@
     <Content Include="Scripts\jsfw\snap.svg-min.js" />
     <Content Include="Scripts\jsfw\snap.svg.js" />
     <Content Include="Scripts\jsfw\_references.js" />
+    <Content Include="Scripts\plugins\datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\plugins\datetimepicker\moment.js" />
+    <Content Include="Scripts\plugins\datetimepicker\ru.js" />
     <Content Include="Scripts\plugins\mustache.js" />
     <Content Include="Scripts\plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\plugins\snapsvg\svgicons-config.js" />
@@ -487,6 +492,7 @@
     <Content Include="Views\Shared\Partials\ProductFilter.cshtml" />
     <Content Include="Views\Shared\Partials\PhoneInfo.cshtml" />
     <Content Include="Views\Shared\Partials\NotebookInfo.cshtml" />
+    <Content Include="Views\Home\UserSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

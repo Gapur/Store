@@ -1,4 +1,15 @@
-﻿@{
-    ViewData["type"] = "date";
+﻿@using Store.Parser
+
+@{
+    Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml";
 }
-@Html.Partial("~/Views/Shared/EditorTemplates/HtmlInput.cshtml")
+
+<label class="label-control">@ViewData.ModelMetadata.DisplayName</label>
+
+<div class='input-group date datetimepicker'>
+    <input type='text' id="@ViewData.TemplateInfo.HtmlFieldPrefix"
+           @ViewData.AdditionalData() required="required" class="form-control" data-date-format="DD.MM.YYYY" />
+    <span class="input-group-addon">
+        <span class="glyphicon"></span>
+    </span>
+</div>

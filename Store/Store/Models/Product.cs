@@ -17,12 +17,13 @@ namespace Store.Models
         public decimal Price { get; set; }
 
         [Display(Name = "Дата поступление продукта")]
+        [DataType(DataType.Date)]
         public string Date { get; set; }
 
         [Display(Name = "Цвет")]
         public string Color { get; set; }
 
-        [Display(Name = "Оперативная память")]
+        [Display(Name = "Оперативная память, Гб")]
         public int RAM { get; set; }
 
         [Display(Name = "Операционная система")]
@@ -37,7 +38,7 @@ namespace Store.Models
         [Display(Name = "Bluetooth")]
         public bool Bluetooth { get; set; }
 
-        [Display(Name = "Объем встроенной памяти")]
+        [Display(Name = "Объем встроенной памяти, Гб")]
         public string BuildMemory { get; set; }
 
         [Display(Name = "Процессор")]

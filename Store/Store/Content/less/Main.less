@@ -272,22 +272,22 @@ i.toggleMenu {
 
 /* #endregion content */
 
-/* #region authentication form */
+/* #region form control */
 
 .formItem {
     .flexbox-model(column, vertical);
     justify-content: space-between;
-    flex: 0 1 400px;
+    flex: 0 1 450px;
     background: #1480c2;
     border-radius: 1px;
     -webkit-border-radius: 6px;
     border: 3px solid #35a3d4;
 
-    .control-label {
-        padding-right: 10px;
-        font-size: 14px;
+    .label-control {
         color: #fff;
         text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+        padding-right: 10px;
+        font-size: 14px;
         font-weight: 700;
     }
 
@@ -296,15 +296,25 @@ i.toggleMenu {
         font-family: sans-serif;
         margin-left: 10px;
     }
+
+    .checkbox {
+        .flexbox-model(row, horizontal);
+        flex: 0 1 175px;
+    }
+
+    select {
+        flex: 0 1 175px;
+        font-size: 12px;
+    }
+
+    .item-control {
+        .flexbox-model(row);
+        justify-content: flex-end;
+        padding: 10px;
+    }
 }
 
-.item-control {
-    .flexbox-model(row);
-    justify-content: flex-end;
-    padding: 10px;
-}
-
-/* #endregion authentication form */
+/* #endregion form control */
 
 /* #region button */
 
@@ -549,3 +559,39 @@ label {
     }
 }
 /* #endregion filter menu*/
+
+/* #region datetimepicker */
+
+.input-group {
+    .flexbox-model(row, horizontal);
+    flex: 0 1 175px;
+}
+
+.input-group .form-control:first-child,
+.input-group-addon:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-control {
+    padding: 6px 9px;
+    font-size: 14px;
+    color: #555555;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-group-addon {
+    padding: 6px 12px 0px 8px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    border-left: 0;
+}
+
+.glyphicon {
+    background: transparent url(../icons/png/time1.png) no-repeat center top;
+}
+
+/* #endregion datetimepicker */
+

@@ -1,2 +1,7 @@
-﻿@{ Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml"; }
-@Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, new { @class = "text-box single-line", type = "number" } )
+﻿@{
+    Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml";
+}
+
+<label class="label-control">@ViewData.ModelMetadata.DisplayName</label>
+
+@Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, new { @class = "text-box single-line", type = "number" })

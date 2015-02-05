@@ -35,6 +35,10 @@ function AppViewModel() {
         }
 
         function pluginsInitialize() {
+            $('.datetimepicker').datetimepicker({
+                pickTime: false,
+                language: 'ru'
+            });
         };
     };
 
@@ -135,5 +139,32 @@ function AppViewModel() {
     };
 
     // #endregion build element product =======================================
+
+    // #region selected type product =======================================
+
+    this.selectedItems = ko.observableArray(null);
+
+    self.selectedItems.subscribe(function () {
+        switch (self.selectedItems()[0]) {
+            case "1":
+                $('.notebook-scope').addClass('passive');
+                $('.phone-scope').removeClass('passive').addClass('fadeIn');
+                break;
+            case "2":
+                $('.phone-scope').addClass('passive');
+                $('.notebook-scope').removeClass('passive').addClass('fadeIn');
+                break;
+            case "3":
+                $('.phone-scope').addClass('passive');
+                $('.notebook-scope').addClass('passive');
+                break;
+            default:
+                alert("Необходимо выбрать тип продукта");
+                break;
+        }
+    });
+
+    // #endregion selected type product =======================================
+
 };
 

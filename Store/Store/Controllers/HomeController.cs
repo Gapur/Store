@@ -41,5 +41,10 @@ namespace Store.Controllers
         {
             return View();
         }
+
+        public ActionResult UserSale()
+        {
+            return View();
+        }
     }
 }

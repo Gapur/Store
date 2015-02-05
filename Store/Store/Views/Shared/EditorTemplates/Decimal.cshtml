@@ -10,4 +10,7 @@
         formattedValue = ViewData.TemplateInfo.FormattedModelValue;
     }
 }
-@Html.TextBox("", formattedValue, new { @class = "text-box single-line" })
+
+<label class="label-control">@ViewData.ModelMetadata.DisplayName</label>
+
+@Html.TextBox("", formattedValue, new { @class = "input-text" })

@@ -34,8 +34,14 @@ namespace Store
                 "~/Scripts/plugins/snapsvg/svgicons.js",
                 "~/Scripts/plugins/snapsvg/svgicons-definition.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(
+                    "~/Scripts/plugins/datetimepicker/moment.js",
+                    "~/Scripts/plugins/datetimepicker/bootstrap-datetimepicker.js",
+                    "~/Scripts/plugins/datetimepicker/ru.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/slimScroll").Include(
-                    "~/Scripts/plugins/slimScroll/jquery.slimscroll.min.js"));
+                    "~/Scripts/plugins/slimScroll/jquery.slimscroll.min.js",
+                    "~/Scripts/plugins/mustache.js"));
 
             #endregion Frameworks scripts
 
@@ -49,7 +55,8 @@ namespace Store
             #region CSS
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/css/animate.css"));
+                      "~/Content/css/animate.css",
+                      "~/Content/css/bootstrap-datetimepicker.css"));
 
             #endregion CSS
 
