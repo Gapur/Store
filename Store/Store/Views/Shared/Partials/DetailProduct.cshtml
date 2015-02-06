@@ -16,8 +16,8 @@
         </div>
         <div class="product-buy">
             <div class="price">@Model.Price</div>
-            <a class="pay-btn">Купить</a>
-            <a class="basket-btn">В корзину</a>
+            <a class="pay-btn" data-bind="click:payProduct">Купить</a>
+            <a class="basket-btn" data-bind="click:putInBasket">В корзину</a>
         </div>
     </div>
     <div class="product-info">

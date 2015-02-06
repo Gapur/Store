@@ -18,12 +18,14 @@ function AppViewModel() {
 
         function initProductList() {
             if ($('.category-list').length > 0) {
+                $('.preloader').removeClass('passive');
                 $('.filter-menu').removeClass('passive').addClass("fadeInUp");
                 $.ajax({
                     url: '/api/Products/',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
+                        $('.preloader').addClass('passive');
                         buildProduct(data);
                         $(".category-list ul").addClass('fadeIn');
                     },
@@ -81,9 +83,9 @@ function AppViewModel() {
                 type: 'POST',
                 data: viewData,
                 success: function (data) {
+                    $('.detail-info').remove();
                     $('.category-list').addClass('passive');
                     $('.content').append(data);
-                    generateProductInfo(product);
                 },
                 error: function () {
                     alert("error");
@@ -145,26 +147,43 @@ function AppViewModel() {
     this.selectedItems = ko.observableArray(null);
 
     self.selectedItems.subscribe(function () {
+        $('.optional').removeClass('passive');
         switch (self.selectedItems()[0]) {
             case "1":
                 $('.notebook-scope').addClass('passive');
-                $('.phone-scope').removeClass('passive').addClass('fadeIn');
+                $('.phone-scope').removeClass('passive');
                 break;
             case "2":
                 $('.phone-scope').addClass('passive');
-                $('.notebook-scope').removeClass('passive').addClass('fadeIn');
+                $('.notebook-scope').removeClass('passive');
                 break;
             case "3":
-                $('.phone-scope').addClass('passive');
-                $('.notebook-scope').addClass('passive');
+                $('.optional').addClass('passive');
                 break;
             default:
+                $('.optional').addClass('passive');
                 alert("Необходимо выбрать тип продукта");
                 break;
         }
     });
 
     // #endregion selected type product =======================================
+
+    // #region pay product =======================================
+
+    self.payProduct = function () {
+        alert("В магазин сходи");
+    };
+
+    // #endregion pay product =======================================
+
+    // #region put the product in the basket =======================================
+
+    self.putInBasket = function () {
+        alert("В корзину");
+    };
+
+    // #endregion put the product in the basket =======================================
 
 };
 

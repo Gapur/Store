@@ -50,16 +50,16 @@ namespace Store.Models
         [Display(Name = "Мощность")]
         public Power Power { get; set; }
 
-        [Display(Name = "Видеокарта")]
+        [Display(Name = "Видеокарта, Гб")]
         public VideoCard VideoCard { get; set; }
 
-        [Display(Name = "Жесткий диск")]
+        [Display(Name = "Жесткий диск, Гб")]
         public HardDisk HadrDisk { get; set; }
 
         [Display(Name = "Дисплей")]
         public Display Display { get; set; }
 
-        [Display(Name = "Камера")]
+        [Display(Name = "Камера(mpx)")]
         public Camera Camera { get; set; }
 
         [Display(Name = "Тип продукта")]

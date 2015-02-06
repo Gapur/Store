@@ -6,20 +6,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@helper CreateSelect(string[] list, string id)
-{
-    <select id="@id">
-        @for (int i = 0; i < list.Length; i++)
-        {
-            <option value="@i">@list[i]</option>
-        }
-    </select>
-}
-@{
-    string[] HardDisks = { "Память(HDD, SSD)", "1000Гб", "500Гб", "500Гб, 128Гб", "500Гб, 50Гб", "2000Гб, 100Гб" };
-    string[] OperSystemList = { "Операционная система", "Android", "iOS", "Windows 8", "Windows 8.1", "Windows 10", "Linux", "Windows Phone" };
-}
-
 <div class="formItem">
     <h2>Подать объявление</h2>
     <div class="main-scope">
@@ -30,6 +16,14 @@
         @Html.EditorFor(m => m.Bluetooth, new { data_bind = "value: Bluetooth" })
         @Html.EditorFor(m => m.WiFi, new { data_bind = "value: WiFi" })
         <div class="item-control">
+            @Html.LabelFor(m => m.Manufacturers, new { @class = "label-control" })
+            @Html.DropDownListFor(m => m.Manufacturers, ViewBag.Manufacturer as SelectList)
+        </div>
+        <div class="item-control">
+            @Html.LabelFor(m => m.Display, new { @class = "label-control" })
+            @Html.DropDownListFor(m => m.Display, ViewBag.Display as SelectList)
+        </div>
+        <div class="item-control">
             @Html.LabelFor(m => m.TypeProduct, new { @class = "label-control" })
             <select id="typeProduct" data-bind="selectedOptions:selectedItems">
                 <option value="0">Тип продукта</option>
@@ -39,23 +33,32 @@
             </select>
         </div>
     </div>
-    <div class="phone-scope passive animated">
+    <div class="optional passive animated fadeIn">
         @Html.EditorFor(m => m.RAM, new { data_bind = "value: RAM" })
         <div class="item-control">
             @Html.LabelFor(m => m.OperatingSystem, new { @class = "label-control" })
-            @CreateSelect(OperSystemList, "OperatingSystem")
-        </div>
-        @Html.EditorFor(m => m.BuildMemory, new { data_bind = "value: BuildMemory" })
-    </div>
-    <div class="notebook-scope passive animated">
-        @Html.EditorFor(m => m.RAM, new { data_bind = "value: RAM" })
-        <div class="item-control">
-            @Html.LabelFor(m => m.OperatingSystem, new { @class = "label-control" })
-            @CreateSelect(OperSystemList, "OperatingSystem")
+            @Html.DropDownListFor(m => m.OperatingSystem, ViewBag.OperSystem as SelectList)
         </div>
         <div class="item-control">
-            @Html.LabelFor(m => m.HadrDisk, new { @class = "label-control" })
-            @CreateSelect(HardDisks, "HardDisk")
+            @Html.LabelFor(m => m.Processor, new { @class = "label-control" })
+            @Html.DropDownListFor(m => m.Processor, ViewBag.Processor as SelectList)
+        </div>
+        <div class="phone-scope passive animated fadeIn">
+            @Html.EditorFor(m => m.BuildMemory, new { data_bind = "value: BuildMemory" })
+            <div class="item-control">
+                @Html.LabelFor(m => m.Camera, new { @class = "label-control" })
+                @Html.DropDownListFor(m => m.Camera, ViewBag.Camera as SelectList)
+            </div>
+        </div>
+        <div class="notebook-scope passive animated fadeIn">
+            <div class="item-control">
+                @Html.LabelFor(m => m.HadrDisk, new { @class = "label-control" })
+                @Html.DropDownListFor(m => m.HadrDisk, ViewBag.HardDisk as SelectList)
+            </div>
+            <div class="item-control">
+                @Html.LabelFor(m => m.VideoCard, new { @class = "label-control" })
+                @Html.DropDownListFor(m => m.VideoCard, ViewBag.VideoCard as SelectList)
+            </div>
         </div>
     </div>
     <div class="item-control">

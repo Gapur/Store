@@ -11,8 +11,6 @@ namespace Store.Controllers
 
     public class HomeController : Controller
     {
-        ProductManager productManager = new ProductManager();
-
         public ActionResult Index()
         {
             return View();
@@ -34,7 +32,7 @@ namespace Store.Controllers
 
         public PartialViewResult DetailProduct(Models.Product data)
         {
-            return PartialView("~/Views/Shared/Partials/DetailProduct.cshtml", data); 
+            return PartialView("~/Views/Shared/Partials/DetailProduct.cshtml", data);
         }
 
         public ActionResult ProductView()
@@ -44,6 +42,17 @@ namespace Store.Controllers
 
         public ActionResult UserSale()
         {
+            Transactions.Transaction tr = new Transactions.Transaction();
+            Models.BaseEntity entities = tr.GetManufacturer();
+            ViewBag.Manufacturer = new SelectList(entities.ManufacturerList, "Id", "Name");
+            ViewBag.Camera = new SelectList(entities.CameraList, "Id", "ResolutionMatrix","MaxResolution");
+            ViewBag.HardDisk = new SelectList(entities.HardDiskList, "Id", "HDD");
+            ViewBag.Processor = new SelectList(entities.ProcessorList, "Id", "Type");
+            ViewBag.OperSystem = new SelectList(entities.OperSystemList, "Id", "Name");
+            ViewBag.VideoCard = new SelectList(entities.VideoCardList, "Id", "Memory");
+            ViewBag.Power = new SelectList(entities.PowerList, "Id", "BatteryWork");
+            ViewBag.Display = new SelectList(entities.DisplayList, "Id", "ScreenResolution");
+
             return View();
         }
     }
