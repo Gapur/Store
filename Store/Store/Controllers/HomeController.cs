@@ -45,7 +45,7 @@ namespace Store.Controllers
             Transactions.Transaction tr = new Transactions.Transaction();
             Models.BaseEntity entities = tr.GetManufacturer();
             ViewBag.Manufacturer = new SelectList(entities.ManufacturerList, "Id", "Name");
-            ViewBag.Camera = new SelectList(entities.CameraList, "Id", "ResolutionMatrix","MaxResolution");
+            ViewBag.Camera = new SelectList(entities.CameraList, "Id", "ResolutionMatrix", "MaxResolution");
             ViewBag.HardDisk = new SelectList(entities.HardDiskList, "Id", "HDD");
             ViewBag.Processor = new SelectList(entities.ProcessorList, "Id", "Type");
             ViewBag.OperSystem = new SelectList(entities.OperSystemList, "Id", "Name");
@@ -53,6 +53,11 @@ namespace Store.Controllers
             ViewBag.Power = new SelectList(entities.PowerList, "Id", "BatteryWork");
             ViewBag.Display = new SelectList(entities.DisplayList, "Id", "ScreenResolution");
 
+            return View();
+        }
+
+        public ActionResult Basket()
+        {
             return View();
         }
     }

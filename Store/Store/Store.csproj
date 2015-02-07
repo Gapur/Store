@@ -277,9 +277,12 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\icons\gif\preloader.gif" />
+    <Content Include="Content\icons\png\basket1.png" />
     <Content Include="Content\icons\png\bg-grey-arrow.png" />
     <Content Include="Content\icons\png\bg-left-col-hover.jpg" />
     <Content Include="Content\icons\png\bg-nav-menu-item.jpg" />
+    <Content Include="Content\icons\png\check.jpg" />
+    <Content Include="Content\icons\png\sale1.jpg" />
     <Content Include="Content\icons\png\time1.png" />
     <Content Include="Content\icons\svg\toggleMenu.svg">
       <SubType>Designer</SubType>
@@ -497,6 +500,7 @@
     <Content Include="Views\Shared\Partials\PhoneInfo.cshtml" />
     <Content Include="Views\Shared\Partials\NotebookInfo.cshtml" />
     <Content Include="Views\Home\UserSale.cshtml" />
+    <Content Include="Views\Home\Basket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

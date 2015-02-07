@@ -3,14 +3,33 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="navbar-nav">
-        <li>
-            @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
-    </ul>
+        <ul class="navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-bind="click: toggleNavbarMenu">@User.Identity.GetUserName()</a>
+                <ul class="dropdown-menu">
+                    <li class="header"><span>Пользователь</span></li>
+                    <li>
+                        <ul class="drop-menu-item">
+                            <li>
+                                <img src="~/Content/icons/png/basket1.png" />
+                                <a href="/Home/Basket">Моя корзина</a>
+                            </li>
+                            <li>
+                                <img src="~/Content/icons/png/check.jpg" />
+                                <a href="#">Мой чек </a>
+                            </li>
+                            <li>
+                                <img src="~/Content/icons/png/sale1.jpg" />
+                                <a href="#">Список покупок</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+        </ul>
     }
 }
 else

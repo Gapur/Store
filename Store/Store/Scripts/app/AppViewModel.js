@@ -144,7 +144,7 @@ function AppViewModel() {
 
     // #region selected type product =======================================
 
-    this.selectedItems = ko.observableArray(null);
+    self.selectedItems = ko.observableArray(null);
 
     self.selectedItems.subscribe(function () {
         $('.optional').removeClass('passive');
@@ -184,6 +184,18 @@ function AppViewModel() {
     };
 
     // #endregion put the product in the basket =======================================
+
+    // #region navbar-right ====================================
+
+    self.toggleNavbarMenu = function (itSelf, event) {
+        $('.dropdown-menu').toggleClass('open');
+        $(document).click(function (e) {
+            if (!$(e.target).is('.navbar-nav > li, .navbar-nav > li *'))
+                $(".navbar-nav > li.dropdown ul").removeClass("open");
+        });
+    }
+
+    // #endregion navbar-right ==================================
 
 };
 
