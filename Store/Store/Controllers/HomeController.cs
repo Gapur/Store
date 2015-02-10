@@ -55,10 +55,5 @@ namespace Store.Controllers
 
             return View();
         }
-
-        public ActionResult Basket()
-        {
-            return View();
-        }
     }
 }

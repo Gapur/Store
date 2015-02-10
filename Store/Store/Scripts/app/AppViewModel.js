@@ -96,18 +96,6 @@ function AppViewModel() {
 
     // #endregion manage product =======================================
 
-    // #region callback product =======================================
-
-    self.callBack = function () {
-        $('.detail-info').addClass('fadeOutRight');
-        setTimeout(function () {
-            $('.category-list').removeClass('passive');
-            $('.detail-info').remove();
-        }, 700);
-    };
-
-    // #endregion callback product =======================================
-
     // #region filter product =======================================
 
     self.filterProduct = function (itSelf, event) {
@@ -175,15 +163,7 @@ function AppViewModel() {
         alert("В магазин сходи");
     };
 
-    // #endregion pay product =======================================
-
-    // #region put the product in the basket =======================================
-
-    self.putInBasket = function () {
-        alert("В корзину");
-    };
-
-    // #endregion put the product in the basket =======================================
+    // #endregion pay product ======================================= 
 
     // #region navbar-right ====================================
 

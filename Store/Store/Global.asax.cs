@@ -20,6 +20,7 @@ namespace Store
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             BundleTable.EnableOptimizations = false;
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            ModelBinders.Binders.Add(typeof(ShoppingCart.Cart), new ShoppingCart.CartModelBinder());
         }
     }
 }

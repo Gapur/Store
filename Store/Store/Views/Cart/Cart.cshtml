@@ -1,0 +1,22 @@
+﻿@using Store.Models
+@model CartIndexViewModel
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart</h2>
+
+<table>
+    @foreach (var cart in Model.Cart.Lines)
+    {
+        <tr>
+            <td>@cart.ShoppingCart.Id</td>
+            <td>@cart.ShoppingCart.Name</td>
+            <td>@cart.ShoppingCart.Price</td>
+            <td>@cart.ShoppingCart.ImageUrl</td>
+            <td>@cart.Quantity</td>
+        </tr>
+    }
+</table>

@@ -182,9 +182,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Models\CartIndexViewModel.cs" />
+    <Compile Include="Models\CartLine.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="ShoppingCart\Cart.cs" />
     <Compile Include="EntityModels\AspNetUser.cs">
       <DependentUpon>StoreModel.tt</DependentUpon>
     </Compile>
@@ -268,6 +273,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\HostRepository.cs" />
     <Compile Include="Repositories\IHostRepository.cs" />
+    <Compile Include="ShoppingCart\CartModelBinder.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Transactions\Transaction.cs" />
   </ItemGroup>
@@ -325,6 +331,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Scripts\app\AppViewModel.js" />
+    <Content Include="Scripts\app\ShoppingControl.js" />
     <Content Include="Scripts\app\UserLogin.js" />
     <Content Include="Scripts\app\UserRegister.js" />
     <Content Include="Scripts\jsfw\bootstrap.js" />
@@ -500,7 +507,7 @@
     <Content Include="Views\Shared\Partials\PhoneInfo.cshtml" />
     <Content Include="Views\Shared\Partials\NotebookInfo.cshtml" />
     <Content Include="Views\Home\UserSale.cshtml" />
-    <Content Include="Views\Home\Basket.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

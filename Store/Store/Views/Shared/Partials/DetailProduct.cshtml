@@ -1,5 +1,6 @@
 ﻿@using Store.Models
 @model Product
+<script src="~/Scripts/app/ShoppingControl.js"></script>
 
 @{
     Image image = Model.Images.FirstOrDefault(img => img.refDevice == Model.Id);
@@ -9,15 +10,15 @@
 
 <div class="detail-info animated fadeInRight">
     <a id="back" data-bind="click:callBack" class="basket-btn">Назад</a>
-    <h2><span>@Model.Name</span></h2>
+    <h2><span data-bind="text:productName">@Model.Name</span></h2>
     <div class="product">
         <div class="product-image">
-            <img class="product-image" src=@image.Url />
+            <img class="product-image" data-bind="attr:{scr:imageUrl}" src=@image.Url />
         </div>
         <div class="product-buy">
-            <div class="price">@Model.Price</div>
-            <a class="pay-btn" data-bind="click:payProduct">Купить</a>
-            <a class="basket-btn" data-bind="click:putInBasket">В корзину</a>
+            <div data-bind="value:price" class="price">@Model.Price</div>
+            <input data-bind="value:productId" type="hidden" value=@Model.Id />
+            <a class="pay-btn" data-bind="click:putInBasket">В корзину</a>
         </div>
     </div>
     <div class="product-info">
@@ -44,6 +45,6 @@
         }
     </div>
     <script type="text/javascript">
-        ko.applyBindings(app, $('.detail-info')[0]);
+        ko.applyBindings(new ShopDataModel(), $('.detail-info')[0]);
     </script>
 </div>
