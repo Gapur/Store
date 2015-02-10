@@ -36,7 +36,7 @@ namespace Store.ShoppingCart
             }
         }
 
-        public void RemoveLine(int Id)
+        public void RemoveLine(System.Guid Id)
         {
             lineCollection.RemoveAll(l => l.ShoppingCart.Id == Id);
         }

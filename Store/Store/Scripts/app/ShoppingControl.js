@@ -15,7 +15,6 @@
             ImageUrl: self.imageUrl(),
             Price: self.price()
         };
-        debugger
         $.ajax({
             url: '/Cart/AddToCart/',
             type: 'POST',

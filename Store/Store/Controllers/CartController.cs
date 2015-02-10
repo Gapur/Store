@@ -31,7 +31,7 @@ namespace Store.Controllers
             return true;
         }
 
-        public RedirectToRouteResult RemoveFromCart(Cart cart, int productId)
+        public RedirectToRouteResult RemoveFromCart(Cart cart, System.Guid productId)
         {
             cart.RemoveLine(productId);
             return RedirectToAction("Index");

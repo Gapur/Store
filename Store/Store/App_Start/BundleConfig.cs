@@ -48,7 +48,8 @@ namespace Store
             #region Custom scripts
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/app/AppViewModel.js"));
+                "~/Scripts/app/AppViewModel.js",
+                "~/Scripts/app/ShoppingControl.js"));
 
             #endregion Custom scripts
 

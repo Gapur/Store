@@ -2,21 +2,32 @@
 @model CartIndexViewModel
 
 @{
-    ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cart</h2>
-
-<table>
-    @foreach (var cart in Model.Cart.Lines)
-    {
-        <tr>
-            <td>@cart.ShoppingCart.Id</td>
-            <td>@cart.ShoppingCart.Name</td>
-            <td>@cart.ShoppingCart.Price</td>
-            <td>@cart.ShoppingCart.ImageUrl</td>
-            <td>@cart.Quantity</td>
-        </tr>
-    }
-</table>
+<div class="shopping-cart">
+    <table>
+        <thead>
+            <tr>
+                <th class="item-image">Изображение</th>
+                <th class="item-name">Наименование</th>
+                <th class="item-price">Цена</th>
+                <th class="item-quentity">Количество</th>
+                <th class="item-action"></th>
+            </tr>
+        </thead>
+        @foreach (var cart in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="item-image"><img src=@cart.ShoppingCart.ImageUrl /></td>
+                <td class="item-name"><span>@cart.ShoppingCart.Name</span></td>
+                <td class="item-price"><span>@cart.ShoppingCart.Price</span></td>
+                <td class="item-quentity"><span>@cart.Quantity</span></td>
+                <td class="item-action">
+                    <input data-bind="value:productId" type="hidden" value=@cart.ShoppingCart.Id />
+                    <input type="submit" class="btn" value="Удалить" />
+                </td>
+            </tr>
+        }
+    </table>
+</div>

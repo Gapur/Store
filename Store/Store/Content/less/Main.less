@@ -714,3 +714,96 @@ label {
 
 /* #endregion preloader */
 
+/* #region shopping cart */
+
+.shopping-cart {
+    .flexbox-model(column, vertical);
+
+    table {
+        .flexbox-model(column, vertical);
+        border-collapse: collapse;
+        background: #fff;
+
+        thead {
+
+            tr {
+                .flexbox-model(row, horizontal);
+                justify-content: flex-start;
+                flex: 1 0 auto;
+                height: 30px;
+                background: #55a8ca;
+                border-top: 6px solid #f6b018;
+                border-top-right-radius: 5px;
+                border-top-left-radius: 5px;
+                font-size: 1em;
+                font-weight: 700;
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+
+        tbody {
+
+            tr {
+                .flexbox-model(row, horizontal);
+                border-bottom: 2px solid #f6b018;
+                padding: 15px 0;
+
+                img {
+                    width: 170px;
+                    height: 170px;
+                }
+            }
+        }
+
+        .item-image {
+            width: 170px;
+            text-align: center;
+        }
+
+        .item-name {
+            width: 300px;
+            text-align: left;
+        }
+
+        .item-price {
+            width: 100px;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .item-quentity {
+            width: 50px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .item-action {
+            flex: 0 0 100px;
+        }
+
+        td, th {
+            .flexbox-model(column, vertical);
+            justify-content: center;
+            margin: 0 30px 0 30px;
+
+            span {
+                font-size: 16px;
+                color: #065994;
+            }
+        }
+
+        @media screen and (max-width:910px) {
+            tbody tr img {
+                width: 100px;
+                height: 100px;
+            }
+
+            td, th {
+                margin: 0 10px 0 10px;
+            }
+        }
+    }
+}
+
+/* #endregion shopping cart */
