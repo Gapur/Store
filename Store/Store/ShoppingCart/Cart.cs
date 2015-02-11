@@ -16,36 +16,52 @@ namespace Store.ShoppingCart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
 
-        public void AddItem(ShoppingCart cart, int quantity)
+        public bool AddItem(ShoppingCart cart, int quantity)
         {
-            CartLine line = lineCollection
-                .Where(g => g.ShoppingCart.Id == cart.Id)
-                .FirstOrDefault();
+            try
+            {
+                CartLine line = lineCollection
+                    .Where(g => g.ShoppingCart.Id == cart.Id)
+                    .FirstOrDefault();
 
-            if (line == null)
-            {
-                lineCollection.Add(new CartLine
+                if (line == null)
                 {
-                    ShoppingCart = cart,
-                    Quantity = quantity
-                });
+                    lineCollection.Add(new CartLine
+                    {
+                        ShoppingCart = cart,
+                        Quantity = quantity
+                    });
+                }
+                else
+                {
+                    line.Quantity += quantity;
+                }
+                return true;
             }
-            else
+            catch (Exception ex)
             {
-                line.Quantity += quantity;
             }
+            return false;
         }
 
-        public void RemoveLine(System.Guid Id)
+        public bool RemoveLine(System.Guid Id)
         {
-            lineCollection.RemoveAll(l => l.ShoppingCart.Id == Id);
+            try
+            {
+                lineCollection.RemoveAll(l => l.ShoppingCart.Id == Id);
+                return true;
+            }
+            catch (Exception ex)
+            {
+            }
+            return false;
         }
 
         public decimal ComputeTotalValue()
         {
             return lineCollection.Sum(e => e.ShoppingCart.Price * e.Quantity);
-
         }
+
         public void Clear()
         {
             lineCollection.Clear();

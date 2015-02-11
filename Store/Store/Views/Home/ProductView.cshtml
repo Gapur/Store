@@ -6,6 +6,19 @@
 <div class="category-list">
     <ul class="animated"></ul>
     <div class="preloader passive">
-        <img src="~/Content/icons/gif/preloader.gif"/>
+        <img src="~/Content/icons/gif/preloader.gif" />
     </div>
 </div>
+<div id="dialog" class="window">
+    <div class="title"></div>
+    <div class="description">
+        <p>В корзину добавлен товар:</p>
+        <span></span>
+        <div class="buttons">
+            <a class="modal-btn" data-bind="click:revertProduct">Продолжить покупки</a>
+            <a class="modal-btn" href="/Cart/Cart">Перейти в корзину</a>
+        </div>      
+    </div>
+    <div class="close" data-bind="click:closeModalWindow"></div>
+</div>
+<div id="mask" data-bind="click:closeModalWindow"></div>

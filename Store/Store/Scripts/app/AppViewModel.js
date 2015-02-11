@@ -26,11 +26,10 @@ function AppViewModel() {
                     dataType: 'json',
                     success: function (data) {
                         $('.preloader').addClass('passive');
-                        buildProduct(data);
+                        self.buildProduct(data);
                         $(".category-list ul").addClass('fadeIn');
                     },
                     error: function () {
-                        alert("error");
                     }
                 });
             }
@@ -105,7 +104,7 @@ function AppViewModel() {
             url: '/Products/' + type + '/FilterProducts',
             type: 'GET',
             success: function (data) {
-                buildProduct(data);
+                self.buildProduct(data);
                 $(".category-list ul").removeClass('fadeOut').addClass("fadeIn");
             },
             error: function () {
@@ -118,7 +117,7 @@ function AppViewModel() {
 
     // #region build element product =======================================
 
-    function buildProduct(data) {
+    self.buildProduct = function (data) {
         $(".category-list ul").empty();
         $.each(data, function () {
             var item = $('<li><img data-bind=click:GetProduct data-id=' + this.Id + ' src=' + this.Images[0].Url +
@@ -157,14 +156,6 @@ function AppViewModel() {
 
     // #endregion selected type product =======================================
 
-    // #region pay product =======================================
-
-    self.payProduct = function () {
-        alert("В магазин сходи");
-    };
-
-    // #endregion pay product ======================================= 
-
     // #region navbar-right ====================================
 
     self.toggleNavbarMenu = function (itSelf, event) {
@@ -177,5 +168,56 @@ function AppViewModel() {
 
     // #endregion navbar-right ==================================
 
+    // #region pay product =======================================
+
+    self.payProduct = function () {
+        alert("В магазин сходи");
+    };
+
+    // #endregion pay product ======================================= 
+
+    // #region remove cart =======================================
+
+    self.removeCart = function (itSelf, event) {
+        var viewData = {
+            productId: $(event.target).data('productid')
+        };
+        $.ajax({
+            url: '/Cart/RemoveFromCart/',
+            type: 'POST',
+            data: viewData,
+            success: function (data) {
+                if (data == "True")
+                    alert("Продукт удален из корзины");
+                else alert("Во время операций произошло ошибка");
+            },
+            error: function () {
+            }
+        });
+    };
+
+    // #endregion remove cart =======================================
+
+    // #region close modal window =======================================
+
+    self.closeModalWindow = function () {
+        $('.window').hide();
+        $('#mask').hide();
+    };
+
+    // #endregion close modal window =======================================
+
+    // #region revert product =======================================
+
+    self.revertProduct = function () {
+        self.closeModalWindow();
+        $('.detail-info').addClass('fadeOutRight');
+        setTimeout(function () {
+            $('.category-list').removeClass('passive');
+            $('.detail-info').remove();
+        }, 700);
+    };
+
+    // #endregion revert product =======================================
 };
 

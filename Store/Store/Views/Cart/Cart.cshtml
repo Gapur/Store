@@ -6,6 +6,7 @@
 }
 
 <div class="shopping-cart">
+    <h2>Моя корзина</h2>
     <table>
         <thead>
             <tr>
@@ -24,10 +25,12 @@
                 <td class="item-price"><span>@cart.ShoppingCart.Price</span></td>
                 <td class="item-quentity"><span>@cart.Quantity</span></td>
                 <td class="item-action">
-                    <input data-bind="value:productId" type="hidden" value=@cart.ShoppingCart.Id />
-                    <input type="submit" class="btn" value="Удалить" />
+                    <input type="submit" data-productId=@cart.ShoppingCart.Id class ="btn" data-bind="click:removeCart" value="Удалить" />
                 </td>
             </tr>
         }
     </table>
+    <div class="formItem" style="flex: 0 1 100px; align-items:flex-end;">
+        <a class="pay-btn" style="position:relative; right:50px;" href="/Check/Check">Купить</a>
+    </div>
 </div>

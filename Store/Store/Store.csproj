@@ -183,6 +183,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CheckController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -288,6 +289,7 @@
     <Content Include="Content\icons\png\bg-left-col-hover.jpg" />
     <Content Include="Content\icons\png\bg-nav-menu-item.jpg" />
     <Content Include="Content\icons\png\check.jpg" />
+    <Content Include="Content\icons\png\fancybox_sprite.png" />
     <Content Include="Content\icons\png\sale1.jpg" />
     <Content Include="Content\icons\png\time1.png" />
     <Content Include="Content\icons\svg\toggleMenu.svg">
@@ -508,6 +510,7 @@
     <Content Include="Views\Shared\Partials\NotebookInfo.cshtml" />
     <Content Include="Views\Home\UserSale.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Check\Check.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

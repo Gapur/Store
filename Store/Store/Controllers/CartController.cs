@@ -27,14 +27,12 @@ namespace Store.Controllers
 
         public bool AddToCart(Cart cart, ShoppingCart shopingCart)
         {
-            cart.AddItem(shopingCart, 1);
-            return true;
+            return cart.AddItem(shopingCart, 1);
         }
 
-        public RedirectToRouteResult RemoveFromCart(Cart cart, System.Guid productId)
+        public bool RemoveFromCart(Cart cart, System.Guid productId)
         {
-            cart.RemoveLine(productId);
-            return RedirectToAction("Index");
+            return productId != null ? cart.RemoveLine(productId) : false;
         }
     }
 }
