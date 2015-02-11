@@ -2,11 +2,28 @@
 @model Check
 
 @{
-    ViewBag.Title = "Check";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Check</h2>
-
-<div class="formItem">
+<div class="check-content">
+    <h2>Оформление покупки</h2>
+    <div class="check-item">
+        <img src="~/Content/icons/png/wmlogo_vector_blue.png" />
+    </div>
+    <div class="check-item">
+        <span>Продукты на сумму тенге</span>
+    </div>
+    <div class="check-item">
+        @Html.EditorFor(m => m.CardId, new { data_bind = "value: CardId" })
+    </div>
+    <div class="check-item">
+        <span>Платежная система осуществляется c WebMoney</span>
+        <input type="text" class="" data-bind="value:webMoney" />
+    </div>
+    <div class="check-item">
+        @Html.EditorFor(m => m.Money, new { data_bind = "value: Money" })
+    </div>
+    <div class="check-item">
+        <a class="pay-btn">Оформить</a>
+    </div>
 </div>

@@ -13,5 +13,10 @@ namespace Store.Controllers
         {
             return View();
         }
+
+        public ActionResult Check()
+        {
+            return View();
+        }
     }
 }

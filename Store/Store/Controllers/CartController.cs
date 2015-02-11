@@ -39,5 +39,10 @@ namespace Store.Controllers
         {
             return cart.ModifiedItemCart(productId, mark);
         }
+
+        public decimal GetTotalPrice(Cart cart)
+        {
+            return cart.ComputeTotalValue();
+        }
     }
 }

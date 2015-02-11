@@ -292,6 +292,7 @@
     <Content Include="Content\icons\png\fancybox_sprite.png" />
     <Content Include="Content\icons\png\sale1.jpg" />
     <Content Include="Content\icons\png\time1.png" />
+    <Content Include="Content\icons\png\wmlogo_vector_blue.png" />
     <Content Include="Content\icons\svg\toggleMenu.svg">
       <SubType>Designer</SubType>
     </Content>

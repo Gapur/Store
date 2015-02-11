@@ -386,14 +386,6 @@ i.toggleMenu {
     -webkit-border-radius: 6px;
     border: 3px solid #35a3d4;
 
-    .label-control {
-        color: #fff;
-        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-        padding-right: 10px;
-        font-size: 14px;
-        font-weight: 700;
-    }
-
     h2 {
         color: white;
         font-family: sans-serif;
@@ -409,12 +401,20 @@ i.toggleMenu {
         flex: 0 1 175px;
         font-size: 12px;
     }
+}
 
-    .item-control {
-        .flexbox-model(row);
-        justify-content: flex-end;
-        padding: 10px;
-    }
+.label-control {
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    padding-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.item-control {
+    .flexbox-model(row);
+    justify-content: flex-end;
+    padding: 10px;
 }
 
 /* #endregion form control */
@@ -907,3 +907,20 @@ label {
 }
 
 /* #endregion modal window */
+
+/* #region check content */
+
+.check-content {
+    .flexbox-model(column, vertical);
+
+    .check-item {
+        .flexbox-model(row, horizontal);
+
+        img {
+            width: 300px;
+            height: 120px;
+        }
+    }
+}
+
+/* #endregion check content */
