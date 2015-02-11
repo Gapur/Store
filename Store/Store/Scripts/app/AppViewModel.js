@@ -219,5 +219,36 @@ function AppViewModel() {
     };
 
     // #endregion revert product =======================================
+
+    // #region modified(plus or minus) item cart =======================================
+
+    self.modifiedItemCart = function (itSelf, event) {
+        var quentity = $($(event.target).parent()[0]).children('span').text();
+        if (quentity > 1 || quentity == 1 && $(event.target).text() == '+') {
+            var viewData = {
+                productId: $($(event.target).parent()[0]).data('product-id'),
+                mark: $(event.target).text()
+            };
+            $.ajax({
+                url: '/Cart/ModifiedItemCart/',
+                type: 'POST',
+                data: viewData,
+                success: function (data) {
+                    if (data != "True")
+                        alert("Во время операций произошло ошибка");
+                    else {
+                        if ($(event.target).text() == '-')
+                            $($(event.target).parent()[0]).children('span').text(--quentity);
+                        else $($(event.target).parent()[0]).children('span').text(++quentity);
+                    };
+                },
+                error: function () {
+                }
+            });
+        } else $(event.target).css({ 'color': '#DBD3D3' });
+    };
+
+    // #endregion modified(plus or minus) item cart =======================================
+
 };
 

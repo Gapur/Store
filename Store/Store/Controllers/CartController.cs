@@ -34,5 +34,10 @@ namespace Store.Controllers
         {
             return productId != null ? cart.RemoveLine(productId) : false;
         }
+
+        public bool ModifiedItemCart(Cart cart, System.Guid productId, string mark)
+        {
+            return cart.ModifiedItemCart(productId, mark);
+        }
     }
 }

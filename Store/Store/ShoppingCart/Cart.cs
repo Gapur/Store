@@ -57,6 +57,27 @@ namespace Store.ShoppingCart
             return false;
         }
 
+        public bool ModifiedItemCart(System.Guid Id, string mark)
+        {
+            try
+            {
+                CartLine line = lineCollection
+                   .Where(g => g.ShoppingCart.Id == Id)
+                   .FirstOrDefault();
+                if (line != null)
+                {
+                    if (mark.Equals("-"))
+                        line.Quantity--;
+                    else line.Quantity++;
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return false;
+        }
+
         public decimal ComputeTotalValue()
         {
             return lineCollection.Sum(e => e.ShoppingCart.Price * e.Quantity);

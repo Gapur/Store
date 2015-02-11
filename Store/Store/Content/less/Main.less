@@ -762,7 +762,7 @@ label {
         }
 
         .item-name {
-            width: 300px;
+            width: 280px;
             text-align: left;
         }
 
@@ -773,9 +773,40 @@ label {
         }
 
         .item-quentity {
-            width: 50px;
+            width: 75px;
             text-align: center;
             white-space: nowrap;
+            flex-direction: row;
+            align-items: center;
+
+            span {
+                background-color: #F3F3F3;
+                border-left: 1px solid #D3D3D3;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+                border-right: 1px solid #D3D3D3;
+                border-top: 1px solid #888888;
+                box-shadow: 0 -1px 1px 0 #C3C3C3;
+                font-size: 17px;
+                height: 35px;
+                width: 30px;
+            }
+
+            a {
+                background: #EEE;
+                border-bottom: 1px solid #DDD;
+                border-radius: 4px;
+                width: 20px;
+                line-height: 19px;
+                font-size: 11px;
+                color: #666;
+                cursor: pointer;
+            }
+
+            a:hover {
+                color: red;
+            }
         }
 
         .item-action {

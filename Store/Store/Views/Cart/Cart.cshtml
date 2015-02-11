@@ -23,9 +23,13 @@
                 <td class="item-image"><img src=@cart.ShoppingCart.ImageUrl /></td>
                 <td class="item-name"><span>@cart.ShoppingCart.Name</span></td>
                 <td class="item-price"><span>@cart.ShoppingCart.Price</span></td>
-                <td class="item-quentity"><span>@cart.Quantity</span></td>
+                <td class="item-quentity" data-product-id=@cart.ShoppingCart.Id>
+                    <a data-bind="click:modifiedItemCart">-</a>
+                    <span>@cart.Quantity</span>
+                    <a data-bind="click:modifiedItemCart">+</a>
+                </td>
                 <td class="item-action">
-                    <input type="submit" data-productId=@cart.ShoppingCart.Id class ="btn" data-bind="click:removeCart" value="Удалить" />
+                    <input type="submit" data-productid=@cart.ShoppingCart.Id class="btn" data-bind="click:removeCart" value="Удалить" />
                 </td>
             </tr>
         }
