@@ -20,7 +20,6 @@
             type: 'POST',
             data: viewData,
             success: function (data) {
-                alert("ok");
                 $('#dialog .title').text(self.productName());
                 $('#dialog .description span').text(self.productName());                
                 fadeModalWindow();

@@ -71,9 +71,6 @@ body {
         padding: 0;
         background: @navbar-color;
         border-color: @navbar-color;
-        border-radius: 6px;
-        -moz-border-radius: 6px;
-        -webkit-border-radius: 6px;
     }
 
     .navbar-collapse {
@@ -912,13 +909,32 @@ label {
 
 .check-content {
     .flexbox-model(column, vertical);
+    flex: 1 1 auto;
+    height: 700px;
+    background: rgb(90, 164, 237);
+    background: -moz-linear-gradient(0deg, rgb(90, 164, 237) 35%, rgb(207, 227, 247) 70%);
+    background: -webkit-linear-gradient(0deg, rgb(90, 164, 237) 35%, rgb(207, 227, 247) 70%);
+    background: linear-gradient(90deg, rgb(90, 164, 237) 10%, rgb(207, 227, 247) 60%);
 
     .check-item {
         .flexbox-model(row, horizontal);
+        justify-content: flex-end;
+        padding: 10px 15% 10px;
 
         img {
             width: 300px;
             height: 120px;
+        }
+
+        .check-text {
+            font-size: 14px;
+        }
+
+        .label-control {
+            text-shadow: 1px 1px 0 #fff;
+            color: #1079BE;
+            font-size: 1.2em;
+            font-weight: bold;
         }
     }
 }

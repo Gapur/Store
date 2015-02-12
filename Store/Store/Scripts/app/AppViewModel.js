@@ -68,7 +68,6 @@ function AppViewModel() {
                     SetDetailProduct(data);
                 },
                 error: function () {
-                    alert("error");
                 }
             });
         }
@@ -87,7 +86,6 @@ function AppViewModel() {
                     $('.content').append(data);
                 },
                 error: function () {
-                    alert("error");
                 }
             });
         };
@@ -108,7 +106,6 @@ function AppViewModel() {
                 $(".category-list ul").removeClass('fadeOut').addClass("fadeIn");
             },
             error: function () {
-                alert("error");
             }
         });
     };

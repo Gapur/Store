@@ -6,22 +6,26 @@
 }
 
 <div class="check-content">
-    <h2>Оформление покупки</h2>
     <div class="check-item">
         <img src="~/Content/icons/png/wmlogo_vector_blue.png" />
     </div>
     <div class="check-item">
-        <span>Продукты на сумму тенге</span>
+        <span class="label-control">Оформление покупки на сумму тенге</span>
     </div>
     <div class="check-item">
-        @Html.EditorFor(m => m.CardId, new { data_bind = "value: CardId" })
+        <label class="label-control">Номер карточки</label>
+        <input type="text" class="check-text" />
     </div>
     <div class="check-item">
-        <span>Платежная система осуществляется c WebMoney</span>
-        <input type="text" class="" data-bind="value:webMoney" />
+        <span class="label-control">Платежная система осуществляется c WebMoney</span>
     </div>
     <div class="check-item">
-        @Html.EditorFor(m => m.Money, new { data_bind = "value: Money" })
+        <label class="label-control">Платеж на WebMoney</label>
+        <input type="text" class="check-text" />
+    </div>
+    <div class="check-item">
+        <label class="label-control">Деньги</label>
+        <input type="text" class="check-text" />
     </div>
     <div class="check-item">
         <a class="pay-btn">Оформить</a>
