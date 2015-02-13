@@ -940,3 +940,65 @@ label {
 }
 
 /* #endregion check content */
+
+/* #region carousel */
+
+#photo_container {
+    width: 960px;
+    height: 400px;
+}
+
+#swipe_nav_prev, #swipe_nav_next {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+}
+
+#swipe_nav_prev {
+    background: #333 url(../icons/png/prev.png) no-repeat center center;
+}
+
+#swipe_nav_next {
+    background: #333 url(../icons/png/next.png) no-repeat center center;
+}
+
+.internal_swipe_container {
+    position: relative;
+}
+
+.trans {
+    filter: alpha(opacity=75);
+    -moz-opacity: 0.75;
+    -khtml-opacity: 0.75;
+    opacity: 0.75;
+}
+
+.jq_swipe_image {
+    background: url('../icons/gif/loader.gif') no-repeat center center;
+}
+
+#count_container {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    list-style: none;
+}
+
+.counter {
+    float: left;
+    height: 6px;
+    background-color: #336699;
+    height: 6px;
+}
+
+.counter:hover {
+    cursor: pointer;
+    background-color: #ff00fc !important;
+}
+
+.current {
+    background-color: #ff00fc !important;
+}
+
+/* #endregion carousel */
+

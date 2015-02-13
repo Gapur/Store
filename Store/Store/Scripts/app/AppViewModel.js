@@ -40,7 +40,32 @@ function AppViewModel() {
                 pickTime: false,
                 language: 'ru'
             });
+            if ($("#photo_container").length > 0)
+                loadCarousel();
         };
+
+        // #region load plugin carousel ==========================================
+
+        function loadCarousel() {
+            var carousel_images = [
+                "/Content/icons/png/1.jpg",
+                "/Content/icons/png/2.jpg",
+                "/Content/icons/png/3.jpg",
+                "/Content/icons/png/4.jpg",
+                "/Content/icons/png/5.jpg",
+                "/Content/icons/png/6.jpg",
+                "/Content/icons/png/7.jpg",
+                "/Content/icons/png/8.jpg"];
+
+            $(window).load(function () {
+                $("#photo_container").isc({
+                    imgArray: carousel_images
+                });
+            });
+        };
+
+        // #endregion load plugin carousel ==========================================
+
     };
 
     // #endregion initialize ========================================
@@ -184,8 +209,10 @@ function AppViewModel() {
             type: 'POST',
             data: viewData,
             success: function (data) {
-                if (data == "True")
+                if (data == "True") {
                     alert("Продукт удален из корзины");
+                    $(event.target).parent().parent().remove();
+                }
                 else alert("Во время операций произошло ошибка");
             },
             error: function () {
@@ -222,6 +249,7 @@ function AppViewModel() {
     self.modifiedItemCart = function (itSelf, event) {
         var quentity = $($(event.target).parent()[0]).children('span').text();
         if (quentity > 1 || quentity == 1 && $(event.target).text() == '+') {
+            $('.item-quentity a:first-child').css({ 'color': '#666' });
             var viewData = {
                 productId: $($(event.target).parent()[0]).data('product-id'),
                 mark: $(event.target).text()

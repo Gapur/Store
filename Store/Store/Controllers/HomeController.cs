@@ -18,15 +18,11 @@ namespace Store.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
@@ -36,6 +32,11 @@ namespace Store.Controllers
         }
 
         public ActionResult ProductView()
+        {
+            return View();
+        }
+
+        public ActionResult Support()
         {
             return View();
         }
