@@ -13,7 +13,7 @@ namespace Store.Models
 
         [Display(Name = "Путь")]
         public string Url { get; set; }
-
+    
         public System.Guid refDevice { get; set; }
     }
 }

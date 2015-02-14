@@ -10,6 +10,7 @@ function AppViewModel() {
     // #region initialize ===========================================
 
     self = this;
+    self.jqXHRData = ko.observable(null);
 
     self.initialize = function () {
 
@@ -40,9 +41,41 @@ function AppViewModel() {
                 pickTime: false,
                 language: 'ru'
             });
+
+            //if ($("#fu-my-simple-upload").length > 0)
+                //fileUpload();
+
             if ($("#photo_container").length > 0)
                 loadCarousel();
         };
+
+        // #region file upload ==========================================
+
+        function fileUpload() {
+            $('#fu-my-simple-upload').fileupload({
+                url: '/Home/UploadFile',
+                dataType: 'json',
+                add: function (e, data) {
+                    self.jqXHRData = data
+                },
+                done: function (event, data) {
+                    if (data.result.isUploaded) {
+                        $("#tbx-file-path").val("No file chosen...");
+                    }
+                    else {
+
+                    }
+                    alert(data.result.message);
+                },
+                fail: function (event, data) {
+                    if (data.files[0].error) {
+                        alert(data.files[0].error);
+                    }
+                }
+            });
+        };
+
+        // #endregion file upload ==========================================
 
         // #region load plugin carousel ==========================================
 
@@ -80,6 +113,21 @@ function AppViewModel() {
     };
 
     // #endregion menu toggle =======================================
+
+    // #region file upload ==========================================
+
+    self.selectFile = function () {
+        if (self.jqXHRData) {
+            self.jqXHRData.submit();
+        }
+        return false;
+    };
+
+    self.startUpload = function () {
+        $("#tbx-file-path").val(this.files[0].name);
+    };
+
+    // #endregion file upload ==========================================
 
     // #region manage product =======================================
 

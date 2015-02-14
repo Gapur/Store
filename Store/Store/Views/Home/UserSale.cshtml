@@ -24,6 +24,14 @@
             @Html.DropDownListFor(m => m.Display, ViewBag.Display as SelectList)
         </div>
         <div class="item-control">
+            <input type="text" id="tbx-file-path" value="No file chosen..." readonly="readonly" />
+            <span class="btn fileinput-button">
+                <span>Select file...</span>
+                <input id="fu-my-simple-upload" name="MyFile" type="file" value="">
+            </span>
+            <a class="btn" href="#"  id="hl-start-upload">Start Upload</a>
+        </div>
+        <div class="item-control">
             @Html.LabelFor(m => m.TypeProduct, new { @class = "label-control" })
             <select id="typeProduct" data-bind="selectedOptions:selectedItems">
                 <option value="0">Тип продукта</option>
@@ -65,3 +73,52 @@
         <a class="btn">Создать</a>
     </div>
 </div>
+<script type="text/javascript">
+
+    var jqXHRData;
+
+    $(document).ready(function () {
+
+        'use strict';
+
+        $('#fu-my-simple-upload').fileupload({
+            url: '/Home/UploadFile',
+            dataType: 'json',
+            add: function (e, data) {
+                jqXHRData = data
+            },
+            done: function (event, data) {
+                if (data.result.isUploaded) {
+                    $("#tbx-file-path").val("No file chosen...");
+                }
+                else {
+
+                }
+                alert(data.result.message);
+            },
+            fail: function (event, data) {
+                if (data.files[0].error) {
+                    alert(data.files[0].error);
+                }
+            }
+        });
+    });
+
+    $("#hl-start-upload").on('click', function () {
+        if (jqXHRData) {
+            jqXHRData.submit();
+        }
+        return false;
+    });
+
+    $("#fu-my-simple-upload").on('change', function () {
+        $("#tbx-file-path").val(this.files[0].name);
+    });
+
+</script>
+
+
+<script src="~/Scripts/jsfw/jquery-ui-1.9.2.min.js"></script>
+<script src="~/Scripts/plugins/file-upload/jquery.fileupload.js"></script>
+<script src="~/Scripts/plugins/file-upload/jquery.fileupload-ui.js"></script>
+<script src="~/Scripts/plugins/file-upload/jquery.iframe-transport.js"></script>

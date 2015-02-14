@@ -189,6 +189,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\CartLine.cs" />
+    <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="ShoppingCart\Cart.cs" />
     <Compile Include="EntityModels\AspNetUser.cs">
@@ -300,10 +301,12 @@
     <Content Include="Content\icons\png\check.jpg" />
     <Content Include="Content\icons\png\fancybox_sprite.png" />
     <Content Include="Content\icons\png\next.png" />
+    <Content Include="Content\icons\png\not_available-generic.png" />
     <Content Include="Content\icons\png\prev.png" />
     <Content Include="Content\icons\png\sale1.jpg" />
     <Content Include="Content\icons\png\supp.jpg" />
     <Content Include="Content\icons\png\time1.png" />
+    <Content Include="Content\icons\png\waiting-generic.png" />
     <Content Include="Content\icons\png\wmlogo_vector_blue.png" />
     <Content Include="Content\icons\svg\toggleMenu.svg">
       <SubType>Designer</SubType>
@@ -377,6 +380,8 @@
     <Content Include="Scripts\jsfw\jquery-1.10.2.js" />
     <Content Include="Scripts\jsfw\jquery-1.10.2.min.js" />
     <None Include="Scripts\jsfw\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jsfw\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jsfw\jquery-ui-1.9.2.min.js" />
     <Content Include="Scripts\jsfw\jquery.validate.js" />
     <Content Include="Scripts\jsfw\jquery.validate.min.js" />
     <Content Include="Scripts\jsfw\jquery.validate.unobtrusive.js" />
@@ -394,6 +399,9 @@
     <Content Include="Scripts\plugins\datetimepicker\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\plugins\datetimepicker\moment.js" />
     <Content Include="Scripts\plugins\datetimepicker\ru.js" />
+    <Content Include="Scripts\plugins\file-upload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\plugins\file-upload\jquery.fileupload.js" />
+    <Content Include="Scripts\plugins\file-upload\jquery.iframe-transport.js" />
     <Content Include="Scripts\plugins\mustache.js" />
     <Content Include="Scripts\plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\plugins\snapsvg\svgicons-config.js" />
