@@ -45,7 +45,7 @@ namespace Store.Models
         public Processor Processor { get; set; }
 
         [Display(Name = "Изображение")]
-        public IEnumerable<Image> Images { get; set; }
+        public Image Images { get; set; }
 
         [Display(Name = "Мощность")]
         public Power Power { get; set; }
@@ -54,7 +54,7 @@ namespace Store.Models
         public VideoCard VideoCard { get; set; }
 
         [Display(Name = "Жесткий диск, Гб")]
-        public HardDisk HadrDisk { get; set; }
+        public HardDisk HardDisk { get; set; }
 
         [Display(Name = "Дисплей")]
         public Display Display { get; set; }

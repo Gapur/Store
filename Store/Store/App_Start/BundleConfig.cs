@@ -44,8 +44,8 @@ namespace Store
                     "~/Scripts/plugins/mustache.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/file-upload").Include(
-                    "~/Scripts/plugins/file-upload/jquery.fileupload-ui.js",
                     "~/Scripts/plugins/file-upload/jquery.fileupload.js",
+                    "~/Scripts/plugins/file-upload/jquery.fileupload-ui.js",
                     "~/Scripts/plugins/file-upload/jquery.iframe-transport.js"));
 
             #endregion Frameworks scripts

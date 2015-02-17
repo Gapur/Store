@@ -12,24 +12,23 @@
         @Html.EditorFor(m => m.Name, new { data_bind = "value: Name" })
         @Html.EditorFor(m => m.Price, new { data_bind = "value: Price" })
         @Html.EditorFor(m => m.Color, new { data_bind = "value: Color" })
-        @Html.EditorFor(m => m.Date, new { data_bind = "value: DateOfCreate" })
-        @Html.EditorFor(m => m.Bluetooth, new { data_bind = "value: Bluetooth" })
-        @Html.EditorFor(m => m.WiFi, new { data_bind = "value: WiFi" })
+        @Html.EditorFor(m => m.Date, new { data_bind = "value: Date" })
+        @Html.EditorFor(m => m.Bluetooth, new { data_bind = "checked: Bluetooth" })
+        @Html.EditorFor(m => m.WiFi, new { data_bind = "checked: WiFi" })
         <div class="item-control">
             @Html.LabelFor(m => m.Manufacturers, new { @class = "label-control" })
-            @Html.DropDownListFor(m => m.Manufacturers, ViewBag.Manufacturer as SelectList)
+            @Html.DropDownListFor(m => m.Manufacturers, ViewBag.Manufacturer as SelectList, new { data_bind = "value: Manufacturers" })
         </div>
         <div class="item-control">
             @Html.LabelFor(m => m.Display, new { @class = "label-control" })
-            @Html.DropDownListFor(m => m.Display, ViewBag.Display as SelectList)
+            @Html.DropDownListFor(m => m.Display, ViewBag.Display as SelectList, new { data_bind = "value: Display" })
         </div>
         <div class="item-control">
             <input type="text" id="tbx-file-path" value="No file chosen..." readonly="readonly" />
             <span class="btn fileinput-button">
                 <span>Select file...</span>
-                <input id="fu-my-simple-upload" name="MyFile" type="file" value="">
+                <input id="fu-my-simple-upload" data-bind="value:selectFile" name="MyFile" type="file" value="">
             </span>
-            <a class="btn" href="#"  id="hl-start-upload">Start Upload</a>
         </div>
         <div class="item-control">
             @Html.LabelFor(m => m.TypeProduct, new { @class = "label-control" })
@@ -45,80 +44,34 @@
         @Html.EditorFor(m => m.RAM, new { data_bind = "value: RAM" })
         <div class="item-control">
             @Html.LabelFor(m => m.OperatingSystem, new { @class = "label-control" })
-            @Html.DropDownListFor(m => m.OperatingSystem, ViewBag.OperSystem as SelectList)
+            @Html.DropDownListFor(m => m.OperatingSystem, ViewBag.OperSystem as SelectList, new { data_bind = "value: OperatingSystem" })
         </div>
         <div class="item-control">
             @Html.LabelFor(m => m.Processor, new { @class = "label-control" })
-            @Html.DropDownListFor(m => m.Processor, ViewBag.Processor as SelectList)
+            @Html.DropDownListFor(m => m.Processor, ViewBag.Processor as SelectList, new { data_bind = "value: Processor" })
         </div>
         <div class="phone-scope passive animated fadeIn">
             @Html.EditorFor(m => m.BuildMemory, new { data_bind = "value: BuildMemory" })
             <div class="item-control">
                 @Html.LabelFor(m => m.Camera, new { @class = "label-control" })
-                @Html.DropDownListFor(m => m.Camera, ViewBag.Camera as SelectList)
+                @Html.DropDownListFor(m => m.Camera, ViewBag.Camera as SelectList, new { data_bind = "value: Camera" })
             </div>
         </div>
         <div class="notebook-scope passive animated fadeIn">
             <div class="item-control">
-                @Html.LabelFor(m => m.HadrDisk, new { @class = "label-control" })
-                @Html.DropDownListFor(m => m.HadrDisk, ViewBag.HardDisk as SelectList)
+                @Html.LabelFor(m => m.HardDisk, new { @class = "label-control" })
+                @Html.DropDownListFor(m => m.HardDisk, ViewBag.HardDisk as SelectList, new { data_bind = "value: HadrDisk" })
             </div>
             <div class="item-control">
                 @Html.LabelFor(m => m.VideoCard, new { @class = "label-control" })
-                @Html.DropDownListFor(m => m.VideoCard, ViewBag.VideoCard as SelectList)
+                @Html.DropDownListFor(m => m.VideoCard, ViewBag.VideoCard as SelectList, new { data_bind = "value: VideoCard" })
             </div>
         </div>
     </div>
     <div class="item-control">
-        <a class="btn">Создать</a>
+        <a class="btn" data-bind="click:creteProduct">Создать</a>
     </div>
 </div>
-<script type="text/javascript">
-
-    var jqXHRData;
-
-    $(document).ready(function () {
-
-        'use strict';
-
-        $('#fu-my-simple-upload').fileupload({
-            url: '/Home/UploadFile',
-            dataType: 'json',
-            add: function (e, data) {
-                jqXHRData = data
-            },
-            done: function (event, data) {
-                if (data.result.isUploaded) {
-                    $("#tbx-file-path").val("No file chosen...");
-                }
-                else {
-
-                }
-                alert(data.result.message);
-            },
-            fail: function (event, data) {
-                if (data.files[0].error) {
-                    alert(data.files[0].error);
-                }
-            }
-        });
-    });
-
-    $("#hl-start-upload").on('click', function () {
-        if (jqXHRData) {
-            jqXHRData.submit();
-        }
-        return false;
-    });
-
-    $("#fu-my-simple-upload").on('change', function () {
-        $("#tbx-file-path").val(this.files[0].name);
-    });
-
-</script>
-
 
 <script src="~/Scripts/jsfw/jquery-ui-1.9.2.min.js"></script>
-<script src="~/Scripts/plugins/file-upload/jquery.fileupload.js"></script>
-<script src="~/Scripts/plugins/file-upload/jquery.fileupload-ui.js"></script>
-<script src="~/Scripts/plugins/file-upload/jquery.iframe-transport.js"></script>
+@Scripts.Render("~/bundles/file-upload")

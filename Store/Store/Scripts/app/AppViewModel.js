@@ -10,7 +10,7 @@ function AppViewModel() {
     // #region initialize ===========================================
 
     self = this;
-    self.jqXHRData = ko.observable(null);
+    self.selectFile = ko.observable(null);
 
     self.initialize = function () {
 
@@ -42,8 +42,8 @@ function AppViewModel() {
                 language: 'ru'
             });
 
-            //if ($("#fu-my-simple-upload").length > 0)
-                //fileUpload();
+            if ($("#fu-my-simple-upload").length > 0)
+                fileUpload();
 
             if ($("#photo_container").length > 0)
                 loadCarousel();
@@ -56,7 +56,7 @@ function AppViewModel() {
                 url: '/Home/UploadFile',
                 dataType: 'json',
                 add: function (e, data) {
-                    self.jqXHRData = data
+                    jqXHRData = data
                 },
                 done: function (event, data) {
                     if (data.result.isUploaded) {
@@ -116,15 +116,16 @@ function AppViewModel() {
 
     // #region file upload ==========================================
 
-    self.selectFile = function () {
-        if (self.jqXHRData) {
-            self.jqXHRData.submit();
-        }
-        return false;
-    };
+    var jqXHRData;
+    self.selectFile.subscribe(function () {
+        $("#tbx-file-path").val(self.selectFile());
+    });
 
     self.startUpload = function () {
-        $("#tbx-file-path").val(this.files[0].name);
+        if (jqXHRData) {
+            jqXHRData.submit();
+        }
+        return false;
     };
 
     // #endregion file upload ==========================================
@@ -190,7 +191,7 @@ function AppViewModel() {
     self.buildProduct = function (data) {
         $(".category-list ul").empty();
         $.each(data, function () {
-            var item = $('<li><img data-bind=click:GetProduct data-id=' + this.Id + ' src=' + this.Images[0].Url +
+            var item = $('<li><img data-bind=click:GetProduct data-id=' + this.Id + ' src=' + this.Images.Url +
                 ' /><a data-bind=click:GetProduct data-id=' + this.Id + '>' + this.Name + '</a></li>');
             $(".category-list ul").append(item);
             ko.applyBindings(app, item[0]);
@@ -322,6 +323,59 @@ function AppViewModel() {
     };
 
     // #endregion modified(plus or minus) item cart =======================================
+
+    // #region create new product =======================================
+
+    self.Name = ko.observable(null);
+    self.Price = ko.observable(null);
+    self.Color = ko.observable(null);
+    self.Date = ko.observable(null);
+    self.Bluetooth = ko.observable(false);
+    self.WiFi = ko.observable(false);
+    self.Manufacturers = ko.observable(null);
+    self.Display = ko.observable(null);
+    self.RAM = ko.observable(null);
+    self.OperatingSystem = ko.observable(null);
+    self.Processor = ko.observable(null);
+    self.BuildMemory = ko.observable(null);
+    self.Camera = ko.observable(null);
+    self.HadrDisk = ko.observable(null);
+    self.VideoCard = ko.observable(null);
+
+    self.creteProduct = function () {
+        var viewData = {
+            Name: self.Name(),
+            Price: self.Price(),
+            Color: self.Color(),
+            Date: $('#Date').val(),
+            Bluetooth: self.Bluetooth(),
+            WiFi: self.WiFi(),
+            Manufacturers: { Id: self.Manufacturers() },
+            Display: { Id: self.Display() },
+            TypeProduct: self.selectedItems()[0],
+            RAM: self.RAM(),
+            OperatingSystem: self.OperatingSystem(),
+            Processor: { Id: self.Processor() },
+            BuildMemory: self.BuildMemory(),
+            Camera: { Id: self.Camera() },
+            HardDisk: { Id: self.HadrDisk() },
+            VideoCard: { Id: self.VideoCard() },
+            Images: { Url: self.selectFile() }
+        };
+        $.ajax({
+            url: '/api/Products/',
+            type: 'POST',
+            data: viewData,
+            success: function (data) {
+                alert(data);
+                self.startUpload();
+            },
+            error: function () {
+            }
+        });
+    };
+
+    // #region create new product =======================================
 
 };
 

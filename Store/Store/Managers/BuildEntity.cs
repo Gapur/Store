@@ -9,6 +9,8 @@ namespace Store.Managers
 
     public class BuildEntity
     {
+        #region ConvertFromEntityModelsToModels
+
         public Models.Product NewProductEntity(Product product)
         {
             return new Models.Product
@@ -25,10 +27,10 @@ namespace Store.Managers
                 Bluetooth = (product.Device.Bluetooth == null ? false : (bool)product.Device.Bluetooth),
                 BuildMemory = (product.Device.BuildMemory == null ? String.Empty : product.Device.BuildMemory),
                 Processor = product.Device.refProcessor == null ? null : NewProcessorEntity(product.Device.Processor),
-                Images = (IEnumerable<Models.Image>)product.Device.Images.Select(img => NewImageEntity(img)),
+                Images = NewImageEntity(product.Device.Images.FirstOrDefault(img => img.refDevice == product.Id)),
                 Power = product.Device.refPower == null ? null : NewPowerEntity(product.Device.Power),
                 VideoCard = product.Device.refVideoCard == null ? null : NewVideoCard(product.Device.VideoCard),
-                HadrDisk = product.Device.refHardDisk == null ? null : NewHardDisk(product.Device.HardDisk),
+                HardDisk = product.Device.refHardDisk == null ? null : NewHardDisk(product.Device.HardDisk),
                 Display = product.Device.refDisplay == null ? null : NewDisplayEntity(product.Device.Display),
                 Camera = product.Device.refCamera == null ? null : NewCameraEntity(product.Device.Camera),
                 TypeProduct = product.Device.DicProdType.Id
@@ -119,6 +121,44 @@ namespace Store.Managers
                 GraphicsController = videoCard.GraphicsController
             };
         }
+
+        #endregion ConvertFromEntityModelsToModels
+
+        #region ConvertFromModelsToEntityModels
+
+        public EntityModels.Device EntityModelsDevice(Models.Product product, System.Guid ID)
+        {
+            return new EntityModels.Device
+            {
+                Id = ID,
+                Bluetooth = product.Bluetooth,
+                refCamera = product.Camera.Id,
+                refDicProdType = product.TypeProduct,
+                refDisplay = product.Display.Id,
+                refHardDisk = product.HardDisk.Id,
+                refManufacturer = product.Manufacturers.Id,
+                refOperatingSystem = int.Parse(product.OperatingSystem),
+                refProcessor = product.Processor.Id,
+                BuildMemory = product.BuildMemory,
+                refVideoCard = product.VideoCard.Id,
+                RAM = product.RAM,
+                WiFi = product.WiFi
+            };
+        }
+
+        public EntityModels.Product EntityModelsProduct(Models.Product product, System.Guid ID)
+        {
+            return new Product
+            {
+                Id = ID,
+                Name = product.Name,
+                Price = product.Price,
+                Color = product.Color,
+                DateOfCreate = product.Date,
+            };
+        }
+
+        #endregion ConvertFromModelsToEntityModels
 
         private enum DictionaryProductType
         {

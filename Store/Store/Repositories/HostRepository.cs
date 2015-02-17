@@ -34,12 +34,16 @@ namespace Store.Repositories
             return Context.Set<T>().Where(lamda.Compile());
         }
 
-        public IEnumerable<TE> Set<T, TE>(Expression<Func<T, bool>> lamda) where T : class where TE : class
+        public IEnumerable<TE> Set<T, TE>(Expression<Func<T, bool>> lamda)
+            where T : class
+            where TE : class
         {
-            return (IEnumerable<TE>) Context.Set<T>().Where(lamda.Compile());
+            return (IEnumerable<TE>)Context.Set<T>().Where(lamda.Compile());
         }
 
-        public IEnumerable<TE> Set<T, TE>(Expression<Func<T, TE>> lamda) where T : class where TE : class
+        public IEnumerable<TE> Set<T, TE>(Expression<Func<T, TE>> lamda)
+            where T : class
+            where TE : class
         {
             return (IEnumerable<TE>)Context.Set<T>().Select(lamda.Compile());
         }
@@ -56,6 +60,17 @@ namespace Store.Repositories
             var e = Context.Set<T>().Add(entity);
             SaveChanges();
             return e;
+        }
+
+        public bool Add<T, TS, TT>(T firstEntity, TS secondEntity, TT thirdEntity)
+            where T : class
+            where TS : class
+            where TT : class
+        {
+            Context.Set<T>().Add(firstEntity);
+            Context.Set<TS>().Add(secondEntity);
+            Context.Set<TT>().Add(thirdEntity);
+            return SaveChanges();
         }
 
         public bool Add<T>(ref T entity) where T : class
@@ -93,9 +108,9 @@ namespace Store.Repositories
                 var sb = new StringBuilder();
 
                 var dbException = ex as DbEntityValidationException;
-                
+
                 if (dbException == null) throw;
-                
+
                 foreach (var failure in dbException.EntityValidationErrors)
                 {
                     sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());

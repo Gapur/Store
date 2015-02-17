@@ -51,7 +51,7 @@ namespace Store.Controllers
 
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutProduct(Guid id, Product product)
+        public async Task<IHttpActionResult> PutProduct(Guid id, Models.Product product)
         {
             if (!ModelState.IsValid)
             {
@@ -86,29 +86,19 @@ namespace Store.Controllers
 
         // POST: api/Products
         [ResponseType(typeof(Product))]
-        public async Task<IHttpActionResult> PostProduct(Product product)
+        public async Task<IHttpActionResult> PostProduct(Models.Product product)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.Products.Add(product);
-
             try
             {
-                await db.SaveChangesAsync();
+                await userProductManager.CreateProduct(product);
             }
-            catch (DbUpdateException)
+            catch (Exception ex)
             {
-                if (ProductExists(product.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
 
             return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);

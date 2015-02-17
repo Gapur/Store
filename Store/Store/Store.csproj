@@ -270,14 +270,12 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\VideoCard.cs" />
     <Compile Include="Parser\Foreach.cs" />
-    <Compile Include="Parser\Json.cs" />
     <Compile Include="Parser\ViewDataExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\HostRepository.cs" />
     <Compile Include="Repositories\IHostRepository.cs" />
     <Compile Include="ShoppingCart\CartModelBinder.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Transactions\Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\animate.css" />

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Store.Parser
+
+@{
     Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml";
 }
 
@@ -23,7 +25,11 @@
     }
     else
     {
-        @Html.CheckBox("", value ?? false, new { @class = "check-box" })
+        <input id="@ViewData.TemplateInfo.HtmlFieldPrefix"
+               name="@ViewData.TemplateInfo.HtmlFieldPrefix"
+               @ViewData.AdditionalData()
+               class="input-text"
+               type="checkbox" />
     }
     <label class="label-control" for=@ViewData.TemplateInfo.HtmlFieldPrefix>@ViewData.ModelMetadata.DisplayName</label>
 </div>

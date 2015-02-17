@@ -16,6 +16,8 @@ namespace Store.Controllers
     /// </summary>
     public class HomeController : Controller
     {
+        ProductManager productManager = new ProductManager();
+
         public ActionResult Index()
         {
             return View();
@@ -46,10 +48,9 @@ namespace Store.Controllers
             return View();
         }
 
-        public ActionResult UserSale()
+        public async Task<ActionResult> UserSale()
         {
-            Transactions.Transaction tr = new Transactions.Transaction();
-            Models.BaseEntity entities = tr.GetManufacturer();
+            Models.BaseEntity entities = await productManager.GetProductProperty();
             ViewBag.Manufacturer = new SelectList(entities.ManufacturerList, "Id", "Name");
             ViewBag.Camera = new SelectList(entities.CameraList, "Id", "ResolutionMatrix", "MaxResolution");
             ViewBag.HardDisk = new SelectList(entities.HardDiskList, "Id", "HDD");
@@ -58,7 +59,6 @@ namespace Store.Controllers
             ViewBag.VideoCard = new SelectList(entities.VideoCardList, "Id", "Memory");
             ViewBag.Power = new SelectList(entities.PowerList, "Id", "BatteryWork");
             ViewBag.Display = new SelectList(entities.DisplayList, "Id", "ScreenResolution");
-
             return View();
         }
 

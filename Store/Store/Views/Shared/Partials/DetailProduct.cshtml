@@ -2,7 +2,6 @@
 @model Product
 
 @{
-    Image image = Model.Images.FirstOrDefault(img => img.refDevice == Model.Id);
     string bluetooth = Model.Bluetooth == true ? "Есть" : "Нет";
     string wifi = Model.WiFi == true ? "Есть" : "Нет";
 }
@@ -12,7 +11,7 @@
     <h2><span data-bind="text:productName">@Model.Name</span></h2>
     <div class="product">
         <div class="product-image">
-            <img class="product-image" data-bind="attr:{scr:imageUrl}" src=@image.Url />
+            <img class="product-image" data-bind="attr:{scr:imageUrl}" src=@Model.Images.Url />
         </div>
         <div class="product-buy">
             <div data-bind="value:price" class="price">@Model.Price</div>
