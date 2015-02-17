@@ -149,6 +149,7 @@
     <EntitySetMapping Name="Checks">
       <EntityTypeMapping TypeName="Model.Check">
         <MappingFragment StoreEntitySet="Check">
+          <ScalarProperty Name="quentity" ColumnName="quentity" />
           <ScalarProperty Name="refDevice" ColumnName="refDevice" />
           <ScalarProperty Name="refUser" ColumnName="refUser" />
           <ScalarProperty Name="CardId" ColumnName="CardId" />

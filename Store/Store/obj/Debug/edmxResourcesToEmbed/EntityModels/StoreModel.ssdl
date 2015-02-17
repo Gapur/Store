@@ -35,6 +35,7 @@
     <Property Name="CardId" Type="int" Nullable="false" />
     <Property Name="refUser" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="quentity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Devices">
     <Key>

@@ -40,6 +40,7 @@
           <Property Name="CardId" Type="int" Nullable="false" />
           <Property Name="refUser" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="quentity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Devices">
           <Key>
@@ -463,7 +464,7 @@
             <End Role="Device" EntitySet="Devices" />
             <End Role="Check" EntitySet="Checks" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="AspNetUser">
           <Key>
             <PropertyRef Name="Id" />
@@ -776,6 +777,7 @@
           <Property Name="CardId" Type="Int32" Nullable="false" />
           <Property Name="refUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="refDevice" Type="Guid" Nullable="false" />
+          <Property Name="quentity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Model.FK_Check_AspNetUsers" FromRole="Check" ToRole="AspNetUser" />
           <NavigationProperty Name="Device" Relationship="Model.FK_Check_Devices" FromRole="Check" ToRole="Device" />
         </EntityType>
@@ -803,7 +805,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -957,6 +959,7 @@
           <EntitySetMapping Name="Checks">
             <EntityTypeMapping TypeName="Model.Check">
               <MappingFragment StoreEntitySet="Check">
+                <ScalarProperty Name="quentity" ColumnName="quentity" />
                 <ScalarProperty Name="refDevice" ColumnName="refDevice" />
                 <ScalarProperty Name="refUser" ColumnName="refUser" />
                 <ScalarProperty Name="CardId" ColumnName="CardId" />

@@ -8,7 +8,7 @@ namespace Store.Models
 {
     public class Check
     {
-        public System.Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Деньги")]
         public decimal Money { get; set; }
@@ -24,5 +24,8 @@ namespace Store.Models
 
         [Display(Name = "Купленный продукт")]
         public System.Guid refDevice { get; set; }
+
+        [Display(Name = "Количество продуктов")]
+        public int Quentity { get; set; }
     }
 }

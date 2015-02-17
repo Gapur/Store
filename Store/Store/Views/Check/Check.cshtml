@@ -14,7 +14,7 @@
     </div>
     <div class="check-item">
         <label class="label-control">Номер карточки</label>
-        <input type="text" class="check-text" />
+        <input type="text" class="check-text" data-bind="value:cartId"/>
     </div>
     <div class="check-item">
         <span class="label-control">Платежная система осуществляется c WebMoney</span>
@@ -25,9 +25,9 @@
     </div>
     <div class="check-item">
         <label class="label-control">Деньги</label>
-        <input type="text" class="check-text" />
+        <input type="text" class="check-text" data-bind="value:totalPrice"/>
     </div>
     <div class="check-item">
-        <a class="pay-btn">Оформить</a>
+        <a class="pay-btn" data-bind="click:entryCheck">Оформить</a>
     </div>
 </div>

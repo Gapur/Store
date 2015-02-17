@@ -7,6 +7,9 @@ namespace Store.Managers
 {
     using EntityModels;
 
+    /// <summary>
+    /// Builds new entity
+    /// </summary>  
     public class BuildEntity
     {
         #region ConvertFromEntityModelsToModels
@@ -155,6 +158,19 @@ namespace Store.Managers
                 Price = product.Price,
                 Color = product.Color,
                 DateOfCreate = product.Date,
+            };
+        }
+
+        public EntityModels.Check EntityModelsCheck(Models.Check check, System.Guid deviceId, int Quentity)
+        {
+            return new Check
+            {
+                CardId = check.CardId,
+                Date = check.Date,
+                refUser = check.refUser,
+                refDevice = deviceId,
+                Money = check.Money,
+                quentity = Quentity
             };
         }
 

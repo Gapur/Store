@@ -384,6 +384,7 @@
     <Property Name="CardId" Type="Int32" Nullable="false" />
     <Property Name="refUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="refDevice" Type="Guid" Nullable="false" />
+    <Property Name="quentity" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AspNetUser" Relationship="Model.FK_Check_AspNetUsers" FromRole="Check" ToRole="AspNetUser" />
     <NavigationProperty Name="Device" Relationship="Model.FK_Check_Devices" FromRole="Check" ToRole="Device" />
   </EntityType>

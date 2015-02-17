@@ -375,7 +375,33 @@ function AppViewModel() {
         });
     };
 
-    // #region create new product =======================================
+    // #endregion create new product =======================================
+
+    // #region entry check =======================================
+
+    self.cartId = ko.observable(null);
+    self.totalPrice = ko.observable(null);
+
+    self.entryCheck = function () {
+        var viewData = {
+            check: {
+                CardId: self.cartId(),
+                Money: self.totalPrice()
+            }
+        };
+        $.ajax({
+            url: '/Check/EntryCheck/',
+            type: 'POST',
+            data: viewData,
+            success: function (data) {
+                alert(data);
+            },
+            error: function () {
+            }
+        });
+    };
+
+    // #endregion entry check =======================================
 
 };
 

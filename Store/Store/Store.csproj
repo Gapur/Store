@@ -187,6 +187,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Managers\CheckManager.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\CartLine.cs" />
     <Compile Include="Models\FileUpload.cs" />
@@ -253,7 +254,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\BuildEntity.cs" />
-    <Compile Include="Managers\ManufacturerManager.cs" />
     <Compile Include="Managers\ProductManager.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BaseEntity.cs" />

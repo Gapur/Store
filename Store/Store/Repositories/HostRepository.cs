@@ -79,6 +79,12 @@ namespace Store.Repositories
             return SaveChanges();
         }
 
+        public bool Add<T>(IEnumerable<T> entities) where T : class
+        {
+            entities.ToList().ForEach(entity => Context.Set<T>().Add(entity));
+            return SaveChanges();
+        }
+
         public T Update<T>(T entity) where T : class
         {
             Context.Entry(entity).State = EntityState.Modified;

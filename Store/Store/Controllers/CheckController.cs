@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Store.Controllers
 {
+    using ShoppingCart;
+    using Managers;
+
     public class CheckController : Controller
     {
-        // GET: Check
-        public ActionResult Index()
+        CheckManager checkManager = new CheckManager();
+
+        public ActionResult Check(Cart cart)
         {
             return View();
         }
 
-        public ActionResult Check()
+        public ActionResult EntryCheck(Cart cart, Models.Check check)
         {
+            string userId = User.Identity.GetUserId();
+            checkManager.EntryCheck(cart, check);
             return View();
         }
     }

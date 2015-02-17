@@ -20,6 +20,7 @@ namespace Store.EntityModels
         public int CardId { get; set; }
         public string refUser { get; set; }
         public System.Guid refDevice { get; set; }
+        public int quentity { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Device Device { get; set; }
