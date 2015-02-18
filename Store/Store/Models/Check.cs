@@ -25,6 +25,8 @@ namespace Store.Models
         [Display(Name = "Купленный продукт")]
         public System.Guid refDevice { get; set; }
 
+        public string UserInfo { get; set; }
+
         public Product ProductInfo { get; set; }
 
         [Display(Name = "Количество продуктов")]

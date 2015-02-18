@@ -136,7 +136,8 @@ namespace Store.Managers
                 refDevice = check.refDevice,
                 Quentity = check.quentity,
                 refUser = check.refUser,
-                ProductInfo = NewProductEntity(check.Device.Product)
+                ProductInfo = NewProductEntity(check.Device.Product),
+                UserInfo = check.AspNetUser.UserName
             };
         }
 

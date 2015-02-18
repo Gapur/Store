@@ -551,6 +551,7 @@
     <Content Include="Views\Check\Check.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
     <Content Include="Views\Check\EntryCheck.cshtml" />
+    <Content Include="Views\Check\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

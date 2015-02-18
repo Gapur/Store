@@ -62,9 +62,18 @@ namespace Store.Controllers
         /// <returns>return true or false</returns>
         public async Task<bool> DeleteCheck(Models.Check check)
         {
-            check.refUser = User.Identity.GetUserId();
             bool result = await checkManager.DeleteCheck(check);
             return result;
+        }
+
+        /// <summary>
+        /// The method returns all orders from checks
+        /// </summary>  
+        /// <returns>return Task ActionResult</returns>
+        public async Task<ActionResult> Orders()
+        {
+            IEnumerable<Models.Check> orders = await checkManager.GetAllChecks();
+            return View(orders);
         }
     }
 }
