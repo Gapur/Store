@@ -35,6 +35,12 @@
 
 /*#endregion variable*/
 
+/* #region import */
+
+@import "dataTable.less";
+
+/* #endregion import */
+
 /*#region body*/
 
 body {
@@ -498,6 +504,14 @@ i.toggleMenu {
 .basket-btn:hover {
     background: #b2b2b2;
     color: #fff;
+}
+
+.delete-btn {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background: url(../icons/png/delete.png);
+    cursor: pointer;
 }
 
 /* #endregion button */
@@ -1021,3 +1035,15 @@ label {
 }
 
 /* #endregion file upload */
+
+/* #region form check */
+
+.form-check {
+    .action-item {
+        .flexbox-model(row, horizontal);
+        justify-content: center;
+        margin: 5px;
+    }
+}
+
+/* #endregion form check */

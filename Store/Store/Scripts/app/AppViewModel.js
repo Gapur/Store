@@ -380,7 +380,10 @@ function AppViewModel() {
     // #region entry check =======================================
 
     self.cartId = ko.observable(null);
-    self.totalPrice = ko.observable(null);
+    self.webMoney = ko.observable(null);
+    self.totalPrice = ko.computed(function () {
+        return self.webMoney() * 194;
+    }, this);
 
     self.entryCheck = function () {
         var viewData = {
@@ -394,7 +397,9 @@ function AppViewModel() {
             type: 'POST',
             data: viewData,
             success: function (data) {
-                alert(data);
+                if (data == true)
+                    alert("Заказ успешно оформлен");
+                else alert("Во время операций произошло ошибка");
             },
             error: function () {
             }
@@ -403,5 +408,28 @@ function AppViewModel() {
 
     // #endregion entry check =======================================
 
+    // #region remove check =======================================
+
+    self.removeCheck = function (itSelf, event) {
+        var viewData = {
+            check: {
+                Id: $(event.target).data('checkid')
+            }
+        };
+        $.ajax({
+            url: '/Check/DeleteCheck/',
+            type: 'POST',
+            data: viewData,
+            success: function (data) {
+                if (data == true)
+                    alert("Заказ удален");
+                else alert("Во время операций произошло ошибка");
+            },
+            error: function () {
+            }
+        });
+    };
+
+    // #endregion remove check =======================================
 };
 

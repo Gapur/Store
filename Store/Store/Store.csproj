@@ -292,16 +292,28 @@
     <Content Include="Content\icons\png\6.jpg" />
     <Content Include="Content\icons\png\7.jpg" />
     <Content Include="Content\icons\png\8.jpg" />
+    <Content Include="Content\icons\png\back_disabled.png" />
+    <Content Include="Content\icons\png\back_enabled.png" />
+    <Content Include="Content\icons\png\back_enabled_hover.png" />
     <Content Include="Content\icons\png\basket1.png" />
     <Content Include="Content\icons\png\bg-grey-arrow.png" />
     <Content Include="Content\icons\png\bg-left-col-hover.jpg" />
     <Content Include="Content\icons\png\bg-nav-menu-item.jpg" />
     <Content Include="Content\icons\png\check.jpg" />
+    <Content Include="Content\icons\png\delete.png" />
     <Content Include="Content\icons\png\fancybox_sprite.png" />
+    <Content Include="Content\icons\png\forward_disabled.png" />
+    <Content Include="Content\icons\png\forward_enabled.png" />
+    <Content Include="Content\icons\png\forward_enabled_hover.png" />
     <Content Include="Content\icons\png\next.png" />
     <Content Include="Content\icons\png\not_available-generic.png" />
     <Content Include="Content\icons\png\prev.png" />
     <Content Include="Content\icons\png\sale1.jpg" />
+    <Content Include="Content\icons\png\sort_asc.png" />
+    <Content Include="Content\icons\png\sort_asc_disabled.png" />
+    <Content Include="Content\icons\png\sort_both.png" />
+    <Content Include="Content\icons\png\sort_desc.png" />
+    <Content Include="Content\icons\png\sort_desc_disabled.png" />
     <Content Include="Content\icons\png\supp.jpg" />
     <Content Include="Content\icons\png\time1.png" />
     <Content Include="Content\icons\png\waiting-generic.png" />
@@ -374,6 +386,7 @@
       <DependentUpon>StoreModel.edmx</DependentUpon>
       <LastGenOutput>StoreModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\less\dataTable.less" />
     <None Include="Scripts\jsfw\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jsfw\jquery-1.10.2.js" />
     <Content Include="Scripts\jsfw\jquery-1.10.2.min.js" />
@@ -394,6 +407,7 @@
     <Content Include="Scripts\jsfw\snap.svg.js" />
     <Content Include="Scripts\jsfw\_references.js" />
     <Content Include="Scripts\plugins\carousel\jquery-image-scale-carousel.js" />
+    <Content Include="Scripts\plugins\dataTable\jquery.dataTables.js" />
     <Content Include="Scripts\plugins\datetimepicker\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\plugins\datetimepicker\moment.js" />
     <Content Include="Scripts\plugins\datetimepicker\ru.js" />
@@ -536,6 +550,7 @@
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Check\Check.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
+    <Content Include="Views\Check\EntryCheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

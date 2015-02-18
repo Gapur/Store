@@ -1,0 +1,38 @@
+﻿@using Store.Models
+@model IEnumerable<Check>
+
+<script src="~/Scripts/plugins/dataTable/jquery.dataTables.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-check">
+    <h2>Мои заказы</h2>
+    <table id="example">
+        <thead>
+            <tr>
+                <th>Наименование</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Дата заказа</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var elem in Model)
+            {
+                <tr>
+                    <td>@elem.ProductInfo.Name</td>
+                    <td>@elem.Money</td>
+                    <td>@elem.Quentity</td>
+                    <td>@elem.Date</td>
+                    <td class="action-item"><a class="delete-btn" data-checkid="@elem.Id" data-bind="click:removeCheck" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    $('#example').dataTable();
+</script>

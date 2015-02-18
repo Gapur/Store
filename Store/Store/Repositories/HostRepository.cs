@@ -98,6 +98,12 @@ namespace Store.Repositories
             return SaveChanges();
         }
 
+        public bool Delete<T>(T entity) where T : class
+        {
+            Context.Entry(entity).State = EntityState.Deleted;
+            return SaveChanges();
+        }
+
         IDisposable IHostRepository.Context()
         {
             return Context;

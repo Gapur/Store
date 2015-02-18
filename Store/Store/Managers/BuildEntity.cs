@@ -125,6 +125,21 @@ namespace Store.Managers
             };
         }
 
+        public Models.Check NewCheck(Check check)
+        {
+            return new Models.Check
+            {
+                Id = check.Id,
+                CardId = check.CardId,
+                Date = check.Date,
+                Money = check.Money,
+                refDevice = check.refDevice,
+                Quentity = check.quentity,
+                refUser = check.refUser,
+                ProductInfo = NewProductEntity(check.Device.Product)
+            };
+        }
+
         #endregion ConvertFromEntityModelsToModels
 
         #region ConvertFromModelsToEntityModels
@@ -166,11 +181,23 @@ namespace Store.Managers
             return new Check
             {
                 CardId = check.CardId,
-                Date = check.Date,
+                Date = DateTime.Now.ToString(),
                 refUser = check.refUser,
                 refDevice = deviceId,
                 Money = check.Money,
                 quentity = Quentity
+            };
+        }
+
+        public EntityModels.Check EntityModelsCheck(Models.Check check)
+        {
+            return new Check
+            {
+                CardId = check.CardId,
+                Date = check.Date,
+                refUser = check.refUser,
+                Money = check.Money,
+                Id = check.Id
             };
         }
 
