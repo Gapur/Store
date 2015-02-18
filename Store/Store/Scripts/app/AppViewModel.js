@@ -397,7 +397,7 @@ function AppViewModel() {
             type: 'POST',
             data: viewData,
             success: function (data) {
-                if (data == true)
+                if (data == "True")
                     alert("Заказ успешно оформлен");
                 else alert("Во время операций произошло ошибка");
             },
@@ -421,8 +421,10 @@ function AppViewModel() {
             type: 'POST',
             data: viewData,
             success: function (data) {
-                if (data == true)
+                if (data == "True") {
                     alert("Заказ удален");
+                    $(event.target).parent().parent().remove();
+                }
                 else alert("Во время операций произошло ошибка");
             },
             error: function () {
