@@ -62,10 +62,6 @@ function AppViewModel() {
                     if (data.result.isUploaded) {
                         $("#tbx-file-path").val("No file chosen...");
                     }
-                    else {
-
-                    }
-                    alert(data.result.message);
                 },
                 fail: function (event, data) {
                     if (data.files[0].error) {
@@ -367,7 +363,7 @@ function AppViewModel() {
             type: 'POST',
             data: viewData,
             success: function (data) {
-                if (data == "True") {
+                if (data.Name == self.Name()) {
                     self.startUpload();
                     alert("Продукт успешно добавлен");
                 }
@@ -440,26 +436,28 @@ function AppViewModel() {
     // #region remove product =======================================
 
     self.removeProduct = function (itSelf, event) {
-        var viewData = {
-            product: {
-                Id: $(event.target).data('productid'),
-                Images: { Id: $(event.target).data('imageid') }
-            }
-        };
-        $.ajax({
-            url: '/Home/DeleteProduct/',
-            type: 'DELETE',
-            data: viewData,
-            success: function (data) {
-                if (data == "True") {
-                    alert("Продукт удален");
-                    $(event.target).parent().parent().remove();
+        if (confirm("Вы действительно хотите удалить продукт?")) {
+            var viewData = {
+                product: {
+                    Id: $(event.target).data('productid'),
+                    Images: { Id: $(event.target).data('imageid') }
                 }
-                else alert("Во время операций произошло ошибка");
-            },
-            error: function () {
-            }
-        });
+            };
+            $.ajax({
+                url: '/Home/DeleteProduct/',
+                type: 'DELETE',
+                data: viewData,
+                success: function (data) {
+                    if (data == "True") {
+                        alert("Продукт удален");
+                        $(event.target).parent().parent().remove();
+                    }
+                    else alert("Во время операций произошло ошибка");
+                },
+                error: function () {
+                }
+            });
+        }
     };
 
     // #endregion remove product =======================================

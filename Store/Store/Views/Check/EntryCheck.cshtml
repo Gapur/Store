@@ -35,4 +35,17 @@
 </div>
 <script>
     $('#example').dataTable();
+    $('#example tbody tr').each(function () {
+        if (!$(this).hasClass('knocked')) {
+            $(this).addClass('knocked');
+        }
+    });
+    $('#example_next, select[name=example_length]').bind('click', function () {
+        $('#example tbody tr').each(function () {
+            if (!$(this).hasClass('knocked')) {
+                $(this).addClass('knocked');
+                ko.applyBindings(app, $(this).children('.action-item')[0]);
+            }
+        });
+    });
 </script>
