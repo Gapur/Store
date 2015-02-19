@@ -72,7 +72,7 @@ namespace Store.Managers
         /// </summary>
         /// <param name="product">New product</param>
         /// <returns></returns>
-        public Task CreateProduct(Models.Product product)
+        public Task<bool> CreateProduct(Models.Product product)
         {
             System.Guid ID = System.Guid.NewGuid();
             Device device = buildEntity.EntityModelsDevice(product, ID);
@@ -83,6 +83,19 @@ namespace Store.Managers
                 refDevice = ID,
             };
             return Task.FromResult(Repository.Add(prod, device, img));
+        }
+
+        /// <summary>
+        /// The method deletes product from database
+        /// </summary>  
+        /// <param name="check">Models.Check check</param>
+        /// <returns></returns>
+        public Task<bool> DeleteProduct(Models.Product product)
+        {
+            Device device = new Device { Id = product.Id };
+            Image image = new Image { Id = product.Images.Id };
+            Product prod = new Product { Id = product.Id };
+            return Task.FromResult(Repository.Delete(prod, device, image));
         }
     }
 }

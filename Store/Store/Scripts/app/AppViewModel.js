@@ -367,8 +367,11 @@ function AppViewModel() {
             type: 'POST',
             data: viewData,
             success: function (data) {
-                alert(data);
-                self.startUpload();
+                if (data == "True") {
+                    self.startUpload();
+                    alert("Продукт успешно добавлен");
+                }
+                else alert("Во время операций произошло ошибка");
             },
             error: function () {
             }
@@ -433,5 +436,33 @@ function AppViewModel() {
     };
 
     // #endregion remove check =======================================
+
+    // #region remove product =======================================
+
+    self.removeProduct = function (itSelf, event) {
+        var viewData = {
+            product: {
+                Id: $(event.target).data('productid'),
+                Images: { Id: $(event.target).data('imageid') }
+            }
+        };
+        $.ajax({
+            url: '/Home/DeleteProduct/',
+            type: 'DELETE',
+            data: viewData,
+            success: function (data) {
+                if (data == "True") {
+                    alert("Продукт удален");
+                    $(event.target).parent().parent().remove();
+                }
+                else alert("Во время операций произошло ошибка");
+            },
+            error: function () {
+            }
+        });
+    };
+
+    // #endregion remove product =======================================
+
 };
 

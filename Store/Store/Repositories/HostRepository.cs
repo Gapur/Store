@@ -55,6 +55,7 @@ namespace Store.Repositories
 
         #endregion
 
+        #region Add
         public T Add<T>(T entity) where T : class
         {
             var e = Context.Set<T>().Add(entity);
@@ -85,6 +86,10 @@ namespace Store.Repositories
             return SaveChanges();
         }
 
+        #endregion Add
+
+        #region Update
+
         public T Update<T>(T entity) where T : class
         {
             Context.Entry(entity).State = EntityState.Modified;
@@ -98,11 +103,28 @@ namespace Store.Repositories
             return SaveChanges();
         }
 
+        #endregion Update
+
+        #region Delete
+
         public bool Delete<T>(T entity) where T : class
         {
             Context.Entry(entity).State = EntityState.Deleted;
             return SaveChanges();
         }
+
+        public bool Delete<T, TS, TT>(T firstEntity, TS secondEntity, TT thirdEntity)
+            where T : class
+            where TS : class
+            where TT : class
+        {
+            Context.Entry(firstEntity).State = EntityState.Deleted;
+            Context.Entry(secondEntity).State = EntityState.Deleted;
+            Context.Entry(thirdEntity).State = EntityState.Deleted;
+            return SaveChanges();
+        }
+
+        #endregion Delete
 
         IDisposable IHostRepository.Context()
         {

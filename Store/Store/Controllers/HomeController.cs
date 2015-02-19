@@ -18,36 +18,66 @@ namespace Store.Controllers
     {
         ProductManager productManager = new ProductManager();
 
+        /// <summary>
+        /// the method removes product from database
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// the method removes product from database
+        /// </summary>
+        /// <returns></returns>
         public ActionResult About()
         {
             return View();
         }
 
+        /// <summary>
+        /// the method removes product from database
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Contact()
         {
             return View();
         }
 
+        /// <summary>
+        /// the method removes product from database
+        /// </summary>
+        /// <param name="data">product data</param>
+        /// <returns>partial page</returns>
         public PartialViewResult DetailProduct(Models.Product data)
         {
             return PartialView("~/Views/Shared/Partials/DetailProduct.cshtml", data);
         }
 
+        /// <summary>
+        /// the method removes product from database
+        /// </summary>
+        /// <param name="product">product removal</param>
+        /// <returns>true or false</returns>
         public ActionResult ProductView()
         {
             return View();
         }
 
+        /// <summary>
+        /// the method returns support page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Support()
         {
             return View();
         }
 
+        /// <summary>
+        /// the method creates a new product for sale
+        /// </summary>
+        /// <returns></returns>
         public async Task<ActionResult> UserSale()
         {
             Models.BaseEntity entities = await productManager.GetProductProperty();
@@ -60,6 +90,28 @@ namespace Store.Controllers
             ViewBag.Power = new SelectList(entities.PowerList, "Id", "BatteryWork");
             ViewBag.Display = new SelectList(entities.DisplayList, "Id", "ScreenResolution");
             return View();
+        }
+
+        /// <summary>
+        /// the method returns all products in admin products page
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ActionResult> AdminProducts()
+        {
+            IEnumerable<Models.Product> result = await productManager.GetAllProducts();
+            return View(result);
+        }
+
+        /// <summary>
+        /// the method removes product from database
+        /// </summary>
+        /// <param name="product">product removal</param>
+        /// <returns>true or false</returns>
+        [HttpDelete]
+        public async Task<bool> DeleteProduct(Models.Product product)
+        {
+            bool result = await productManager.DeleteProduct(product);
+            return result;
         }
 
         /// <summary>

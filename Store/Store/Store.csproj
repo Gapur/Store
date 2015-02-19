@@ -308,6 +308,7 @@
     <Content Include="Content\icons\png\next.png" />
     <Content Include="Content\icons\png\not_available-generic.png" />
     <Content Include="Content\icons\png\prev.png" />
+    <Content Include="Content\icons\png\product.png" />
     <Content Include="Content\icons\png\sale1.jpg" />
     <Content Include="Content\icons\png\sort_asc.png" />
     <Content Include="Content\icons\png\sort_asc_disabled.png" />
@@ -552,6 +553,7 @@
     <Content Include="Views\Home\Support.cshtml" />
     <Content Include="Views\Check\EntryCheck.cshtml" />
     <Content Include="Views\Check\Orders.cshtml" />
+    <Content Include="Views\Home\AdminProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
