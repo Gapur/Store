@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="formItem">
+<form class="formItem" id="saleForm">
     <h2>Подать объявление</h2>
     <div class="main-scope">
         @Html.EditorFor(m => m.Name, new { data_bind = "value: Name" })
@@ -24,7 +24,7 @@
             @Html.DropDownListFor(m => m.Display, ViewBag.Display as SelectList, new { data_bind = "value: Display" })
         </div>
         <div class="item-control">
-            <input type="text" id="tbx-file-path" value="No file chosen..." readonly="readonly" />
+            <input type="text" name="ImagesUrl" id="tbx-file-path" value="No file chosen..." readonly="readonly" />
             <span class="btn fileinput-button">
                 <span>Select file...</span>
                 <input id="fu-my-simple-upload" data-bind="value:selectFile" name="MyFile" type="file" value="">
@@ -32,8 +32,8 @@
         </div>
         <div class="item-control">
             @Html.LabelFor(m => m.TypeProduct, new { @class = "label-control" })
-            <select id="typeProduct" data-bind="selectedOptions:selectedItems">
-                <option value="0">Тип продукта</option>
+            <select id="typeProduct" name="typeProduct" data-bind="selectedOptions:selectedItems">
+                <option value="">Тип продукта</option>
                 <option value="1">Смартфон</option>
                 <option value="2">Ноутбук</option>
                 <option value="3">Телевизор</option>
@@ -69,9 +69,9 @@
         </div>
     </div>
     <div class="item-control">
-        <a class="btn" data-bind="click:creteProduct">Создать</a>
+        <input type="submit" class="btn" data-bind="click:creteProduct" value="Создать">
     </div>
-</div>
+</form>
 
 <script src="~/Scripts/jsfw/jquery-ui-1.9.2.min.js"></script>
 @Scripts.Render("~/bundles/file-upload")

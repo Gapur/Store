@@ -37,10 +37,14 @@ namespace Store.Controllers
         [HttpPost]
         public async Task<bool> EntryCheck(Cart cart, Models.Check check)
         {
-            string userId = User.Identity.GetUserId();
-            check.refUser = userId;
-            bool result = await checkManager.EntryCheck(cart, check);
-            return result;
+            if (ModelState.IsValid)
+            {
+                string userId = User.Identity.GetUserId();
+                check.refUser = userId;
+                bool result = await checkManager.EntryCheck(cart, check);
+                return result;
+            }
+            return false;
         }
 
         /// <summary>

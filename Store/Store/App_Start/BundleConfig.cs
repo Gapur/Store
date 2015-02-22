@@ -14,7 +14,8 @@ namespace Store
                         "~/Scripts/jsfw/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jsfw/jquery.validate*"));
+                        "~/Scripts/jsfw/jquery.validate*",
+                        "~/Scripts/jsfw/messages_ru.js"));
 
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
             // используйте средство сборки на сайте http://modernizr.com, чтобы выбрать только нужные тесты.

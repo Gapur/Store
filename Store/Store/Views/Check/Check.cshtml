@@ -5,29 +5,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="check-content">
+<form class="check-content" id="checkForm">
     <div class="check-item">
         <img src="~/Content/icons/png/wmlogo_vector_blue.png" />
+    </div>
+    <div class="check-item">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
     </div>
     <div class="check-item">
         <span class="label-control">Оформление покупки на сумму тенге</span>
     </div>
     <div class="check-item">
         <label class="label-control">Номер карточки</label>
-        <input type="text" class="check-text" data-bind="value:cartId" />
+        <input type="text" name="CreditCard" class="check-text" data-bind="value:cartId" />
     </div>
     <div class="check-item">
         <span class="label-control">Платежная система осуществляется c WebMoney</span>
     </div>
     <div class="check-item">
         <label class="label-control">Платеж на WebMoney</label>
-        <input type="text" class="check-text" data-bind="value:webMoney" />
+        <input type="text" name="Digits" class="check-text" data-bind="value:webMoney" />
     </div>
     <div class="check-item">
         <label class="label-control">Цена</label>
-        <input type="text" class="check-text" data-bind="value:totalPrice" />
+        <input type="text" name="Digits" class="check-text" data-bind="value:totalPrice" />
     </div>
     <div class="check-item">
-        <a class="pay-btn" data-bind="click:entryCheck">Заказать</a>
+        <input type="submit" class="pay-btn" value="Заказать" data-bind="click:entryCheck" />
     </div>
-</div>
+</form>

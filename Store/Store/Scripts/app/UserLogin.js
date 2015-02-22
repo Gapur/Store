@@ -10,7 +10,6 @@
                 password: self.Password()
             }
         };
-        debugger;
         $.ajax({
             url: '/Account/Login',
             type: 'POST',

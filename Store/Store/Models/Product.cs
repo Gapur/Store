@@ -10,16 +10,20 @@ namespace Store.Models
     {
         public System.Guid Id { get; set; }
 
+        [Required]
         [Display(Name = "Наименование")]
         public string Name { get; set; }
 
+        [Required]
         [Display(Name = "Цена")]
         public decimal Price { get; set; }
 
+        [Required]
         [Display(Name = "Дата поступление продукта")]
         [DataType(DataType.Date)]
         public string Date { get; set; }
 
+        [Required]
         [Display(Name = "Цвет")]
         public string Color { get; set; }
 
@@ -32,6 +36,7 @@ namespace Store.Models
         [Display(Name = "WiFi")]
         public bool WiFi { get; set; }
 
+        [Required]
         [Display(Name = "Производитель")]
         public Manufacturer Manufacturers { get; set; }
 
@@ -62,6 +67,7 @@ namespace Store.Models
         [Display(Name = "Камера(mpx)")]
         public Camera Camera { get; set; }
 
+        [Required]
         [Display(Name = "Тип продукта")]
         public int TypeProduct { get; set; }
     }

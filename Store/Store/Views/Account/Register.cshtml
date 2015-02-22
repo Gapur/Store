@@ -1,24 +1,17 @@
 ﻿@using Store.Parser
 @model Store.Models.RegisterViewModel
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "formItem", role = "form", id = "registerForm" }))
 {
-    <div id="registerForm" data-load-form="Register" class="formItem">
-        @Html.AntiForgeryToken()
-        <h2>Регистрация</h2>
-        <div class="item-control">
-            @Html.ValidationSummary("", new { @class = "text-danger" })
-        </div>
-        @Html.EditorFor(m => m.Email, new { data_bind = "value: Email" })
-        @Html.EditorFor(m => m.Password, new { data_bind = "value: Password" })
-        @Html.EditorFor(m => m.ConfirmPassword, new { data_bind = "value: ConfirmPassword" })
-        <div class="item-control">
-            <input type="submit" value="Зарегистрироваться" class="btn" data-bind="click: registerate" />
-        </div>
+    @Html.AntiForgeryToken()
+    <h2>Регистрация</h2>
+    <div class="item-control">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+    </div>
+    @Html.EditorFor(m => m.Email, new { data_bind = "value: Email" })
+    @Html.EditorFor(m => m.Password, new { data_bind = "value: Password" })
+    @Html.EditorFor(m => m.ConfirmPassword, new { data_bind = "value: ConfirmPassword" })
+    <div class="item-control">
+        <input type="submit" value="Зарегистрироваться" class="btn" />
     </div>
 }
-
-@* <script type="text/javascript">
-    <script src="~/Scripts/app/UserRegister.js" type="text/javascript"></script>
-        ko.applyBindings(new RegisterDataModel(), $('#registerForm')[0]);
-    </script>*@

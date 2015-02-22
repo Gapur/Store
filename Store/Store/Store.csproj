@@ -401,6 +401,7 @@
     <Content Include="Scripts\jsfw\knockout-3.2.0.debug.js" />
     <Content Include="Scripts\jsfw\knockout-3.2.0.js" />
     <Content Include="Scripts\jsfw\less.js" />
+    <Content Include="Scripts\jsfw\messages_ru.js" />
     <Content Include="Scripts\jsfw\modernizr-2.6.2.js" />
     <Content Include="Scripts\jsfw\respond.js" />
     <Content Include="Scripts\jsfw\respond.min.js" />

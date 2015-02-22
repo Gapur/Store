@@ -11,11 +11,14 @@ function AppViewModel() {
 
     self = this;
     self.selectFile = ko.observable(null);
+    self.Email = ko.observable(null);
+    self.Password = ko.observable(null);
 
     self.initialize = function () {
 
         initProductList();
         pluginsInitialize();
+        appValidation();
 
         function initProductList() {
             if ($('.category-list').length > 0) {
@@ -72,6 +75,117 @@ function AppViewModel() {
         };
 
         // #endregion file upload ==========================================
+
+        // #region application validation ==========================================
+
+        function appValidation() {
+            $.validator.setDefaults({
+                debug: true,
+                success: "valid"
+            });
+            if ($("#registerForm").length > 0)
+                registerFormValid();
+            if ($("#LogForm").length > 0)
+                loginFormValid();
+            if ($("#checkForm").length > 0)
+                checkFormValid();
+            if ($('#saleForm').length > 0)
+                saleFormValid();
+        };
+
+        // #region register form validation ============================================
+
+        function registerFormValid() {
+            $("#registerForm").validate({
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 16
+                    },
+                    ConfirmPassword: {
+                        equalTo: "#Password"
+                    }
+                }
+            });
+        };
+
+        // #endregion register form validation ============================================
+
+        // #region login form validation ============================================
+
+        function loginFormValid() {
+            $("#ogForm").validate({
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                    Password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 16
+                    }
+                }
+            });
+        };
+
+        // #endregion login form validation ============================================
+
+        // #region check form validation ============================================
+
+        function checkFormValid() {
+            $("#checkForm").validate({
+                rules: {
+                    Digits: {
+                        min: 1,
+                        max: 10000000,
+                        required: true,
+                        digits: true
+                    },
+                    CreditCard: {
+                        required: true,
+                        creditcard: true
+                    }
+                }
+            });
+        };
+
+        // #endregion check form validation ============================================
+
+        // #region UserSale form validation ============================================
+
+        function saleFormValid() {
+            $("#saleForm").validate({
+                rules: {
+                    String: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 21
+                    },
+                    Digits: {
+                        min: 1,
+                        max: 100000000,
+                        required: true,
+                        digits: true
+                    },
+                    Date: {
+                        required: true
+                    },
+                    typeProduct: {
+                        required: true
+                    }
+                }
+            });
+        };
+
+        // #endregion UserSale form validation ============================================
+
+        // #endregion application validation ==========================================
 
         // #region load plugin carousel ==========================================
 
@@ -358,20 +472,30 @@ function AppViewModel() {
             VideoCard: { Id: self.VideoCard() },
             Images: { Url: self.selectFile() }
         };
-        $.ajax({
-            url: '/api/Products/',
-            type: 'POST',
-            data: viewData,
-            success: function (data) {
-                if (data.Name == self.Name()) {
-                    self.startUpload();
-                    alert("Продукт успешно добавлен");
-                }
-                else alert("Во время операций произошло ошибка");
-            },
-            error: function () {
+        var stateValid = $('#saleForm').valid();
+        if (stateValid) {
+            if ($('#tbx-file-path').val() != "No file chosen..." &&
+            $('#tbx-file-path').val() != null) {
+                $.ajax({
+                    url: '/api/Products/',
+                    type: 'POST',
+                    data: viewData,
+                    success: function (data) {
+                        if (data.Name == self.Name()) {
+                            self.startUpload();
+                            alert("Продукт успешно добавлен");
+                        }
+                        else alert("Во время операций произошло ошибка");
+                    },
+                    error: function () {
+                    }
+                });
+            } else {
+                $('#tbx-file-path').css('color', 'red');
+                alert("Загрузите изображение!");
             }
-        });
+
+        } else alert("Введите корректные данные");
     };
 
     // #endregion create new product =======================================
@@ -385,24 +509,27 @@ function AppViewModel() {
     }, this);
 
     self.entryCheck = function () {
-        var viewData = {
-            check: {
-                CardId: self.cartId(),
-                Money: self.totalPrice()
-            }
-        };
-        $.ajax({
-            url: '/Check/EntryCheck/',
-            type: 'POST',
-            data: viewData,
-            success: function (data) {
-                if (data == "True")
-                    alert("Заказ успешно оформлен");
-                else alert("Во время операций произошло ошибка");
-            },
-            error: function () {
-            }
-        });
+        var stateValid = $('#checkForm').valid();
+        if (stateValid) {
+            var viewData = {
+                check: {
+                    CardId: self.cartId(),
+                    Money: self.totalPrice()
+                }
+            };
+            $.ajax({
+                url: '/Check/EntryCheck/',
+                type: 'POST',
+                data: viewData,
+                success: function (data) {
+                    if (data == "True")
+                        alert("Заказ успешно оформлен");
+                    else alert("Во время операций произошло ошибка");
+                },
+                error: function () {
+                }
+            });
+        }
     };
 
     // #endregion entry check =======================================
@@ -461,6 +588,5 @@ function AppViewModel() {
     };
 
     // #endregion remove product =======================================
-
 };
 
