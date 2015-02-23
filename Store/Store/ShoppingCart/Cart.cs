@@ -12,10 +12,19 @@ namespace Store.ShoppingCart
 {
     using Models;
 
+    /// <summary>
+    /// Cart class
+    /// </summary>  
     public class Cart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
 
+        /// <summary>
+        /// The method adds a new cart in list of cartline 
+        /// </summary>  
+        /// <param name="cart">shopping cart</param>
+        /// <param name="quantity">item quantity</param>
+        /// <returns>return bool</returns>
         public bool AddItem(ShoppingCart cart, int quantity)
         {
             try
@@ -44,6 +53,11 @@ namespace Store.ShoppingCart
             return false;
         }
 
+        /// <summary>
+        /// The method removes the item by id
+        /// </summary>  
+        /// <param name="id">cart id</param>
+        /// <returns>return bool</returns>
         public bool RemoveLine(System.Guid Id)
         {
             try
@@ -57,6 +71,12 @@ namespace Store.ShoppingCart
             return false;
         }
 
+        /// <summary>
+        /// The method modified item cart
+        /// </summary>  
+        /// <param name="id">cart id</param>
+        /// <param name="mark">minus or plus</param>
+        /// <returns>return bool</returns>
         public bool ModifiedItemCart(System.Guid Id, string mark)
         {
             try
@@ -78,11 +98,19 @@ namespace Store.ShoppingCart
             return false;
         }
 
+        /// <summary>
+        /// The method calculates total price of shopping cart
+        /// </summary>  
+        /// <returns>return total price</returns>
         public decimal ComputeTotalValue()
         {
             return lineCollection.Sum(e => e.ShoppingCart.Price * e.Quantity);
         }
 
+        /// <summary>
+        /// The method clears linecollection
+        /// </summary>  
+        /// <returns></returns>
         public void Clear()
         {
             lineCollection.Clear();

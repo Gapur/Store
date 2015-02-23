@@ -26,7 +26,7 @@ namespace Store.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Store.Controllers
         [AllowAnonymous]
         public ActionResult About()
         {
-            return View();
+            return View("About");
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Store.Controllers
         [AllowAnonymous]
         public ActionResult Contact()
         {
-            return View();
+            return View("Contact");
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace Store.Controllers
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        private bool CreateFolderIfNeeded(string path)
+        public bool CreateFolderIfNeeded(string path)
         {
             bool result = true;
             if (!Directory.Exists(path))
