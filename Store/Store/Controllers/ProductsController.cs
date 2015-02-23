@@ -15,12 +15,14 @@ namespace Store.Controllers
 {
     using Managers;
 
+    [Authorize]
     public class ProductsController : ApiController
     {
         ProductManager userProductManager = new ProductManager();
         private Entities db = new Entities();
 
         // GET: api/Products
+        [AllowAnonymous]
         public async Task<IHttpActionResult> GetProducts()
         {
             IEnumerable<Models.Product> result = await userProductManager.GetAllProducts();
@@ -43,6 +45,7 @@ namespace Store.Controllers
         // GET: api/Products/FilterProducts/
         [HttpGet]
         [Route("Products/{type}/FilterProducts")]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> GetFilterProducts(int type)
         {
             IEnumerable<Models.Product> result = await userProductManager.GetFilterProducts(type);
@@ -86,6 +89,7 @@ namespace Store.Controllers
 
         // POST: api/Products
         [ResponseType(typeof(Product))]
+        [Authorize(Roles = "admin")]
         public async Task<IHttpActionResult> PostProduct(Models.Product product)
         {
             if (!ModelState.IsValid)
@@ -106,6 +110,7 @@ namespace Store.Controllers
 
         // DELETE: api/Products/5
         [ResponseType(typeof(Product))]
+        [Authorize(Roles = "admin")]
         public async Task<IHttpActionResult> DeleteProduct(Guid id)
         {
             Product product = await db.Products.FindAsync(id);

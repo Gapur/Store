@@ -14,6 +14,7 @@ namespace Store.Controllers
     /// <summary>
     /// Check controller
     /// </summary>  
+    [Authorize]
     public class CheckController : Controller
     {
         CheckManager checkManager = new CheckManager();
@@ -42,6 +43,10 @@ namespace Store.Controllers
                 string userId = User.Identity.GetUserId();
                 check.refUser = userId;
                 bool result = await checkManager.EntryCheck(cart, check);
+                if (result)
+                {
+                    cart.Clear();
+                }
                 return result;
             }
             return false;
@@ -74,6 +79,7 @@ namespace Store.Controllers
         /// The method returns all orders from checks
         /// </summary>  
         /// <returns>return Task ActionResult</returns>
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult> Orders()
         {
             IEnumerable<Models.Check> orders = await checkManager.GetAllChecks();

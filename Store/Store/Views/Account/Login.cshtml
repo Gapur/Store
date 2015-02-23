@@ -1,7 +1,7 @@
 ﻿@using Store.Parser
 @model Store.Models.LoginViewModel
 
-@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "formItem", id = "LogForm" }))
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "formItem", id = "loginForm" }))
 {
     @Html.AntiForgeryToken()
     <h2>Выполнить вход</h2>

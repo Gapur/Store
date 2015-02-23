@@ -79,13 +79,9 @@ function AppViewModel() {
         // #region application validation ==========================================
 
         function appValidation() {
-            $.validator.setDefaults({
-                debug: true,
-                success: "valid"
-            });
             if ($("#registerForm").length > 0)
                 registerFormValid();
-            if ($("#LogForm").length > 0)
+            if ($("#loginForm").length > 0)
                 loginFormValid();
             if ($("#checkForm").length > 0)
                 checkFormValid();
@@ -119,7 +115,7 @@ function AppViewModel() {
         // #region login form validation ============================================
 
         function loginFormValid() {
-            $("#ogForm").validate({
+            $("#loginForm").validate({
                 rules: {
                     Email: {
                         required: true,

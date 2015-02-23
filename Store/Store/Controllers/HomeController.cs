@@ -14,39 +14,43 @@ namespace Store.Controllers
     /// <summary>
     /// Home Controller
     /// </summary>
+    [Authorize]
     public class HomeController : Controller
     {
         ProductManager productManager = new ProductManager();
 
         /// <summary>
-        /// the method removes product from database
+        /// the method views index page
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
         /// <summary>
-        /// the method removes product from database
+        /// the method view about page
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult About()
         {
             return View();
         }
 
         /// <summary>
-        /// the method removes product from database
+        /// the method views contact page
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult Contact()
         {
             return View();
         }
 
         /// <summary>
-        /// the method removes product from database
+        /// the method view detail product 
         /// </summary>
         /// <param name="data">product data</param>
         /// <returns>partial page</returns>
@@ -56,10 +60,9 @@ namespace Store.Controllers
         }
 
         /// <summary>
-        /// the method removes product from database
+        /// the method view productview page
         /// </summary>
-        /// <param name="product">product removal</param>
-        /// <returns>true or false</returns>
+        /// <returns></returns>
         public ActionResult ProductView()
         {
             return View();
@@ -78,6 +81,7 @@ namespace Store.Controllers
         /// the method creates a new product for sale
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult> UserSale()
         {
             Models.BaseEntity entities = await productManager.GetProductProperty();
@@ -96,6 +100,7 @@ namespace Store.Controllers
         /// the method returns all products in admin products page
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult> AdminProducts()
         {
             IEnumerable<Models.Product> result = await productManager.GetAllProducts();
@@ -107,6 +112,7 @@ namespace Store.Controllers
         /// </summary>
         /// <param name="product">product removal</param>
         /// <returns>true or false</returns>
+        [Authorize(Roles = "admin")]
         [HttpDelete]
         public async Task<bool> DeleteProduct(Models.Product product)
         {
