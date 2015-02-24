@@ -160,7 +160,7 @@ function AppViewModel() {
                 rules: {
                     String: {
                         required: true,
-                        minlength: 4,
+                        minlength: 1,
                         maxlength: 21
                     },
                     Digits: {
@@ -261,9 +261,13 @@ function AppViewModel() {
                 type: 'POST',
                 data: viewData,
                 success: function (data) {
-                    $('.detail-info').remove();
-                    $('.category-list').addClass('passive');
-                    $('.content').append(data);
+                    if (data != "" && data != null) {
+                        $('.detail-info').remove();
+                        $('.category-list').addClass('passive');
+                        $('.content').append(data);
+                    } else {
+                        alert("Вам необходимо авторизоваться");
+                    }
                 },
                 error: function () {
                 }

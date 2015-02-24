@@ -397,6 +397,7 @@ namespace Store.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
+            Session["Cart"] = null;
             return RedirectToAction("Index", "Home");
         }
 
