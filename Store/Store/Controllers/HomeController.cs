@@ -63,6 +63,7 @@ namespace Store.Controllers
         /// the method view productview page
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult ProductView()
         {
             return View();
@@ -72,6 +73,7 @@ namespace Store.Controllers
         /// the method returns support page
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public ActionResult Support()
         {
             return View();

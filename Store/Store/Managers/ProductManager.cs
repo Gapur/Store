@@ -16,7 +16,7 @@ namespace Store.Managers
     /// </summary>
     public class ProductManager
     {
-        private HostRepository Repository = new HostRepository();
+        private IHostRepository Repository = new HostRepository();
         private BuildEntity buildEntity = new BuildEntity();
 
         /// <summary>

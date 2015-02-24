@@ -25,7 +25,15 @@ namespace Store.Controllers
         [AllowAnonymous]
         public async Task<IHttpActionResult> GetProducts()
         {
-            IEnumerable<Models.Product> result = await userProductManager.GetAllProducts();
+            IEnumerable<Models.Product> result;
+            try
+            {
+                result = await userProductManager.GetAllProducts();
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
             return Ok(result);
         }
 
@@ -48,7 +56,15 @@ namespace Store.Controllers
         [AllowAnonymous]
         public async Task<IHttpActionResult> GetFilterProducts(int type)
         {
-            IEnumerable<Models.Product> result = await userProductManager.GetFilterProducts(type);
+            IEnumerable<Models.Product> result;
+            try
+            {
+                result = await userProductManager.GetFilterProducts(type);
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
             return Ok(result);
         }
 

@@ -27,6 +27,11 @@ namespace Store.Repositories
             }
         }
 
+        public HostRepository()
+        {
+            context = new Entities();
+        }
+
         #region Set's
 
         public IEnumerable<T> Set<T>(Expression<Func<T, bool>> lamda) where T : class

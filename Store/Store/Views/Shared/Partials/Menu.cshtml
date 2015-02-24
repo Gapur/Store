@@ -1,16 +1,21 @@
-﻿<ul>
+﻿@using Microsoft.AspNet.Identity
+
+<ul>
     <li>
         <a href="/Home/Index">Главная страница</a>
     </li>
     <li>
         <a href="/Home/ProductView">Список продуктов</a>
     </li>
-    <li>
-        <a href="/Home/UserSale">Подать объявление</a>
-    </li>
-    <li>
-        <a href="/Check/Orders">Список заказов</a>
-    </li>
+    @if (User.IsInRole("admin"))
+    {
+        <li>
+            <a href="/Home/UserSale">Подать объявление</a>
+        </li>
+        <li>
+            <a href="/Check/Orders">Список заказов</a>
+        </li>
+    }
     <li>
         <a href="#">Наши события</a>
     </li>

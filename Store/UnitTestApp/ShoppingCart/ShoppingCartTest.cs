@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Web.Mvc;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -109,6 +108,26 @@ namespace UnitTestApp.ShoppingCart
 
             //Assert
             Assert.AreEqual(cart.Lines.Count(), 0);
+        }
+
+        [TestMethod]
+        public void ModifiedCartQuentityTest()
+        {
+            //Arrange
+            ShoppingCart cart1 = new ShoppingCart { Id = System.Guid.NewGuid(), ImageUrl = "img", Name = "SamsungS4", Price = 3 };
+            ShoppingCart cart2 = new ShoppingCart { Id = System.Guid.NewGuid(), ImageUrl = "img", Name = "SamsungS5", Price = 4 };
+
+            //Act
+            Cart cart = new Cart();
+            cart.AddItem(cart1, 3);
+            cart.AddItem(cart2, 1);
+            cart.AddItem(cart2, 8);
+            cart.ModifiedItemCart(cart1.Id, "-");
+            cart.ModifiedItemCart(cart2.Id, "+");
+
+            //Assert
+            Assert.AreEqual(cart.Lines.Where(l => l.ShoppingCart.Id == cart1.Id).ToList()[0].Quantity, 2);
+            Assert.AreEqual(cart.Lines.Where(l => l.ShoppingCart.Id == cart2.Id).ToList()[0].Quantity, 10);
         }
     }
 }
