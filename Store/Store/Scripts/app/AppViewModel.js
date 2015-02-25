@@ -13,6 +13,7 @@ function AppViewModel() {
     self.selectFile = ko.observable(null);
     self.Email = ko.observable(null);
     self.Password = ko.observable(null);
+    self.ConfirmPassword = ko.observable(null);
 
     self.initialize = function () {
 
@@ -349,14 +350,6 @@ function AppViewModel() {
 
     // #endregion navbar-right ==================================
 
-    // #region pay product =======================================
-
-    self.payProduct = function () {
-        alert("В магазин сходи");
-    };
-
-    // #endregion pay product ======================================= 
-
     // #region remove cart =======================================
 
     self.removeCart = function (itSelf, event) {
@@ -444,7 +437,7 @@ function AppViewModel() {
     self.WiFi = ko.observable(false);
     self.Manufacturers = ko.observable(null);
     self.Display = ko.observable(null);
-    self.RAM = ko.observable(null);
+    self.RAM = ko.observable(1);
     self.OperatingSystem = ko.observable(null);
     self.Processor = ko.observable(null);
     self.BuildMemory = ko.observable(null);
@@ -508,27 +501,30 @@ function AppViewModel() {
         return self.webMoney() * 194;
     }, this);
 
-    self.entryCheck = function () {
+    self.entryCheck = function (itSelf, event) {
         var stateValid = $('#checkForm').valid();
+        var total_price = $(event.target).data('total-price');
         if (stateValid) {
-            var viewData = {
-                check: {
-                    CardId: self.cartId(),
-                    Money: self.totalPrice()
-                }
-            };
-            $.ajax({
-                url: '/Check/EntryCheck/',
-                type: 'POST',
-                data: viewData,
-                success: function (data) {
-                    if (data == "True")
-                        alert("Заказ успешно оформлен");
-                    else alert("Во время операций произошло ошибка");
-                },
-                error: function () {
-                }
-            });
+            if (total_price <= self.totalPrice() && total_price > 0) {
+                var viewData = {
+                    check: {
+                        CardId: self.cartId(),
+                        Money: self.totalPrice()
+                    }
+                };
+                $.ajax({
+                    url: '/Check/EntryCheck/',
+                    type: 'POST',
+                    data: viewData,
+                    success: function (data) {
+                        if (data == "True")
+                            alert("Заказ успешно оформлен");
+                        else alert("Во время операций произошло ошибка");
+                    },
+                    error: function () {
+                    }
+                });
+            } else alert("У вас недостаточно стредств");
         }
     };
 
@@ -537,25 +533,27 @@ function AppViewModel() {
     // #region remove check =======================================
 
     self.removeCheck = function (itSelf, event) {
-        var viewData = {
-            check: {
-                Id: $(event.target).data('checkid')
-            }
-        };
-        $.ajax({
-            url: '/Check/DeleteCheck/',
-            type: 'POST',
-            data: viewData,
-            success: function (data) {
-                if (data == "True") {
-                    alert("Заказ удален");
-                    $(event.target).parent().parent().remove();
+        if (confirm("Вы действительно хотите удалить заказ?")) {
+            var viewData = {
+                check: {
+                    Id: $(event.target).data('checkid')
                 }
-                else alert("Во время операций произошло ошибка");
-            },
-            error: function () {
-            }
-        });
+            };
+            $.ajax({
+                url: '/Check/DeleteCheck/',
+                type: 'POST',
+                data: viewData,
+                success: function (data) {
+                    if (data == "True") {
+                        alert("Заказ удален");
+                        $(event.target).parent().parent().remove();
+                    }
+                    else alert("Во время операций произошло ошибка");
+                },
+                error: function () {
+                }
+            });
+        }
     };
 
     // #endregion remove check =======================================

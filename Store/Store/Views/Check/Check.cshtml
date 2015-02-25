@@ -13,7 +13,7 @@
         @Html.ValidationSummary("", new { @class = "text-danger" })
     </div>
     <div class="check-item">
-        <span class="label-control">Оформление покупки на сумму тенге</span>
+        <span class="label-control">Оформление покупки на сумму <span>@Model.Money</span> тенге</span>
     </div>
     <div class="check-item">
         <label class="label-control">Номер карточки</label>
@@ -27,10 +27,10 @@
         <input type="text" name="Digits" class="check-text" data-bind="value:webMoney" />
     </div>
     <div class="check-item">
-        <label class="label-control">Цена</label>
+        <label class="label-control">Сумма</label>
         <input type="text" name="Digits" class="check-text" data-bind="value:totalPrice" />
     </div>
     <div class="check-item">
-        <input type="submit" class="pay-btn" value="Заказать" data-bind="click:entryCheck" />
+        <input type="submit" class="pay-btn" value="Заказать" data-total-price="@Model.Money" data-bind="click:entryCheck" />
     </div>
 </form>

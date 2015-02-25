@@ -32,9 +32,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Money" Type="money" Nullable="false" />
     <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CardId" Type="int" Nullable="false" />
+    <Property Name="CardId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="refUser" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="refDevice" Type="uniqueidentifier" />
     <Property Name="quentity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Devices">
@@ -157,7 +157,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Check_Devices">
-    <End Role="Devices" Type="Self.Devices" Multiplicity="1" />
+    <End Role="Devices" Type="Self.Devices" Multiplicity="0..1" />
     <End Role="Check" Type="Self.Check" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Devices">

@@ -16,21 +16,21 @@
                                 <img src="~/Content/icons/png/basket1.png" />
                                 <a href="/Cart/Cart">Моя корзина</a>
                             </li>
-                            @if (User.IsInRole("admin"))
-                            {
-                                <li>
-                                    <img src="~/Content/icons/png/sale1.jpg" />
-                                    <a href="/Check/EntryCheck">Список покупок</a>
-                                </li>
-                            }    
+                            <li>
+                                <img src="~/Content/icons/png/sale1.jpg" />
+                                <a href="/Check/EntryCheck">Список покупок</a>
+                            </li>
                             <li>
                                 <img src="~/Content/icons/png/check.jpg" />
                                 <a href="/Check/Check">Купить</a>
                             </li>
-                            <li>
-                                <img src="~/Content/icons/png/product.png" />
-                                <a href="/Home/AdminProducts">Продукты</a>
-                            </li>
+                            @if (User.IsInRole("admin"))
+                            {
+                                <li>
+                                    <img src="~/Content/icons/png/product.png" />
+                                    <a href="/Home/AdminProducts">Продукты</a>
+                                </li>
+                            }
                         </ul>
                     </li>
                 </ul>

@@ -27,14 +27,14 @@ namespace Store.Models
         [Display(Name = "Цвет")]
         public string Color { get; set; }
 
+        [Display(Name = "WiFi")]
+        public bool WiFi { get; set; }
+
         [Display(Name = "Оперативная память, Гб")]
         public int RAM { get; set; }
 
         [Display(Name = "Операционная система")]
         public string OperatingSystem { get; set; }
-
-        [Display(Name = "WiFi")]
-        public bool WiFi { get; set; }
 
         [Required]
         [Display(Name = "Производитель")]

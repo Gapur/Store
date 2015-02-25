@@ -39,6 +39,12 @@ namespace Store.Controllers
             return View("About");
         }
 
+        [AllowAnonymous]
+        public ActionResult OurEvents()
+        {
+            return View("OurEvents");
+        }
+
         /// <summary>
         /// the method views contact page
         /// </summary>

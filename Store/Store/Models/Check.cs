@@ -20,7 +20,7 @@ namespace Store.Models
 
         [Required]
         [Display(Name = "Номер карточки")]
-        public int CardId { get; set; }
+        public string CardId { get; set; }
 
         [Required]
         [Display(Name = "Пользователь")]

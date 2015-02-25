@@ -14,6 +14,11 @@ namespace Store.Managers
     {
         #region ConvertFromEntityModelsToModels
 
+        /// <summary>
+        /// The method convert from EntityModel to model of product
+        /// </summary>  
+        /// <param name="product">Product product</param>
+        /// <returns>Models.Product</returns>
         public Models.Product NewProductEntity(Product product)
         {
             return new Models.Product
@@ -40,6 +45,11 @@ namespace Store.Managers
             };
         }
 
+        /// <summary>
+        /// The method convert from EntityModel to model of hardDisk
+        /// </summary>  
+        /// <param name="hardDisk">HardDisk hardDisk</param>
+        /// <returns>Models.HardDisk</returns>
         public Models.HardDisk NewHardDisk(HardDisk hardDisk)
         {
             return new Models.HardDisk
@@ -50,6 +60,11 @@ namespace Store.Managers
             };
         }
 
+        /// <summary>
+        /// The method convert from EntityModel to model of display
+        /// </summary>  
+        /// <param name="display">Display display</param>
+        /// <returns>Models.Display</returns>
         public Models.Display NewDisplayEntity(Display display)
         {
             return new Models.Display
@@ -62,6 +77,11 @@ namespace Store.Managers
             };
         }
 
+        /// <summary>
+        /// The method convert from EntityModel to model of camera
+        /// </summary>  
+        /// <param name="camera">EntityModel.Camera camera</param>
+        /// <returns>Models.Camera</returns>
         public Models.Camera NewCameraEntity(Camera camera)
         {
             return new Models.Camera
@@ -72,6 +92,11 @@ namespace Store.Managers
             };
         }
 
+        /// <summary>
+        /// The method convert from EntityModel to model of image
+        /// </summary>  
+        /// <param name="image">EntityModel.Image image</param>
+        /// <returns>Models.Image</returns>
         public Models.Image NewImageEntity(Image image)
         {
             return new Models.Image
@@ -82,6 +107,11 @@ namespace Store.Managers
             };
         }
 
+        /// <summary>
+        /// The method convert from EntityModel to model of manufacturer
+        /// </summary>  
+        /// <param name="manufacturer">EntityModel.Manufacturer manufacturer</param>
+        /// <returns>Models.Manufacturer</returns>
         public Models.Manufacturer NewManufacturerEntity(Manufacturer manufacturer)
         {
             return new Models.Manufacturer
@@ -92,6 +122,11 @@ namespace Store.Managers
             };
         }
 
+        /// <summary>
+        /// The method convert from EntityModel to model of processor
+        /// </summary>  
+        /// <param name="processor">EntityModel.Processor processor</param>
+        /// <returns>Models.Processor</returns>
         public Models.Processor NewProcessorEntity(Processor processor)
         {
             return new Models.Processor
@@ -133,7 +168,7 @@ namespace Store.Managers
                 CardId = check.CardId,
                 Date = check.Date,
                 Money = check.Money,
-                refDevice = check.refDevice,
+                refDevice = check.refDevice == null ? System.Guid.Empty : System.Guid.Parse(check.refDevice.ToString()),
                 Quentity = check.quentity,
                 refUser = check.refUser,
                 ProductInfo = NewProductEntity(check.Device.Product),
@@ -145,6 +180,12 @@ namespace Store.Managers
 
         #region ConvertFromModelsToEntityModels
 
+        /// <summary>
+        /// The method convert from Model to EntityModel of Device
+        /// </summary>  
+        /// <param name="product">Models.Product product</param>
+        /// <param name="ID">Product ID</param>
+        /// <returns>EntityModels.Display</returns>
         public EntityModels.Device EntityModelsDevice(Models.Product product, System.Guid ID)
         {
             return new EntityModels.Device
@@ -165,6 +206,12 @@ namespace Store.Managers
             };
         }
 
+        /// <summary>
+        /// The method convert from Model to EntityModel of Product
+        /// </summary>  
+        /// <param name="product">Models.Product product</param>
+        /// <param name="ID">Product ID</param>
+        /// <returns>EntityModels.Product</returns>
         public EntityModels.Product EntityModelsProduct(Models.Product product, System.Guid ID)
         {
             return new Product

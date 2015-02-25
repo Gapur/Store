@@ -37,9 +37,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Money" Type="money" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CardId" Type="int" Nullable="false" />
+          <Property Name="CardId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="refUser" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="refDevice" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="refDevice" Type="uniqueidentifier" />
           <Property Name="quentity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Devices">
@@ -162,7 +162,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Check_Devices">
-          <End Role="Devices" Type="Self.Devices" Multiplicity="1" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="0..1" />
           <End Role="Check" Type="Self.Check" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Devices">
@@ -774,9 +774,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Money" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CardId" Type="Int32" Nullable="false" />
+          <Property Name="CardId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="refUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="refDevice" Type="Guid" Nullable="false" />
+          <Property Name="refDevice" Type="Guid" />
           <Property Name="quentity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Model.FK_Check_AspNetUsers" FromRole="Check" ToRole="AspNetUser" />
           <NavigationProperty Name="Device" Relationship="Model.FK_Check_Devices" FromRole="Check" ToRole="Device" />
@@ -794,7 +794,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Check_Devices">
-          <End Type="Model.Device" Role="Device" Multiplicity="1" />
+          <End Type="Model.Device" Role="Device" Multiplicity="0..1" />
           <End Type="Model.Check" Role="Check" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Device">

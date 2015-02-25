@@ -360,6 +360,7 @@
     <Content Include="Content\img\samsungS4.jpg" />
     <Content Include="Content\img\iphoneS5_white.jpg" />
     <Content Include="Content\img\iphone6Plus.jpg" />
+    <Content Include="Content\img\_MG_1975.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -556,6 +557,7 @@
     <Content Include="Views\Check\EntryCheck.cshtml" />
     <Content Include="Views\Check\Orders.cshtml" />
     <Content Include="Views\Home\AdminProducts.cshtml" />
+    <Content Include="Views\Home\OurEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

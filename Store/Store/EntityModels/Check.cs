@@ -17,9 +17,9 @@ namespace Store.EntityModels
         public int Id { get; set; }
         public decimal Money { get; set; }
         public string Date { get; set; }
-        public int CardId { get; set; }
+        public string CardId { get; set; }
         public string refUser { get; set; }
-        public System.Guid refDevice { get; set; }
+        public Nullable<System.Guid> refDevice { get; set; }
         public int quentity { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }

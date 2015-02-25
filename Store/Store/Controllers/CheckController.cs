@@ -10,6 +10,7 @@ namespace Store.Controllers
 {
     using ShoppingCart;
     using Managers;
+    using Models;
 
     /// <summary>
     /// Check controller
@@ -26,7 +27,7 @@ namespace Store.Controllers
         /// <returns>return ActionResult</returns>
         public ActionResult Check(Cart cart)
         {
-            return View();
+            return View(new Check { Money = cart.ComputeTotalValue() });
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace Store.Controllers
         [HttpPost]
         public async Task<bool> EntryCheck(Cart cart, Models.Check check)
         {
-            if (ModelState.IsValid)
+            try
             {
                 string userId = User.Identity.GetUserId();
                 check.refUser = userId;
@@ -48,6 +49,9 @@ namespace Store.Controllers
                     cart.Clear();
                 }
                 return result;
+            }
+            catch (Exception ex)
+            {
             }
             return false;
         }
@@ -60,7 +64,15 @@ namespace Store.Controllers
         [HttpGet]
         public async Task<ActionResult> EntryCheck()
         {
-            IEnumerable<Models.Check> checks = await checkManager.GetUserChecks(User.Identity.GetUserId());
+            IEnumerable<Models.Check> checks;
+            try
+            {
+                checks = await checkManager.GetUserChecks(User.Identity.GetUserId());
+            }
+            catch (Exception ex)
+            {
+                return HttpNotFound();
+            }
             return View(checks.ToList());
         }
 
@@ -71,7 +83,14 @@ namespace Store.Controllers
         /// <returns>return true or false</returns>
         public async Task<bool> DeleteCheck(Models.Check check)
         {
-            bool result = await checkManager.DeleteCheck(check);
+            bool result = false;
+            try
+            {
+                result = await checkManager.DeleteCheck(check);
+            }
+            catch (Exception ex)
+            {
+            }
             return result;
         }
 
