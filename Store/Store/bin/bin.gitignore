@@ -1,0 +1,4 @@
+#ASP.NET MVC bin compiled files
+*.dll
+*.xml
+*.txt
