@@ -27,6 +27,8 @@ bld/
 [Oo]bj/
 
 /Store/packages/
+Store/packages/
+/packages/
 
 # NuGet Packages
 *.nupkg
