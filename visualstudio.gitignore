@@ -28,9 +28,7 @@ bld/
 
 /Store/packages/
 Store/packages/
-/packages/
-Store/Store/packages/
-/Store/Store/packages/
+/Store/packages
 
 # NuGet Packages
 *.nupkg
