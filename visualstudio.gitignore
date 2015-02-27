@@ -10,3 +10,7 @@
 # Build results
 packages
 packages/
+bin
+bin/
+obj
+obj/
