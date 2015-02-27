@@ -1,0 +1,12 @@
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.v12.suo
+*.csproj
+*.sln
+
+# Build results
+packages
+packages/
