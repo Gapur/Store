@@ -29,6 +29,9 @@ bld/
 /Store/packages/
 Store/packages/
 Store/Store/bin/
+Store/Store/obj/
+Store/Store/*.csproj
+Store/Store/*HTML
 
 
 # Build Results of an ATL Project
