@@ -102,7 +102,8 @@ function AppViewModel() {
                     Password: {
                         required: true,
                         minlength: 6,
-                        maxlength: 16
+                        maxlength: 16,
+                        pwcheck: true
                     },
                     ConfirmPassword: {
                         equalTo: "#Password"
@@ -125,13 +126,26 @@ function AppViewModel() {
                     Password: {
                         required: true,
                         minlength: 6,
-                        maxlength: 16
+                        maxlength: 16,
+                        pwcheck: true
                     }
                 }
-            });
+            });      
         };
 
         // #endregion login form validation ============================================
+
+        // #region password regex validation ============================================
+
+        $.validator.addMethod("pwcheck", function (value) {
+            return /^[A-Z]/.test(value) // started upper case
+                && /[a-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
+                && /[a-z]/.test(value) // has a lowercase letter
+                && /\d/.test(value) // has a digit
+                && /\W/.test(value) // non-word character
+        }, "Пароль должен начинаться с прописной буквы и содержать символы, цифры и не буквенные или нецифровые символы");
+
+        // #endregion password regex validation ============================================
 
         // #region check form validation ============================================
 
@@ -497,19 +511,16 @@ function AppViewModel() {
 
     self.cartId = ko.observable(null);
     self.webMoney = ko.observable(null);
-    self.totalPrice = ko.computed(function () {
-        return self.webMoney() * 194;
-    }, this);
 
     self.entryCheck = function (itSelf, event) {
         var stateValid = $('#checkForm').valid();
-        var total_price = $(event.target).data('total-price');
+        var total_price = $(event.target).data('total-price') / 194;
         if (stateValid) {
-            if (total_price <= self.totalPrice() && total_price > 0) {
+            if (total_price <= self.webMoney() && total_price > 0) {
                 var viewData = {
                     check: {
                         CardId: self.cartId(),
-                        Money: self.totalPrice()
+                        Money: self.webMoney()
                     }
                 };
                 $.ajax({
@@ -524,7 +535,7 @@ function AppViewModel() {
                     error: function () {
                     }
                 });
-            } else alert("У вас недостаточно стредств");
+            } else alert("Введите правильную сумму");
         }
     };
 
