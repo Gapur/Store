@@ -14,8 +14,10 @@ using Store.EntityModels;
 namespace Store.Controllers
 {
     using Managers;
+    using Filters;
 
     [Authorize]
+    [Culture]
     public class ProductsController : ApiController
     {
         ProductManager userProductManager = new ProductManager();

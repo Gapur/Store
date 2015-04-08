@@ -2,12 +2,11 @@
 @model Product
 
 @{
-    ViewBag.Title = "UserSale";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <form class="formItem" id="saleForm">
-    <h2>Подать объявление</h2>
+    <h2>@Resources.Resource.NewProduct</h2>
     <div class="main-scope">
         @Html.EditorFor(m => m.Name, new { data_bind = "value: Name" })
         @Html.EditorFor(m => m.Price, new { data_bind = "value: Price" })
@@ -33,10 +32,10 @@
         <div class="item-control">
             @Html.LabelFor(m => m.TypeProduct, new { @class = "label-control" })
             <select id="typeProduct" name="typeProduct" data-bind="selectedOptions:selectedItems">
-                <option value="">Тип продукта</option>
-                <option value="1">Смартфон</option>
-                <option value="2">Ноутбук</option>
-                <option value="3">Телевизор</option>
+                <option value="">@Resources.Resource.TypeProduct</option>
+                <option value="1">@Resources.Resource.SmartPhones</option>
+                <option value="2">@Resources.Resource.Notebooks</option>
+                <option value="3">@Resources.Resource.TV</option>
             </select>
         </div>
     </div>

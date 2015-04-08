@@ -13,7 +13,10 @@ using Store.Models;
 
 namespace Store.Controllers
 {
+    using Filters;
+
     [Authorize]
+    [Culture]
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;

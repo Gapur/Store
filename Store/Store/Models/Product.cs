@@ -11,64 +11,64 @@ namespace Store.Models
         public System.Guid Id { get; set; }
 
         [Required]
-        [Display(Name = "Наименование")]
+        [Display(Name = "Name", ResourceType = typeof(Resources.Resource))]
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Цена")]
+        [Display(Name = "Price", ResourceType = typeof(Resources.Resource))]
         public decimal Price { get; set; }
 
         [Required]
-        [Display(Name = "Дата поступление продукта")]
+        [Display(Name = "Date", ResourceType = typeof(Resources.Resource))]
         [DataType(DataType.Date)]
         public string Date { get; set; }
 
         [Required]
-        [Display(Name = "Цвет")]
+        [Display(Name = "Color", ResourceType = typeof(Resources.Resource))]
         public string Color { get; set; }
 
         [Display(Name = "WiFi")]
         public bool WiFi { get; set; }
 
-        [Display(Name = "Оперативная память, Гб")]
+        [Display(Name = "RAM", ResourceType = typeof(Resources.Resource))]
         public int RAM { get; set; }
 
-        [Display(Name = "Операционная система")]
+        [Display(Name = "OperatingSystem", ResourceType = typeof(Resources.Resource))]
         public string OperatingSystem { get; set; }
 
         [Required]
-        [Display(Name = "Производитель")]
+        [Display(Name = "Manufacturers", ResourceType = typeof(Resources.Resource))]
         public Manufacturer Manufacturers { get; set; }
 
         [Display(Name = "Bluetooth")]
         public bool Bluetooth { get; set; }
 
-        [Display(Name = "Объем встроенной памяти, Гб")]
+        [Display(Name = "BuildMemory", ResourceType = typeof(Resources.Resource))]
         public string BuildMemory { get; set; }
 
-        [Display(Name = "Процессор")]
+        [Display(Name = "Processor", ResourceType = typeof(Resources.Resource))]
         public Processor Processor { get; set; }
 
-        [Display(Name = "Изображение")]
+        [Display(Name = "Images", ResourceType = typeof(Resources.Resource))]
         public Image Images { get; set; }
 
-        [Display(Name = "Мощность")]
+        [Display(Name = "Power", ResourceType = typeof(Resources.Resource))]
         public Power Power { get; set; }
 
-        [Display(Name = "Видеокарта, Гб")]
+        [Display(Name = "VideoCard", ResourceType = typeof(Resources.Resource))]
         public VideoCard VideoCard { get; set; }
 
-        [Display(Name = "Жесткий диск, Гб")]
+        [Display(Name = "HardDisk", ResourceType = typeof(Resources.Resource))]
         public HardDisk HardDisk { get; set; }
 
-        [Display(Name = "Дисплей")]
+        [Display(Name = "Display", ResourceType = typeof(Resources.Resource))]
         public Display Display { get; set; }
 
-        [Display(Name = "Камера(mpx)")]
+        [Display(Name = "Camera", ResourceType = typeof(Resources.Resource))]
         public Camera Camera { get; set; }
 
         [Required]
-        [Display(Name = "Тип продукта")]
+        [Display(Name = "TypeProduct", ResourceType = typeof(Resources.Resource))]
         public int TypeProduct { get; set; }
     }
 }

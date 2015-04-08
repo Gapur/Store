@@ -6,14 +6,14 @@
 }
 
 <div class="shopping-cart">
-    <h2>Моя корзина</h2>
+    <h2>@Resources.Resource.MyShoppingCart</h2>
     <table>
         <thead>
             <tr>
-                <th class="item-image">Изображение</th>
-                <th class="item-name">Наименование</th>
-                <th class="item-price">Цена</th>
-                <th class="item-quentity">Количество</th>
+                <th class="item-image">@Resources.Resource.Image</th>
+                <th class="item-name">@Resources.Resource.Name</th>
+                <th class="item-price">@Resources.Resource.Price</th>
+                <th class="item-quentity">@Resources.Resource.Quentity</th>
                 <th class="item-action"></th>
             </tr>
         </thead>
@@ -29,12 +29,12 @@
                     <a data-bind="click:modifiedItemCart">+</a>
                 </td>
                 <td class="item-action">
-                    <input type="submit" data-productid=@cart.ShoppingCart.Id class="btn" data-bind="click:removeCart" value="Удалить" />
+                    <input type="submit" data-productid=@cart.ShoppingCart.Id class="btn" data-bind="click:removeCart" value="@Resources.Resource.Remove" />
                 </td>
             </tr>
         }
     </table>
     <div class="formItem" style="flex: 0 1 100px; align-items:flex-end;">
-        <a class="pay-btn" style="position:relative; right:50px;" href="/Check/Check">Купить</a>
+        <a class="pay-btn" style="position:relative; right:50px;" href="/Check/Check">@Resources.Resource.Buy</a>
     </div>
 </div>

@@ -11,11 +11,13 @@ namespace Store.Controllers
     using ShoppingCart;
     using Managers;
     using Models;
+    using Filters;
 
     /// <summary>
     /// Check controller
     /// </summary>  
     [Authorize]
+    [Culture]
     public class CheckController : Controller
     {
         CheckManager checkManager = new CheckManager();

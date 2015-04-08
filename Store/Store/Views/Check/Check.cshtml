@@ -14,17 +14,17 @@
         @Html.ValidationSummary("", new { @class = "text-danger" })
     </div>
     <div class="check-item">
-        <span class="label-control">Оформление покупки на сумму <span>@webMoney</span> webMoney</span>
+        <span class="label-control">@Resources.Resource.Purchase <span>@webMoney</span> webMoney</span>
     </div>
     <div class="check-item">
-        <label class="label-control">Номер карточки</label>
+        <label class="label-control">@Resources.Resource.CardNumber</label>
         <input type="text" name="CreditCard" class="check-text" data-bind="value:cartId" />
     </div>
     <div class="check-item">
-        <span class="label-control">Платежная система осуществляется c WebMoney</span>
+        <span class="label-control">@Resources.Resource.PaymentSystem</span>
     </div>
     <div class="check-item">
-        <label class="label-control">Сумма на WebMoney</label>
+        <label class="label-control">@Resources.Resource.SumWeb</label>
         <input type="text" name="Digits" class="check-text" data-bind="value:webMoney" />
     </div>
     <div class="check-item">

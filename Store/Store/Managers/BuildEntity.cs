@@ -171,7 +171,7 @@ namespace Store.Managers
                 refDevice = check.refDevice == null ? System.Guid.Empty : System.Guid.Parse(check.refDevice.ToString()),
                 Quentity = check.quentity,
                 refUser = check.refUser,
-                ProductInfo = NewProductEntity(check.Device.Product),
+                ProductName = check.refDevice == null ? String.Empty : check.Device.Product.Name,
                 UserInfo = check.AspNetUser.UserName
             };
         }

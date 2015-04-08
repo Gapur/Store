@@ -1,48 +1,90 @@
 ﻿@using Microsoft.AspNet.Identity
+<script src="~/Scripts/plugins/polyglot-language-switcher/jquery.polyglot.language.switcher.js"></script>
+
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-        @Html.AntiForgeryToken()
+    <ul class="navbar-nav">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-bind="click: toggleNavbarMenu">@User.Identity.GetUserName()</a>
+            <ul class="dropdown-menu">
+                <li class="header"><span>@Resources.Resource.User</span></li>
+                <li>
+                    <ul class="drop-menu-item">
+                        <li>
+                            <img src="~/Content/icons/png/basket1.png" />
+                            <a href="/Cart/Cart">@Resources.Resource.MyShoppingCart</a>
+                        </li>
+                        <li>
+                            <img src="~/Content/icons/png/sale1.jpg" />
+                            <a href="/Check/EntryCheck">@Resources.Resource.ShoppingList</a>
+                        </li>
+                        <li>
+                            <img src="~/Content/icons/png/check.jpg" />
+                            <a href="/Check/Check">@Resources.Resource.Buy</a>
+                        </li>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li>
+                                <img src="~/Content/icons/png/product.png" />
+                                <a href="/Home/AdminProducts">@Resources.Resource.Products</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
 
-        <ul class="navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-bind="click: toggleNavbarMenu">@User.Identity.GetUserName()</a>
-                <ul class="dropdown-menu">
-                    <li class="header"><span>Пользователь</span></li>
-                    <li>
-                        <ul class="drop-menu-item">
-                            <li>
-                                <img src="~/Content/icons/png/basket1.png" />
-                                <a href="/Cart/Cart">Моя корзина</a>
-                            </li>
-                            <li>
-                                <img src="~/Content/icons/png/sale1.jpg" />
-                                <a href="/Check/EntryCheck">Список покупок</a>
-                            </li>
-                            <li>
-                                <img src="~/Content/icons/png/check.jpg" />
-                                <a href="/Check/Check">Купить</a>
-                            </li>
-                            @if (User.IsInRole("admin"))
-                            {
-                                <li>
-                                    <img src="~/Content/icons/png/product.png" />
-                                    <a href="/Home/AdminProducts">Продукты</a>
-                                </li>
-                            }
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
-        </ul>
-    }
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">@Resources.Resource.LogOut</a></li>
+        }
+        <li>@CreateLang()</li>
+    </ul>
 }
 else
 {
     <ul class="navbar-nav">
-        <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(Resources.Resource.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(Resources.Resource.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@CreateLang()</li>
     </ul>
+}
+
+@helper CreateLang()
+{
+    string lang = HttpContext.Current.Request.Cookies["lang"].Value;
+
+    <div id="polyglotLanguageSwitcher">
+        <form action="#">
+            <select id="polyglot-language-options" name="lang">
+                @if (lang != null && lang == "en")
+                {
+                    <option id="en" value="en" selected>English</option>
+                }
+                else
+                {
+                    <option id="en" value="en">English</option>
+                }
+                @if (lang != null && lang == "ru")
+                {
+                    <option id="ru" value="ru" selected>Русский</option>
+                }
+                else
+                {
+                    <option id="ru" value="ru">Русский</option>
+                }
+
+                @if (lang != null && lang == "kk-KZ")
+                {
+                    <option id="kk-KZ" value="kk-KZ" selected>Қазақша</option>
+                }
+                else
+                {
+                    <option id="kk-KZ" value="kk-KZ">Қазақша</option>
+                }
+
+            </select>
+        </form>
+    </div>
 }

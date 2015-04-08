@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About1" xml:space="preserve">
+    <value>Компания «Store» – ведущая национальная сеть магазинов электробытовой и компьютерной техники Казахстана.
+    Компания была образована в 2002 году в Алматы и является на 100% казахстанской. Сегодня сеть «Store» включает 59 магазинов общей торговой площадью более 71 000 кв. м в 26-и городах республики. Компания, продолжающая свое активное развитие, открыта для всего нового и прогрессивного.</value>
+  </data>
+  <data name="About2" xml:space="preserve">
+    <value>Лидерство компании «Store» среди конкурентов обусловлено несколькими факторами. Прежде всего, компания ориентирована на Клиента и предлагает максимально возможный ассортимент электроники и бытовой техники всех ценовых классов. Благодаря наиболее привлекательным ценам «Store» делает электробытовую и компьютерную технику доступной для всех слоев населения. Компания динамично развивается, применяет передовые торговые технологии и уделяет особое внимание профессиональному уровню своих сотрудников. Продуманный сервис «Store» учитывает все потребности покупателей.</value>
+  </data>
+  <data name="About3" xml:space="preserve">
+    <value>Модельный ряд электробытовой и компьютерной техники, предлагаемый компанией, насчитывает 10 тысяч наименований и охватывает все возможные типы продукции, в том числе:
+    ∙ Аудио- и видеотехника
+    ∙ Бытовая и встраиваемая техника
+    ∙ Компьютеры и периферийная техника
+    ∙ Игровые консоли и приставки
+    ∙ Офисная техника
+    ∙ Климатическая техника
+    ∙ Автомобильная аудиотехника
+    ∙ Мобильные телефоны и аксессуары
+    ∙ Фотоаппараты
+    ∙ Медианосители
+    ∙ Посуда и бытовая химия</value>
+  </data>
+  <data name="About4" xml:space="preserve">
+    <value>В торговый портфель «Store» входят ведущие мировые марки: Sony, Panasonic, Samsung, LG, Daewoo, Apple, HTC, Philips, Nokia, Canon, Nikon, Fujitsu, Bosch, Siemens, Electrolux, Indesit, Hotpoint-Ariston, Elica, Gorenje, Hansa, Zigmund &amp; Shtain, Zanussi, Whirlpool, Beko, Termex, Moulinex, Tefal, Rowenta и др.</value>
+  </data>
+  <data name="About5" xml:space="preserve">
+    <value>Магазины «Store» спроектированы с учетом новейших торговых технологий и полностью отвечают мировым стандартам обслуживания покупателей. Единая концепция магазинов компании была создана в 2004 году совместно с ведущей европейской консалтинговой компанией Umdasch, работающей с крупнейшими торговыми сетями Европы. В каждом магазине «Store» предусмотрены эмоциональные и ценовые зоны, четкая и понятная система информирования о товарах и услугах, легко читаемое направление движения по торговому залу, удобный доступ к товарам и возможность протестировать любой продукт.</value>
+  </data>
+  <data name="About6" xml:space="preserve">
+    <value>Магазины «Store» спроектированы с учетом новейших торговых технологий и полностью отвечают мировым стандартам обслуживания покупателей. Единая концепция магазинов компании была создана в 2004 году совместно с ведущей европейской консалтинговой компанией Umdasch, работающей с крупнейшими торговыми сетями Европы. В каждом магазине «Store» предусмотрены эмоциональные и ценовые зоны, четкая и понятная система информирования о товарах и услугах, легко читаемое направление движения по торговому залу, удобный доступ к товарам и возможность протестировать любой продукт.</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>Про нас</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>В корзину</value>
+  </data>
+  <data name="AddToCartProduct" xml:space="preserve">
+    <value>В корзину добавлен товар:</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="BuildMemory" xml:space="preserve">
+    <value>Объем встроенной памяти, Гб</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Купить</value>
+  </data>
+  <data name="Camera" xml:space="preserve">
+    <value>Камера(mpx)</value>
+  </data>
+  <data name="CardNumber" xml:space="preserve">
+    <value>Номер карточки</value>
+  </data>
+  <data name="ChooseLang" xml:space="preserve">
+    <value>Выберите страну</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="Contact1" xml:space="preserve">
+    <value>Спасибо, что вы с нами! Мы делаем все, чтобы вы оценили наш уровень сервиса и получали удовольствие от покупок. Мы развиваем сервисы и работаем с вашими пожеланиями, помогая найти то, что нужно именно вам.</value>
+  </data>
+  <data name="Contact2" xml:space="preserve">
+    <value>Есть вопросы? Предложения по нашей работе?
+        Звоните по телефону 8 800 080 1111 (звонок по Казахстану бесплатный),
+        Или пишите на</value>
+  </data>
+  <data name="Contact3" xml:space="preserve">
+    <value>Для покупателей</value>
+  </data>
+  <data name="Contact4" xml:space="preserve">
+    <value>Для соискателей</value>
+  </data>
+  <data name="Contact5" xml:space="preserve">
+    <value>Открытые вакансии головного офиса, сервисных центров и розничных магазинов опубликованы в разделе "Карьера"</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="ContinueShop" xml:space="preserve">
+    <value>Продолжить покупки</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Заказчик</value>
+  </data>
+  <data name="CustomerCare" xml:space="preserve">
+    <value>Забота о клиентах</value>
+  </data>
+  <data name="DataOrder" xml:space="preserve">
+    <value>Дата заказа</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата поступление продукта</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Дисплей</value>
+  </data>
+  <data name="GoToShopCart" xml:space="preserve">
+    <value>Перейти в корзину</value>
+  </data>
+  <data name="HardDisk" xml:space="preserve">
+    <value>Жесткий диск, Гб</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
+  <data name="Index1" xml:space="preserve">
+    <value>Сегодня мы познакомимся с ноутбуком, на принадлежность к классу бюджетных у которого указывает только цена. У него оригинальный дизайн в стиле ультрабука, качественное исполнение и нет оптического привода. Наклейка на корпусе “Pentium inside” вызывает ностальгическое чувство. Сейчас Pentium – доступные, но достаточно производительные процессоры для ежедневных задач.</value>
+  </data>
+  <data name="Index2" xml:space="preserve">
+    <value>Через несколько недель стартует выставка MWC в Барселоне и нам покажут много интересных новинок. Конечно, мы все в основном ждем Galaxy S6 и Galaxy S6 Edge. Напомню, что практически каждый флагман Samsung, да и просто любой смартфон компании на сегодняшний день выпускается с предустановленными приложениями (как собственные, так и от сторонних разработчиков). По сути, всех изначальных возможностей хватает на все случаи жизни.</value>
+  </data>
+  <data name="Index3" xml:space="preserve">
+    <value>Согласно неофициальным данным, Samsung Galaxy S6 и S6 Edge будут оснащены восьмиядерным процессором Samsung Exynos 7, 3 Гбайт оперативной памяти, операционной системой Android 5.0.2 Lollipop «из коробки» и двумя камерами — на 20,7 и 5 мегапикселей. Bloomberg пишет, что оба новых телефона разрабатываются в рамках проекта Project Zero.</value>
+  </data>
+  <data name="Index4" xml:space="preserve">
+    <value>Самсунг Галакси Alpha — отличный смартфон, работающий на платформе Android с 8х-ядерным процессором Exynos 5 Octa 5430 1800Mhz, оснащенный Super AMOLED-дисплеем, отображающим до 16 млн. цветов, с диагональю 4.7" и камерой на 12 Mpx. Оснащен аккумулятором на 1860 mAh Для коммуникации может предложить: WAP браузер, EDGE, HSDPA, HSPA, WiFi, LTE (4G), NFC, стерео Bluetooth, и, конечно, USB-порт. Для любителей музыки есть аудио выход на 3.5 мм.</value>
+  </data>
+  <data name="Index5" xml:space="preserve">
+    <value>Apple iPhone 6 получил 4,7-дюймовый IPS-дисплей с разрешением 1334 х 750 пикселей (326 ppi), контрастностью 1400:1, максимальной яркостью 500 нит и олеофобным покрытием. У Apple iPhone 6 Plus — 5,5-дюймовый IPS-дисплей с разрешением 1920 х 1080 пикселей (401 ppi), контрастностью 1300:1, максимальной яркостью 500 нит и олеофобным покрытием.</value>
+  </data>
+  <data name="Index6" xml:space="preserve">
+    <value>Apple iPhone 6 и iPhone 6 Plus оснащены обновленными 8-мегапиксельными камерами (размер пикселя — 1,5 микрона, диафрагма — f/2.2) с продвинутой системой автофокуса. Они могут снимать панорамные фотографии до 43 Мп и записывать Full HD видео с частотой 60 кадров в секунду, а также slo-mo видео с частотой до 240 кадров в секунду (720p). Основным отличием двух камер является система оптической стабилизации изображения в iPhone 6 Plus.</value>
+  </data>
+  <data name="ListOfOrders" xml:space="preserve">
+    <value>Список заказов</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Выполнить вход</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Главная страница</value>
+  </data>
+  <data name="Manufacturers" xml:space="preserve">
+    <value>Производитель</value>
+  </data>
+  <data name="MyShoppingCart" xml:space="preserve">
+    <value>Моя корзина</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="NewProduct" xml:space="preserve">
+    <value>Hовый продукт</value>
+  </data>
+  <data name="Notebooks" xml:space="preserve">
+    <value>Ноутбуки</value>
+  </data>
+  <data name="OperatingSystem" xml:space="preserve">
+    <value>Операционная система</value>
+  </data>
+  <data name="OurEvents" xml:space="preserve">
+    <value>Наши события</value>
+  </data>
+  <data name="OurEvents1" xml:space="preserve">
+    <value>Победители акции "Возьми свой золотой"</value>
+  </data>
+  <data name="OurEvents2" xml:space="preserve">
+    <value>Рады сообщить итоги новогодней акции  в сети магазинов «Store» под названием «Возьми свой ЗОЛОТОЙ!» от Банка Хоум Кредит.В рамках акции были разыграны крупные денежные призы в эквиваленте сертификатов на покупку техники в национальной сети магазинов «Store» .
+        По итогам розыгрыша 30 клиентов получают по сертификату на 100 тысяч тенге и 5 клиентов – на 1 млн тенге!</value>
+  </data>
+  <data name="OurEvents3" xml:space="preserve">
+    <value>Sony дарит миллионы!</value>
+  </data>
+  <data name="OurEvents4" xml:space="preserve">
+    <value>14 февраля в магазине национальной сети «Store» в ТРЦ Mega Alma-Ata, состоялся праздничный розыгрыш одного миллиона тенге на покупку техники, в рамках акции «Sony дарит миллионы», проходившей совместно с компанией Sony.  Во время розыгрыша все пришедшие смогли увидеть яркие выступления танцоров и принять участие во всевозможных конкурсах и викторинах. Традиционно выбор победителя традиционно проходил методом генерации случайных чисел в режиме online.  Напомним, что акция проходила в период с 1 декабря 2014 года по 31 января 2015 года во всех магазинах национальной сети «Store».</value>
+  </data>
+  <data name="OurEvents5" xml:space="preserve">
+    <value>А на машине лучше: ФИНАЛ!</value>
+  </data>
+  <data name="OurEvents6" xml:space="preserve">
+    <value>10 января в алматинском магазине национальной сети «Store», расположенном в ТРЦ «Прайм Плаза» состоялся красочный финал очередного этапа розыгрыша автомобилей в рамках акции «А на машине лучше!», которая проходила в сети магазинов электроники «Store». Розыгрыш привлек большое внимание жителей и гостей Южной столицы.
+        Всех пришедших ждала яркая и запоминающаяся  шоу - программа. Зрителей развлекали акробаты, танцоры и веселые мимы.  Все желающие могли принять участие в различных викторинах и шарадах, самые активные участники были награждены подарками от магазина «Store». Выбор победителя традиционно проходил методом генерации случайных чисел в онлайн-режиме.
+        В итоге ключи от двух новеньких автомобилей марки Hundai Tucson получили Андрей Рошан из Павлодара и Марина Жусупова из Астаны.  Кроме того, во время мероприятия были разыграны памятные призы и подарки от национальной сети магазинов «Store», в числе которых были флешки, смартфоны, стиральные машины, пылесосы, планшеты и многое другое.
+
+        Напомним, чтобы стать участником акции «На машине лучше» и стать обладателям ключей от заветного автомобиля, необходимо в период с 27 сентября по 31 декабря 2014 года приобрести в одном из магазинов национальной сети «Store» любую технику и/или электронику и стать участником бонусной программы «Технобонус».</value>
+  </data>
+  <data name="PaymentSystem" xml:space="preserve">
+    <value>Платежная система осуществляется c WebMoney</value>
+  </data>
+  <data name="Power" xml:space="preserve">
+    <value>Мощность</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Processor" xml:space="preserve">
+    <value>Процессор</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Продукты</value>
+  </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Оформление покупки на сумму</value>
+  </data>
+  <data name="Quentity" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="RAM" xml:space="preserve">
+    <value>Оперативная память, Гб</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="ShoppingList" xml:space="preserve">
+    <value>Список покупок</value>
+  </data>
+  <data name="SmartPhones" xml:space="preserve">
+    <value>Смартфоны</value>
+  </data>
+  <data name="SumWeb" xml:space="preserve">
+    <value>Сумма на WebMoney</value>
+  </data>
+  <data name="Support1" xml:space="preserve">
+    <value>Сеть магазинов электроники «Store» заботится о каждом из своих клиентов. Наша главная цель – первоклассный сервис для всех.</value>
+  </data>
+  <data name="Support2" xml:space="preserve">
+    <value>С 2012 года в компании «Store» работает отдел по заботе о клиентах.
+        Мы всегда готовы выслушать все пожелания и замечания относительно обслуживания и предоставления сервиса.</value>
+  </data>
+  <data name="Support3" xml:space="preserve">
+    <value>Основные цели и задачи отдела:
+        - Работа с обращениями и жалобами;
+        - Предоставление первоклассного сервиса для каждого клиента;
+        - Проведение исследования «Тайный покупатель», для выявления слабых сторон;
+        - Ежедневная работа над улучшением качества обслуживания;</value>
+  </data>
+  <data name="Support4" xml:space="preserve">
+    <value>Как с нами связаться?</value>
+  </data>
+  <data name="Support5" xml:space="preserve">
+    <value>C 08:00 до 24:00 ежедневно</value>
+  </data>
+  <data name="Support6" xml:space="preserve">
+    <value>Кто заботится о Вас?</value>
+  </data>
+  <data name="Support7" xml:space="preserve">
+    <value>Как мы заботимся о Вас?</value>
+  </data>
+  <data name="TechnicalParameters" xml:space="preserve">
+    <value>Технические характеристики</value>
+  </data>
+  <data name="Technology" xml:space="preserve">
+    <value>Техника</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Интернет магазин</value>
+  </data>
+  <data name="TV" xml:space="preserve">
+    <value>Телевизоры</value>
+  </data>
+  <data name="TypeProduct" xml:space="preserve">
+    <value>Тип продукта</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="VideoCard" xml:space="preserve">
+    <value>Видеокарта, Гб</value>
+  </data>
+  <data name="VideoCardName" xml:space="preserve">
+    <value>Видеокарта</value>
+  </data>
+</root>

@@ -51,6 +51,14 @@ function AppViewModel() {
 
             if ($("#photo_container").length > 0)
                 loadCarousel();
+
+            $('#polyglotLanguageSwitcher').polyglotLanguageSwitcher({
+                effect: 'fade',
+                testMode: false,
+                onChange: function (evt) {
+                    self.chooseLanguage(evt.selectedItem);
+                }
+            });
         };
 
         // #region file upload ==========================================
@@ -130,7 +138,7 @@ function AppViewModel() {
                         pwcheck: true
                     }
                 }
-            });      
+            });
         };
 
         // #endregion login form validation ============================================
@@ -234,6 +242,28 @@ function AppViewModel() {
     };
 
     // #endregion menu toggle =======================================
+
+    // #region language toggle ==========================================
+
+    self.chooseLanguage = function (language) {
+        var viewData = {
+            lang: language
+        };
+        $.ajax({
+            url: '/Home/ChangeCulture/',
+            type: 'POST',
+            data: viewData,
+            success: function (data) {
+                if (data == "True") {
+                    window.location.reload();
+                } else alert("Во время операций произошло ошибка");
+            },
+            error: function () {
+            }
+        });
+    };
+
+    // #endregion language toggle ==========================================
 
     // #region file upload ==========================================
 
@@ -528,8 +558,10 @@ function AppViewModel() {
                     type: 'POST',
                     data: viewData,
                     success: function (data) {
-                        if (data == "True")
+                        if (data == "True") {
+                            $(event.target).data('total-price', 0);
                             alert("Заказ успешно оформлен");
+                        }
                         else alert("Во время операций произошло ошибка");
                     },
                     error: function () {

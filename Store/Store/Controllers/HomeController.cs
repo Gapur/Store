@@ -10,11 +10,13 @@ using System.IO;
 namespace Store.Controllers
 {
     using Managers;
+    using Filters;
 
     /// <summary>
     /// Home Controller
     /// </summary>
     [Authorize]
+    [Culture]
     public class HomeController : Controller
     {
         ProductManager productManager = new ProductManager();
@@ -37,6 +39,13 @@ namespace Store.Controllers
         public ActionResult About()
         {
             return View("About");
+        }
+
+        [AllowAnonymous]
+        public ActionResult _LoginPartial()
+        {
+
+            return PartialView("~/Views/Shared/_LoginPartial.cshtml");
         }
 
         [AllowAnonymous]
@@ -180,6 +189,37 @@ namespace Store.Controllers
                 }
             }
             return result;
+        }
+
+        [AllowAnonymous]
+        public bool ChangeCulture(string lang)
+        {
+            try
+            {
+                // Список культур
+                List<string> cultures = new List<string>() { "ru", "en", "kk-KZ" };
+                if (!cultures.Contains(lang))
+                {
+                    lang = "ru";
+                }
+                // Сохраняем выбранную культуру в куки
+                HttpCookie cookie = Request.Cookies["lang"];
+                if (cookie != null)
+                    cookie.Value = lang;   // если куки уже установлено, то обновляем значение
+                else
+                {
+                    cookie = new HttpCookie("lang");
+                    cookie.HttpOnly = false;
+                    cookie.Value = lang;
+                    cookie.Expires = DateTime.Now.AddYears(1);
+                }
+                Response.Cookies.Add(cookie);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

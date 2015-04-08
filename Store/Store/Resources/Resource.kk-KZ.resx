@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About1" xml:space="preserve">
+    <value>Компания «дүкені» - Қазақстандағы жетекші ұлттық тізбекті дүкен электрондық және компьютерлік жабдықтар.
+     Компания Алматы қаласында 2002 жылы құрылған және 100% жергілікті болып табылады. Бүгін желі «дүкені» астам саны 71000 жетті шаршы метр жалпы сату ауданы 59 дүкендерін қамтиды. Еліміздің 26 қалаларында м. Компания жаңа мен озық барлық ашық, оның белсенді дамуын жалғастыруда.</value>
+  </data>
+  <data name="About2" xml:space="preserve">
+    <value>Бірнеше факторларға байланысты компаниясы «дүкені» бәсекелестердің Көшбасшылық. Біріншіден, компания клиенттерге бағдарланған және барлық баға сыныптарда электроника және тұрмыстық техника барынша түрін ұсынады. Ең тартымды бағамен арқасында «дүкені» халықтың барлық сегменттеріне қол жетімді электрондық және компьютерлік жабдықтар құрайды. компания қарқынды дамыған сауда-саттық технологиясын қолданады және өз қызметкерлерінің кәсіби деңгейін ерекше көңіл бөледі дамып келеді. Ойланып қызметі «дүкені» ескере клиенттердің барлық қажеттіліктерін алады.</value>
+  </data>
+  <data name="About3" xml:space="preserve">
+    <value>Компанияның ұсынған құрамына электрондық және компьютерлік жабдықтар 10,000 атақтары бар, соның ішінде өнімдер, барлық ықтимал түрлерін қамтиды:
+     Аудио және бейне ∙
+     Басты және кірістірілген техника ∙
+     ∙ Компьютерлер және шеткерi аймақтар
+     ∙ Ойын консолі мен приставкалар
+     ∙ кеңсе жабдықтары
+     ∙ Климат технологиясы
+     ∙ Car Audio
+     ∙ Ұялы телефондар мен керек-жарақтары
+     ∙ камералар
+     ∙ Ойнату Media
+     ∙ Ыдыс-аяқ пен тұрмыстық химия</value>
+  </data>
+  <data name="About4" xml:space="preserve">
+    <value>Sony, Panasonic, Samsung, LG, Daewoo, Apple, HTC, Philips, Nokia, Canon, Nikon, Fujitsu, Bosch, Siemens, Electrolux, Indesit, Hotpoint-Ariston, Elica, Gorenje: сауда-саттық портфелінде «дүкені» әлемдегі жетекші брендтердің қамтиды , Hansa, Zigmund &amp; Shtain, Zanussi, құйынды, Beko, Termex, Moulinex, Tefal, Rowenta және басқалар.</value>
+  </data>
+  <data name="About5" xml:space="preserve">
+    <value>Дүкендер «дүкені» соңғы сауда-саттық технологиясымен құрастырылған және клиенттерге қызмет көрсету, халықаралық стандарттарға сай келеді. Компанияның Бір тұжырымдамасы дүкендері Еуропадағы ірі бөлшек сауда желілерімен жұмыс істеп, жетекші еуропалық консалтингтік компаниясының Umdasch бірлесіп 2004 жылы құрылған болатын. Әрбір дүкен «дүкені» сауда-саттық залында, тауарларды ыңғайлы қол жеткізу және кез келген өнімді тексеруге мүмкіндік қозғалыс бағытын оқу оңай, тауарлар мен қызметтер туралы анық және түсінікті ақпарат жүйесі, эмоционалдық және баға аймақтары ұсынды.</value>
+  </data>
+  <data name="About6" xml:space="preserve">
+    <value>Дүкендер «дүкені» соңғы сауда-саттық технологиясымен құрастырылған және клиенттерге қызмет көрсету, халықаралық стандарттарға сай келеді. Компанияның Бір тұжырымдамасы дүкендері Еуропадағы ірі бөлшек сауда желілерімен жұмыс істеп, жетекші еуропалық консалтингтік компаниясының Umdasch бірлесіп 2004 жылы құрылған болатын. Әрбір дүкен «дүкені» сауда-саттық залында, тауарларды ыңғайлы қол жеткізу және кез келген өнімді тексеруге мүмкіндік қозғалыс бағытын оқу оңай, тауарлар мен қызметтер туралы анық және түсінікті ақпарат жүйесі, эмоционалдық және баға аймақтары ұсынды.</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>Біз туралы</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Себетке қосу</value>
+  </data>
+  <data name="AddToCartProduct" xml:space="preserve">
+    <value>Себетке өнім қосылды</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Бұрын</value>
+  </data>
+  <data name="BuildMemory" xml:space="preserve">
+    <value>Кірістірілген жады, Гб</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Сатып алу</value>
+  </data>
+  <data name="Camera" xml:space="preserve">
+    <value>Камера(mpx)</value>
+  </data>
+  <data name="CardNumber" xml:space="preserve">
+    <value>Карточка нөмірі</value>
+  </data>
+  <data name="ChooseLang" xml:space="preserve">
+    <value>Елді таңдаңыз</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Түсі</value>
+  </data>
+  <data name="Contact1" xml:space="preserve">
+    <value>Бізбен бірге болғандарыңызға рахмет! Біз сізге қызмет біздің деңгейін бағалау және дүкенге жорық бәрін жасаймыз. Біз сіздер үшін не қажет екенін табу үшін көмектесу, сіздің қажеттіліктеріне сәйкес қызметтер мен жұмыстар дамыту.</value>
+  </data>
+  <data name="Contact2" xml:space="preserve">
+    <value>Егер сіз қандай да бір сұрақ бар ма? Біздің жұмысымыздың ұсыныстар?
+         (Қоңырау шалу Қазақстан бойынша тегін) 8 800 080 1111 қоңырау шалу
+         Немесе жазу</value>
+  </data>
+  <data name="Contact3" xml:space="preserve">
+    <value>Сатып алушылар үшін</value>
+  </data>
+  <data name="Contact4" xml:space="preserve">
+    <value>Ізденушілер үшін</value>
+  </data>
+  <data name="Contact5" xml:space="preserve">
+    <value>Бас кеңсе, қызмет көрсету орталықтарының және бөлшек дүкендер Ашық позиция «Мансап» жарияланады</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Байланыс ақпараты</value>
+  </data>
+  <data name="ContinueShop" xml:space="preserve">
+    <value>Сатып алуды жалғастыру</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Сатып алушы</value>
+  </data>
+  <data name="CustomerCare" xml:space="preserve">
+    <value>Тұтынушыларға қамқорлық</value>
+  </data>
+  <data name="DataOrder" xml:space="preserve">
+    <value>Тапсырыс күні</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Өнімнің түскен күні</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Дисплей</value>
+  </data>
+  <data name="GoToShopCart" xml:space="preserve">
+    <value>Себетке өту</value>
+  </data>
+  <data name="HardDisk" xml:space="preserve">
+    <value>Қатты диск, Гб</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Сурет</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Сурет</value>
+  </data>
+  <data name="Index1" xml:space="preserve">
+    <value>Бүгін біз тек бағасын көрсетеді сынып бюджетке тиесілі ноутбук қарап. Оның ерекше дизайн стилі Ultrabook, сапалы, және ешқандай оптикалық диск жетегі. «Ішінде Pentium» туралы жапсырма ностальгический сезім. Енді Pentium - қол жетімді, бірақ күнделікті міндеттерді орындау үшін жеткілікті өнімділігі процессорлар.</value>
+  </data>
+  <data name="Index2" xml:space="preserve">
+    <value>Бірнеше аптадан кейін Барселона MWC басталады және біз қызықты жаңалықтарды көп көрсетеді. Әрине, біз барлық негізінен Galaxy S6 және Galaxy S6 Edge күтіп. Мен саған сол іс жүзінде әрбір бағдар Samsung, бүгін алдын-ала орнатылған қолданбаларды (үй-мен үшінші тарап әзірлеушілер да) бірге жеткізіледі кез келген смартфон Естеріңізге сала кетейік. Шын мәнінде, бастапқы ерекшеліктерін барлық жағдайға жеткілікті.</value>
+  </data>
+  <data name="Index3" xml:space="preserve">
+    <value>20,7 және 5 мегапиксель - Ресми мәліметтерге сәйкес, Samsung Galaxy S6 және S6 Edge сегіз процессор Samsung Exynos 7 3 ГБ жедел жадпен, қораптар Android 5.0.2 Лоллипоп «іске» және екі камера бар болады. Bloomberg екі жаңа телефондар Project Zero шеңберінде әзірленген білдірген.</value>
+  </data>
+  <data name="Index4" xml:space="preserve">
+    <value>Samsung Galaxy Alpha - 16 млн дейін көрсететін 8x ядролы Exynos 5 Octa бірге Android платформасына 5430 а Super AMOLED-дисплейімен жабдықталған 1800MHz, жұмыс істейді тамаша смартфон 4,7 қиғаш «және камера 12 Mpx бар Түстер, 1860 мАч үшін зарядталатын батареямен жабдықталған.. ұсынуға байланыс үшін:. WAP-браузерді, EDGE, HSDPA, HSPA, WiFi, LTE (4G), NFC, стерео Bluetooth, және, әрине, USB-порты музыка әуесқойлары үшін аудио шығыс 3,5 мм бар.</value>
+  </data>
+  <data name="Index5" xml:space="preserve">
+    <value>1, 500 NITs және олеофобного жабу барынша жарықтылық: Apple Iphone 6 1334 х 750 пиксель (326 пиксел), контраст қатынасы 1400 қаулысы 4,7-дюймдік IPS-дисплей алды. 1, 500 NITs және олеофобного жабу барынша жарықтылық: 1920 1080 пиксель (401 пиксел), керісінше 1300 рұқсаты бар 5,5-дюймдік IPS-дисплей - Apple Iphone 6 Plus кезде.</value>
+  </data>
+  <data name="Index6" xml:space="preserve">
+    <value>Кеңейтілген автофокус жүйесімен Apple Iphone және Iphone 6 6 Plus жаңғыртылған 8-мегапиксельді камера (F / 2,2 - - 1,5 мкм диафрагма пиксель мөлшері) жабдықталған. Олар 43 Мп және толық секундына 60 кадр Жазуды HD бейне және дейін 240 FPS (720p) кезінде SLO-MO бейне панорамалық фотосуреттерді дейін түсіруге болады. Екі камералары арасындағы негізгі айырмашылық IPHONE 6 Plus оптикалық сурет тұрақтандыру жүйесі болып табылады.</value>
+  </data>
+  <data name="ListOfOrders" xml:space="preserve">
+    <value>Бұйрықтар тізімі</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Жүйеге өту</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Шығу</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Негізгі бет</value>
+  </data>
+  <data name="Manufacturers" xml:space="preserve">
+    <value>Өндіруші</value>
+  </data>
+  <data name="MyShoppingCart" xml:space="preserve">
+    <value>Менің себетім</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Аты</value>
+  </data>
+  <data name="NewProduct" xml:space="preserve">
+    <value>Жаңа өнім</value>
+  </data>
+  <data name="Notebooks" xml:space="preserve">
+    <value>Ноутбук</value>
+  </data>
+  <data name="OperatingSystem" xml:space="preserve">
+    <value>Операциялық жүйе</value>
+  </data>
+  <data name="OurEvents" xml:space="preserve">
+    <value>Біздің оқиғалар</value>
+  </data>
+  <data name="OurEvents1" xml:space="preserve">
+    <value>«Сіздің алтын алыңыз» жеңімпаздары</value>
+  </data>
+  <data name="OurEvents2" xml:space="preserve">
+    <value>Дүкендерде атты «дүкені» Жаңа жылдық науқан қорытындысын хабарлауға қуаныштымыз «Сіздің алтын алыңыз!» Акциясы Банк Басты Kredit.V тарапынан үлкен ақшалай сыйлықтармен ұлттық дүкендер «дүкені» жабдықтарды сатып алу үшін балама сертификаттар ойнатылды.
+         Салу 30 клиенттердің қорытындысы бойынша 100 мың теңге және 5 клиенттер үшін сертификат алу - 1 миллион теңге!</value>
+  </data>
+  <data name="OurEvents3" xml:space="preserve">
+    <value>Sony миллиондаған береді!</value>
+  </data>
+  <data name="OurEvents4" xml:space="preserve">
+    <value>Сауда орталығының Mega Alma-Ata жылы «дүкені», жабдықтарды сатып алу үшін мерекелік ралли бір миллион теңге, акция аясында «Sony» миллиондаған береді дүкен ұлттық желісі 14 ақпан Sony бірлесіп өткізді. Жеребе барысында келген барлық адамдарға жарқын би қойылымдарын көруге және әр түрлі байқаулар мен викториналар қатысуға мүмкіндік алды. Дәстүр бойынша, жеңімпаз таңдау дәстүрлі онлайн режимінде кездейсоқ сандарды генерациялау арқылы жүргізіледі. Іс-шаралар ұлттық желі «дүкені» барлық дүкендерде жылғы 1 желтоқсандағы 2014 жылғы 31 қаңтардағы 2015 жылғы кезеңге өтті еске саламыз.</value>
+  </data>
+  <data name="OurEvents5" xml:space="preserve">
+    <value>Автокөлік жақсы: Қорытынды!</value>
+  </data>
+  <data name="OurEvents6" xml:space="preserve">
+    <value>Алматы қаласында 10 қаңтар электроника дүкендерінде «дүкені» желісі өтті қандай, сауда орталығында орналасқан ұлттық желі «дүкені», «Прайм Плаза» аясында автокөлік сурет әсем финал келесі сатысы «автомобиль жақсы!» Өтті сақтаңыз. Сурет тұрғындары мен оңтүстік астана қонақтары үлкен назар тартты. Бағдарлама - Барлық жарқын және есте қаларлық шоу күтіп келеді. Көрермендер акробаттар, бишілер мен көңілді Memes көңіл. Түрлі байқаулар мен Charades қатысуға ниет білдірген кез келген адам, ең белсенді қатысушылары дүкенінде «дүкен» сыйлықтар марапатталды. Жеңімпазын таңдау дәстүрлі онлайн кездейсоқ сандар ұрпақтың өтеді. Нәтижесінде, екі жаңа автокөлік маркасы Hyundai Tucson Эндрю Roshan кілтін Астанадан Павлодар мен Марина Жүсіпова алынған. Сонымен қатар, іс-шара барысында ұлттық тізбек дүкендерінен флэш, смартфондар, кір жуатын машиналар, шаңсорғыштар, таблетка, және тағы басқа кіретін «дүкені», жүлделер мен сыйлықтар ойнатылды. «Машина жақсы» акция қатысушысы болуға уәде автокөліктің кілтін иесі болуға Естеріңізге сала кетейік, бұл дүкендер «Дүкен» кез келген жабдықтың және / немесе электроника ұлттық желісін бірінде сатып алу және бонус қатысушысы болуға 27 қыркүйек 31 желтоқсан 2014 жылға дейінгі кезеңде қажет бағдарламасы «Tehnobonus».</value>
+  </data>
+  <data name="PaymentSystem" xml:space="preserve">
+    <value>Төлем жүйесі WebMoney атқарылған</value>
+  </data>
+  <data name="Power" xml:space="preserve">
+    <value>Күші</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Бағасы</value>
+  </data>
+  <data name="Processor" xml:space="preserve">
+    <value>Процессор</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Өнімдер</value>
+  </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Сатып алу құның қабылдау</value>
+  </data>
+  <data name="Quentity" xml:space="preserve">
+    <value>Саны</value>
+  </data>
+  <data name="RAM" xml:space="preserve">
+    <value>Оперативті жад, Гб</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Тіркеу</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Жою</value>
+  </data>
+  <data name="ShoppingList" xml:space="preserve">
+    <value>Сауда тізімі</value>
+  </data>
+  <data name="SmartPhones" xml:space="preserve">
+    <value>Смартфон</value>
+  </data>
+  <data name="SumWeb" xml:space="preserve">
+    <value>WebMoney сомасы</value>
+  </data>
+  <data name="Support1" xml:space="preserve">
+    <value>Электроника дүкендерінің желісі «дүкені» өз клиенттері әрбір қамын ойлайды. Біздің басты мақсатымыз - барлық бірінші сынып қызметі.</value>
+  </data>
+  <data name="Support2" xml:space="preserve">
+    <value>2012 жылдан бастап компания «дүкені» клиенттермен бөлімі жұмыс істейді.
+         Біз әрқашан қызмет көрсету және қызметтер көрсету қатысты барлық ұсыныстар мен ескертулер тыңдауға дайынбыз.</value>
+  </data>
+  <data name="Support3" xml:space="preserve">
+    <value>Бөлімнің негізгі мақсаттары мен міндеттері:
+         - Шағымдар мен өтініштердің жұмыс;
+         - Әрбір клиент үшін бірінші класты қызмет ету;
+         - Әлсіз жақтарын анықтауға, зерттеу «жасырын сатып алушы» жүргізу;
+         - Қызмет көрсету сапасын жақсарту бойынша күнделікті жұмыс;</value>
+  </data>
+  <data name="Support4" xml:space="preserve">
+    <value>Бізбен қалай байланысуға болады?</value>
+  </data>
+  <data name="Support5" xml:space="preserve">
+    <value>08:00 бастап күнделікті 24:00 дейін</value>
+  </data>
+  <data name="Support6" xml:space="preserve">
+    <value>Кім сенің қамыңды ойлайды?</value>
+  </data>
+  <data name="Support7" xml:space="preserve">
+    <value>Қалай біз сізге қамқорлық жасаймыз?</value>
+  </data>
+  <data name="TechnicalParameters" xml:space="preserve">
+    <value>Техникалық параметрлері</value>
+  </data>
+  <data name="Technology" xml:space="preserve">
+    <value>Жабдықтар</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Интернет-дүкен</value>
+  </data>
+  <data name="TV" xml:space="preserve">
+    <value>Теледидар</value>
+  </data>
+  <data name="TypeProduct" xml:space="preserve">
+    <value>Өнім түрі</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Қолданушы</value>
+  </data>
+  <data name="VideoCard" xml:space="preserve">
+    <value>Видеокарта, Гб</value>
+  </data>
+  <data name="VideoCardName" xml:space="preserve">
+    <value>Видеокарта</value>
+  </data>
+</root>

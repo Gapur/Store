@@ -1,5 +1,4 @@
 ﻿@{
-    ViewBag.Title = "Продукты";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,11 +11,11 @@
 <div id="dialog" class="window">
     <div class="title"></div>
     <div class="description">
-        <p>В корзину добавлен товар:</p>
+        <p>@Resources.Resource.AddToCartProduct</p>
         <span></span>
         <div class="buttons">
-            <a class="modal-btn" data-bind="click:revertProduct">Продолжить покупки</a>
-            <a class="modal-btn" href="/Cart/Cart">Перейти в корзину</a>
+            <a class="modal-btn" data-bind="click:revertProduct">@Resources.Resource.ContinueShop</a>
+            <a class="modal-btn" href="/Cart/Cart">@Resources.Resource.GoToShopCart</a>
         </div>      
     </div>
     <div class="close" data-bind="click:closeModalWindow"></div>

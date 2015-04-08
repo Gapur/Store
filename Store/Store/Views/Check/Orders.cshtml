@@ -1,54 +1,54 @@
 ﻿@using Store.Models
 @model IEnumerable<Check>
 
-<script src="~/Scripts/plugins/dataTable/jquery.dataTables.js"></script>
+    <script src="~/Scripts/plugins/dataTable/jquery.dataTables.js"></script>
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 
-<div class="form-table">
-    <h2>Заказы</h2>
-    <table id="example">
-        <thead>
-            <tr>
-                <th>Наименование</th>
-                <th>Заказчик</th>
-                <th>Цена</th>
-                <th>Количество</th>
-                <th>Дата заказа</th>
-                <th>Удалить</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var elem in Model)
-            {
+    <div class="form-table">
+        <h2>@Resources.Resource.ListOfOrders</h2>
+        <table id="example">
+            <thead>
                 <tr>
-                    <td>@elem.ProductInfo.Name</td>
-                    <td>@elem.UserInfo</td>
-                    <td>@elem.Money</td>
-                    <td>@elem.Quentity</td>
-                    <td>@elem.Date</td>
-                    <td class="action-item"><a class="delete-btn" data-checkid="@elem.Id" data-bind="click:removeCheck" /></td>
+                    <th>@Resources.Resource.Name</th>
+                    <th>@Resources.Resource.Customer</th>
+                    <th>@Resources.Resource.Price</th>
+                    <th>@Resources.Resource.Quentity</th>
+                    <th>@Resources.Resource.DataOrder</th>
+                    <th>@Resources.Resource.Remove</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<script>
-    $('#example').dataTable();
-    $('#example tbody tr').each(function () {
-        if (!$(this).hasClass('knocked')) {
-            $(this).addClass('knocked');
-        }
-    });
-    $('#example_next, select[name=example_length]').bind('click', function () {
+            </thead>
+            <tbody>
+                @foreach (var elem in Model)
+                {
+                    <tr>
+                        <td>@elem.ProductName</td>
+                        <td>@elem.UserInfo</td>
+                        <td>@elem.Money</td>
+                        <td>@elem.Quentity</td>
+                        <td>@elem.Date</td>
+                        <td class="action-item"><a class="delete-btn" data-checkid="@elem.Id" data-bind="click:removeCheck" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $('#example').dataTable();
         $('#example tbody tr').each(function () {
             if (!$(this).hasClass('knocked')) {
                 $(this).addClass('knocked');
-                ko.applyBindings(app, $(this).children('.action-item')[0]);
             }
         });
-    });
-</script>
+        $('#example_next, select[name=example_length]').bind('click', function () {
+            $('#example tbody tr').each(function () {
+                if (!$(this).hasClass('knocked')) {
+                    $(this).addClass('knocked');
+                    ko.applyBindings(app, $(this).children('.action-item')[0]);
+                }
+            });
+        });
+    </script>
 

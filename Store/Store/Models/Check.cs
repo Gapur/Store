@@ -32,7 +32,7 @@ namespace Store.Models
 
         public string UserInfo { get; set; }
 
-        public Product ProductInfo { get; set; }
+        public string ProductName { get; set; }
 
         [Required]
         [Display(Name = "Количество продуктов")]

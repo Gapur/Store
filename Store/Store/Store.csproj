@@ -188,11 +188,27 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Filters\CultureAttribute.cs" />
     <Compile Include="Managers\CheckManager.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\CartLine.cs" />
     <Compile Include="Models\FileUpload.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Resources\Resource.kk-KZ.Designer.cs">
+      <DependentUpon>Resource.kk-KZ.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Resource.en.Designer.cs">
+      <DependentUpon>Resource.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingCart\Cart.cs" />
     <Compile Include="EntityModels\AspNetUser.cs">
       <DependentUpon>StoreModel.tt</DependentUpon>
@@ -283,6 +299,7 @@
     <Content Include="Content\css\bootstrap-datetimepicker.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\polyglot-language-switcher.css" />
     <Content Include="Content\icons\gif\loader.gif" />
     <Content Include="Content\icons\gif\preloader.gif" />
     <Content Include="Content\icons\png\1.jpg" />
@@ -293,6 +310,7 @@
     <Content Include="Content\icons\png\6.jpg" />
     <Content Include="Content\icons\png\7.jpg" />
     <Content Include="Content\icons\png\8.jpg" />
+    <Content Include="Content\icons\png\arrow-down.gif" />
     <Content Include="Content\icons\png\back_disabled.png" />
     <Content Include="Content\icons\png\back_enabled.png" />
     <Content Include="Content\icons\png\back_enabled_hover.png" />
@@ -301,15 +319,20 @@
     <Content Include="Content\icons\png\bg-left-col-hover.jpg" />
     <Content Include="Content\icons\png\bg-nav-menu-item.jpg" />
     <Content Include="Content\icons\png\check.jpg" />
+    <Content Include="Content\icons\png\de.png" />
     <Content Include="Content\icons\png\delete.png" />
+    <Content Include="Content\icons\png\es.png" />
     <Content Include="Content\icons\png\fancybox_sprite.png" />
     <Content Include="Content\icons\png\forward_disabled.png" />
     <Content Include="Content\icons\png\forward_enabled.png" />
     <Content Include="Content\icons\png\forward_enabled_hover.png" />
+    <Content Include="Content\icons\png\gb.png" />
+    <Content Include="Content\icons\png\kk-KZ.png" />
     <Content Include="Content\icons\png\next.png" />
     <Content Include="Content\icons\png\not_available-generic.png" />
     <Content Include="Content\icons\png\prev.png" />
     <Content Include="Content\icons\png\product.png" />
+    <Content Include="Content\icons\png\ru.png" />
     <Content Include="Content\icons\png\sale1.jpg" />
     <Content Include="Content\icons\png\sort_asc.png" />
     <Content Include="Content\icons\png\sort_asc_disabled.png" />
@@ -419,6 +442,8 @@
     <Content Include="Scripts\plugins\file-upload\jquery.fileupload.js" />
     <Content Include="Scripts\plugins\file-upload\jquery.iframe-transport.js" />
     <Content Include="Scripts\plugins\mustache.js" />
+    <Content Include="Scripts\plugins\polyglot-language-switcher\jquery-1.7.min.js" />
+    <Content Include="Scripts\plugins\polyglot-language-switcher\jquery.polyglot.language.switcher.js" />
     <Content Include="Scripts\plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\plugins\snapsvg\svgicons-config.js" />
     <Content Include="Scripts\plugins\snapsvg\svgicons-definition.js" />
@@ -571,6 +596,23 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resource.kk-KZ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.kk-KZ.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

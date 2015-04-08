@@ -63,7 +63,8 @@ namespace Store
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/css/animate.css",
-                      "~/Content/css/bootstrap-datetimepicker.css"));
+                      "~/Content/css/bootstrap-datetimepicker.css",
+                      "~/Content/css/polyglot-language-switcher.css"));
 
             #endregion CSS
 

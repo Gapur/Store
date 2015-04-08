@@ -8,11 +8,13 @@ namespace Store.Controllers
 {
     using ShoppingCart;
     using Models;
+    using Filters;
 
     /// <summary>
     /// Cart controller
     /// </summary>  
     [Authorize]
+    [Culture]
     public class CartController : Controller
     {
         // GET: Cart

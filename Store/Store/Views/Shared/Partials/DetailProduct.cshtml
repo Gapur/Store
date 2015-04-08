@@ -7,7 +7,7 @@
 }
 
 <div class="detail-info animated fadeInRight">
-    <a id="back" data-bind="click:callBack" class="basket-btn">Назад</a>
+    <a id="back" data-bind="click:callBack" class="basket-btn">@Resources.Resource.Back</a>
     <h2><span data-bind="text:productName">@Model.Name</span></h2>
     <div class="product">
         <div class="product-image">
@@ -16,20 +16,20 @@
         <div class="product-buy">
             <div data-bind="value:price" class="price">@Model.Price</div>
             <input data-bind="value:productId" type="hidden" value=@Model.Id />
-            <a class="pay-btn" data-bind="click:putInBasket">В корзину</a>
+            <a class="pay-btn" data-bind="click:putInBasket">@Resources.Resource.AddToCart</a>
         </div>
     </div>
     <div class="product-info">
-        <h2>Технические характеристики</h2>
+        <h2>@Resources.Resource.TechnicalParameters</h2>
         @{
             <table>
-                <tr><td class="td-attr">Наименование</td><td class="td-value">@Model.Name</td></tr>
-                <tr><td class="td-attr">Производитель</td><td class="td-value">@Model.Manufacturers.Name</td></tr>
-                <tr><td class="td-attr">Цена</td><td class="td-value">@Model.Price</td></tr>
-                <tr><td class="td-attr">Цвет</td><td class="td-value">@Model.Color</td></tr>
-                <tr><td class="td-attr">Дата поступление продукта</td><td class="td-value">@Model.Date</td></tr>
+                <tr><td class="td-attr">@Resources.Resource.Name</td><td class="td-value">@Model.Name</td></tr>
+                <tr><td class="td-attr">@Resources.Resource.Manufacturers</td><td class="td-value">@Model.Manufacturers.Name</td></tr>
+                <tr><td class="td-attr">@Resources.Resource.Price</td><td class="td-value">@Model.Price</td></tr>
+                <tr><td class="td-attr">@Resources.Resource.Color</td><td class="td-value">@Model.Color</td></tr>
+                <tr><td class="td-attr">@Resources.Resource.Date</td><td class="td-value">@Model.Date</td></tr>
                 <tr><td class="td-attr">WiFi</td><td class="td-value">@wifi</td></tr>
-                <tr><td class="td-attr">Дисплей</td><td class="td-value">@Model.Display.ScreenResolution</td></tr>
+                <tr><td class="td-attr">@Resources.Resource.Display</td><td class="td-value">@Model.Display.ScreenResolution</td></tr>
                 <tr><td class="td-attr">Bluetooth</td><td class="td-value">@bluetooth</td></tr>
                 @if (Model.TypeProduct == 1)
                 {

@@ -2,30 +2,30 @@
 
 <ul>
     <li>
-        <a href="/Home/Index">Главная страница</a>
+        <a href="/Home/Index">@Resources.Resource.MainPage</a>
     </li>
     <li>
-        <a href="/Home/ProductView">Список продуктов</a>
+        <a href="/Home/ProductView">@Resources.Resource.ShoppingList</a>
     </li>
     @if (User.IsInRole("admin"))
     {
         <li>
-            <a href="/Home/UserSale">Подать объявление</a>
+            <a href="/Home/UserSale">@Resources.Resource.NewProduct</a>
         </li>
         <li>
-            <a href="/Check/Orders">Список заказов</a>
+            <a href="/Check/Orders">@Resources.Resource.ListOfOrders</a>
         </li>
     }
     <li>
-        <a href="/Home/OurEvents">Наши события</a>
+        <a href="/Home/OurEvents">@Resources.Resource.OurEvents</a>
     </li>
     <li>
-        <a href="/Home/About">Про нас</a>
+        <a href="/Home/About">@Resources.Resource.AboutUs</a>
     </li>
     <li>
-        <a href="/Home/Support">Забота о клиентах</a>
+        <a href="/Home/Support">@Resources.Resource.CustomerCare</a>
     </li>
     <li>
-        <a href="/Home/Contact">Контакты</a>
+        <a href="/Home/Contact">@Resources.Resource.Contacts</a>
     </li>
 </ul>
